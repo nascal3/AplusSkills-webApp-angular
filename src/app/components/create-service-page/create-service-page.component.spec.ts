@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LogoNoBgNavbarComponent } from './logo-no-bg-navbar.component';
+import { CreateServicePageComponent } from './create-service-page.component';
 
-describe('LogoNoBgNavbarComponent', () => {
-  let component: LogoNoBgNavbarComponent;
-  let fixture: ComponentFixture<LogoNoBgNavbarComponent>;
+describe('CreateServicePageComponent', () => {
+  let component: CreateServicePageComponent;
+  let fixture: ComponentFixture<CreateServicePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogoNoBgNavbarComponent ]
+      declarations: [ CreateServicePageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LogoNoBgNavbarComponent);
+    fixture = TestBed.createComponent(CreateServicePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
