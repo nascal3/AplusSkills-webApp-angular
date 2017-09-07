@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarWithBgComponent } from './components/navbar-with-bg/navbar-with-bg.component';
 import { NavbarNoBgSearchComponent } from './components/navbar-no-bg-search/navbar-no-bg-search.component';
-import { HeaderComponent } from './components/header/header.component';
 import { AdsRightSidebarComponent } from './components/ads-right-sidebar/ads-right-sidebar.component';
 import { ViewJobsContentComponent } from './components/view-jobs-content/view-jobs-content.component';
 import { ViewJobsPageComponent } from './components/view-jobs-page/view-jobs-page.component';
@@ -32,7 +31,6 @@ const appRoutes: Routes = [
     FooterComponent,
     NavbarWithBgComponent,
     NavbarNoBgSearchComponent,
-    HeaderComponent,
     AdsRightSidebarComponent,
     ViewJobsContentComponent,
     ViewJobsPageComponent,
