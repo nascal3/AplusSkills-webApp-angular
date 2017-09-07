@@ -15,11 +15,14 @@ import { NoBgMenuLeftsidebarComponent } from './components/no-bg-menu-leftsideba
 import { CreateServicePageComponent } from './components/create-service-page/create-service-page.component';
 import { CreateServiceContentComponent } from './components/create-service-content/create-service-content.component';
 import { ViewProfessionalPageComponent } from './components/view-professional-page/view-professional-page.component';
+import { LowerrightSidebarAdsComponent } from './components/lowerright-sidebar-ads/lowerright-sidebar-ads.component';
+import { ViewCompanyPageComponent } from './components/view-company-page/view-company-page.component';
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
   {path: 'createservice', component: CreateServicePageComponent},
-  {path: 'professional', component: ViewProfessionalPageComponent}
+  {path: 'professional', component: ViewProfessionalPageComponent},
+  {path: 'company', component: ViewCompanyPageComponent}
 ];
 
 
@@ -36,7 +39,9 @@ const appRoutes: Routes = [
     NoBgMenuLeftsidebarComponent,
     CreateServicePageComponent,
     CreateServiceContentComponent,
-    ViewProfessionalPageComponent
+    ViewProfessionalPageComponent,
+    LowerrightSidebarAdsComponent,
+    ViewCompanyPageComponent
   ],
   imports: [
     BrowserModule,
