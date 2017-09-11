@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {  RouterModule, Routes  } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -16,12 +17,14 @@ import { CreateServiceContentComponent } from './components/create-service-conte
 import { ViewProfessionalPageComponent } from './components/view-professional-page/view-professional-page.component';
 import { LowerrightSidebarAdsComponent } from './components/lowerright-sidebar-ads/lowerright-sidebar-ads.component';
 import { ViewCompanyPageComponent } from './components/view-company-page/view-company-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
   {path: 'createservice', component: CreateServicePageComponent},
   {path: 'professional', component: ViewProfessionalPageComponent},
-  {path: 'company', component: ViewCompanyPageComponent}
+  {path: 'company', component: ViewCompanyPageComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 
@@ -39,14 +42,17 @@ const appRoutes: Routes = [
     CreateServiceContentComponent,
     ViewProfessionalPageComponent,
     LowerrightSidebarAdsComponent,
-    ViewCompanyPageComponent
+    ViewCompanyPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    // {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
