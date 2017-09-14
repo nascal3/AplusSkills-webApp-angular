@@ -2,12 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarWithBgComponent } from './components/navbar-with-bg/navbar-with-bg.component';
-import { NavbarNoBgSearchComponent } from './components/navbar-no-bg-search/navbar-no-bg-search.component';
 import { AdsRightSidebarComponent } from './components/ads-right-sidebar/ads-right-sidebar.component';
 import { ViewJobsContentComponent } from './components/view-jobs-content/view-jobs-content.component';
 import { ViewJobsPageComponent } from './components/view-jobs-page/view-jobs-page.component';
@@ -19,6 +18,9 @@ import { LowerrightSidebarAdsComponent } from './components/lowerright-sidebar-a
 import { ViewCompanyPageComponent } from './components/view-company-page/view-company-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LargeImageadComponent } from './components/large-imagead/large-imagead.component';
+import { NavbarProfileComponent } from './components/navbar-profile/navbar-profile.component';
+import { NavbarNoBgComponent } from './components/navbar-no-bg/navbar-no-bg.component';
+import { NavbarSearchComponent } from './components/navbar-search/navbar-search.component';
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
@@ -34,7 +36,6 @@ const appRoutes: Routes = [
     AppComponent,
     FooterComponent,
     NavbarWithBgComponent,
-    NavbarNoBgSearchComponent,
     AdsRightSidebarComponent,
     ViewJobsContentComponent,
     ViewJobsPageComponent,
@@ -45,7 +46,10 @@ const appRoutes: Routes = [
     LowerrightSidebarAdsComponent,
     ViewCompanyPageComponent,
     PageNotFoundComponent,
-    LargeImageadComponent
+    LargeImageadComponent,
+    NavbarProfileComponent,
+    NavbarNoBgComponent,
+    NavbarSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    // {provide: LocationStrategy, useClass: HashLocationStrategy}
+
   ],
   bootstrap: [AppComponent]
 })
