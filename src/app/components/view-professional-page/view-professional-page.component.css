@@ -6,7 +6,7 @@
     padding-top: 3px;
     padding-left: 60px;
     padding-right: 60px;
-    background: url("../../../img/pattern.jpg") repeat !important;
+    background: url("../../../assets/img/pattern.jpg") repeat !important;
 }
 
 .lower-info {
@@ -46,9 +46,7 @@
 .prof-personal-info {
     color: #1c9aea;
     overflow: hidden;
-    background-image: url("../../../img/blockquote_flipped.png");
-    background-repeat: no-repeat;
-    background-position: right bottom;
+    background: url("../../../assets/img/blockquote_flipped.png") no-repeat right bottom;
     background-size: 60px 50px;
 }
 

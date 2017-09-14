@@ -18,6 +18,7 @@ import { ViewProfessionalPageComponent } from './components/view-professional-pa
 import { LowerrightSidebarAdsComponent } from './components/lowerright-sidebar-ads/lowerright-sidebar-ads.component';
 import { ViewCompanyPageComponent } from './components/view-company-page/view-company-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { LargeImageadComponent } from './components/large-imagead/large-imagead.component';
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     ViewProfessionalPageComponent,
     LowerrightSidebarAdsComponent,
     ViewCompanyPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LargeImageadComponent
   ],
   imports: [
     BrowserModule,
