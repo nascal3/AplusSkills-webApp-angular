@@ -21,6 +21,7 @@ import { LargeImageadComponent } from './components/large-imagead/large-imagead.
 import { NavbarProfileComponent } from './components/navbar-profile/navbar-profile.component';
 import { NavbarNoBgComponent } from './components/navbar-no-bg/navbar-no-bg.component';
 import { NavbarSearchComponent } from './components/navbar-search/navbar-search.component';
+import { NavbarLogoComponent } from './components/navbar-logo/navbar-logo.component';
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     LargeImageadComponent,
     NavbarProfileComponent,
     NavbarNoBgComponent,
-    NavbarSearchComponent
+    NavbarSearchComponent,
+    NavbarLogoComponent
   ],
   imports: [
     BrowserModule,
