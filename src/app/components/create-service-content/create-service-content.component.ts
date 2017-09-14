@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FileHolder} from 'angular2-image-upload/lib/image-upload/image-upload.component';
 
 @Component({
   selector: 'app-create-service-content',
@@ -11,5 +12,9 @@ export class CreateServiceContentComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  imageFinishedUploading(file: FileHolder) {
+  console.log(JSON.stringify(file.serverResponse));
+}
 
 }

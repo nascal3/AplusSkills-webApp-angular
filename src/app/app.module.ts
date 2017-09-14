@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-
+// Page components
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarWithBgComponent } from './components/navbar-with-bg/navbar-with-bg.component';
@@ -22,6 +22,10 @@ import { NavbarProfileComponent } from './components/navbar-profile/navbar-profi
 import { NavbarNoBgComponent } from './components/navbar-no-bg/navbar-no-bg.component';
 import { NavbarSearchComponent } from './components/navbar-search/navbar-search.component';
 import { NavbarLogoComponent } from './components/navbar-logo/navbar-logo.component';
+
+// Plugin modules
+import {ImageUploadModule} from 'angular2-image-upload';
+
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
@@ -56,7 +60,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ImageUploadModule.forRoot()
   ],
   providers: [
 

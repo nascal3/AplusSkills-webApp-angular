@@ -56,7 +56,15 @@
             <div class="row">
                 <div class="col-lg-4">
                     <span class="input-title">Set Feature Image</span>
-                    <div class="upload-button"><i class="icon-plus"></i> </div>
+                    <!--<div class="upload-button"><i class="icon-plus"></i> </div>-->
+                    <image-upload class="upload-button2"
+                        [buttonCaption]="'+'"
+                        [dropBoxMessage]="''"
+                        (onFileUploadFinish)="imageFinishedUploading($event)"
+                        [url]="'http://aplusf.dev/assets/uploads'"
+                        [extensions]="['jpg','png','gif']"
+
+                    ></image-upload>
                 </div>
 
                 <div class="col-lg-8">
