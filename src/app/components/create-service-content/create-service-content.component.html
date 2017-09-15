@@ -56,15 +56,14 @@
             <div class="row">
                 <div class="col-lg-4">
                     <span class="input-title">Set Feature Image</span>
-                    <!--<div class="upload-button"><i class="icon-plus"></i> </div>-->
-                    <image-upload class="upload-button2"
-                        [buttonCaption]="'+'"
-                        [dropBoxMessage]="''"
-                        (onFileUploadFinish)="imageFinishedUploading($event)"
-                        [url]="'http://aplusf.dev/assets/uploads'"
-                        [extensions]="['jpg','png','gif']"
-
-                    ></image-upload>
+                    <div class="upload-btn-wrapper">
+                      <button class="btn">
+                        <img [hidden]="showSpinner" src="/assets/img/spinner.gif" width="150" length="90" >
+                        <i class="icon-plus" [hidden]="showIcon" style="padding-top: 20px"></i>
+                      </button>
+                      <input type="file" id="selectfile" name="selectfile" (change)="changeListner()" />
+                    </div>
+                    <div>{{filename}}</div>
                 </div>
 
                 <div class="col-lg-8">
@@ -88,8 +87,14 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <span class="input-title">Add up to 5 additional images related to the service</span>
-                    <div class="upload-button"><i class="icon-plus"></i> </div>
+                    <span class="input-title">Add up to 5 additional images related to the service</span><br>
+                    <div class="upload-btn-wrapper">
+                      <button class="btn">
+                        <img src="/assets/img/spinner3.gif" width="150" length="90" >
+                        <!--<i class="icon-plus" style="padding-top: 20px"></i>-->
+                      </button>
+                      <input type="file" name="myfile" />
+                    </div>
                 </div>
             </div>
             <hr class="hr-dark">
@@ -98,7 +103,7 @@
                    <span class="btn-outline pull-left" >Save as Draft</span>
                 </div>
                 <div class="col-lg-6">
-                    <span class="btn-filled pull-right" >Publish</span>
+                    <span class="btn-filled pull-right" (click)="uploadImage()" >Publish</span>
                 </div>
             </div>
         </form>

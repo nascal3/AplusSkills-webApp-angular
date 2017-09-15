@@ -4059,7 +4059,7 @@ FORM
     margin: 10px 0px 0px 0px;
     cursor: pointer;
     font-size: 35px;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
 }
 
 .remove-right-border{
@@ -12145,4 +12145,24 @@ hr.hr-dark{
 .sidebar .navbar.nav li a:hover,
 .sidebar .navbar.nav li a:focus{
 	background: #fff;
+}
+
+
+/* Over ride upload image box*/
+
+.image-upload {
+  --active-color: white !important;
+}
+
+.file-upload {
+    background-color: white !important;
+}
+
+.button {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  color: #777777 !important;
+  font-size: 32px !important;
+  margin-left: 50px;
 }

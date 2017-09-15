@@ -24,7 +24,10 @@ import { NavbarSearchComponent } from './components/navbar-search/navbar-search.
 import { NavbarLogoComponent } from './components/navbar-logo/navbar-logo.component';
 
 // Plugin modules
-import {ImageUploadModule} from 'angular2-image-upload';
+import { ImageUploadModule } from 'angular2-image-upload';
+
+// Services
+import { AddNewServiceService } from './services/add-new-service.service';
 
 
 const appRoutes: Routes = [
@@ -64,7 +67,7 @@ const appRoutes: Routes = [
     ImageUploadModule.forRoot()
   ],
   providers: [
-
+    AddNewServiceService
   ],
   bootstrap: [AppComponent]
 })
