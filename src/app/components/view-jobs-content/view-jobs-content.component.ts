@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewJobsserviceService } from '../../services/view-jobsservice.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-view-jobs-content',
@@ -6,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-jobs-content.component.css']
 })
 export class ViewJobsContentComponent implements OnInit {
+  pageNum = 1;
+  itemsOnPage =  5;
+  jobReqs: any[];
 
-  constructor() { }
+  constructor(
+    public viewJobsReq: ViewJobsserviceService
+  ) {
+    this.getjobs();
+  }
 
   ngOnInit() {
+  }
+
+  getjobs () {
+    this.viewJobsReq.getJobRequests().subscribe(res => {
+      this.jobReqs = res;
+      console.log(this.jobReqs);
+    });
+  }
+
+  pageChanged(event) {
+    this.pageNum = event;
   }
 
 }

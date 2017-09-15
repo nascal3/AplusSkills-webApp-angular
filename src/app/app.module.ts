@@ -25,9 +25,11 @@ import { NavbarLogoComponent } from './components/navbar-logo/navbar-logo.compon
 
 // Plugin modules
 import { ImageUploadModule } from 'angular2-image-upload';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // Services
 import { AddNewServiceService } from './services/add-new-service.service';
+import { ViewJobsserviceService } from './services/view-jobsservice.service';
 
 
 const appRoutes: Routes = [
@@ -64,10 +66,12 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    ImageUploadModule.forRoot()
+    ImageUploadModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [
-    AddNewServiceService
+    AddNewServiceService,
+    ViewJobsserviceService
   ],
   bootstrap: [AppComponent]
 })
