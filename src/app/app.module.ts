@@ -28,8 +28,10 @@ import { ImageUploadModule } from 'angular2-image-upload';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 // Services
+import { ConstantsService } from './services/constants.service';
 import { AddNewServiceService } from './services/add-new-service.service';
 import { ViewJobsserviceService } from './services/view-jobsservice.service';
+
 
 
 const appRoutes: Routes = [
@@ -71,7 +73,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     AddNewServiceService,
-    ViewJobsserviceService
+    ViewJobsserviceService,
+    ConstantsService
   ],
   bootstrap: [AppComponent]
 })

@@ -12166,3 +12166,19 @@ hr.hr-dark{
   font-size: 32px !important;
   margin-left: 50px;
 }
+
+/*pagination styles*/
+
+.ngx-pagination .current {
+    padding: 0.1875rem 0.875rem !important;
+    border-radius: 30px !important;
+}
+
+.ngx-pagination a, .ngx-pagination button {
+    color: #7a7979 !important;
+}
+
+.paginate {
+    position: relative;
+    left: 30%;
+}

@@ -9,7 +9,10 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ViewJobsContentComponent implements OnInit {
   pageNum = 1;
-  itemsOnPage =  5;
+  itemsOnPage =  4;
+  readMore = true;
+  viewMoreTxt = 'View More';
+  sliceCharacters = 280;
   jobReqs: any[];
 
   constructor(
@@ -26,6 +29,11 @@ export class ViewJobsContentComponent implements OnInit {
       this.jobReqs = res;
       console.log(this.jobReqs);
     });
+  }
+
+  showMore() {
+    this.readMore = ! this.readMore;
+    this.readMore ? this.viewMoreTxt = 'View More' :  this.viewMoreTxt = 'View Less';
   }
 
   pageChanged(event) {

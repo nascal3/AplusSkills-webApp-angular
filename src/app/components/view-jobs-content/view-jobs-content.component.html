@@ -18,7 +18,10 @@
             <div class="job-heading">{{job.title}}</div>
             <div class="user">{{job.name}} - <span style="font-weight: 300">{{job.location}}</span></div>
 
-            <div class="job-desc">{{job.reqst}}... <span class="read-more">[View More]</span>
+            <div class="job-desc">
+              <span [hidden]="!readMore">{{(job.reqst.length > sliceCharacters) ? (job.reqst | slice:0:sliceCharacters)+'...':(job.reqst | slice:0:273) }}</span>
+              <span [hidden]="readMore">{{job.reqst}}</span>
+              <span class="read-more" *ngIf="job.reqst.length >sliceCharacters" (click)="showMore()"> [{{viewMoreTxt}}]</span>
             </div><hr>
             <div class="job-request-footer">
                 <div class="col-lg-7">
@@ -41,19 +44,20 @@
             </div>
         </div>
     </div>
-
-    <pagination-controls
-                      id="jobReq_id"
-                      (pageChange)="pageChanged($event)"
-                      maxSize="9"
-                      directionLinks="true"
-                      autoHide="false"
-                      previousLabel="Previous"
-                      nextLabel="Next"
-                      screenReaderPaginationLabel="Pagination"
-                      screenReaderPageLabel="page"
-                      screenReaderCurrentLabel="You're on page">
-    </pagination-controls>
+    <div align="center">
+      <pagination-controls
+                        id="jobReq_id"
+                        (pageChange)="pageChanged($event)"
+                        maxSize="9"
+                        directionLinks="false"
+                        autoHide="true"
+                        previousLabel=""
+                        nextLabel=""
+                        screenReaderPaginationLabel="Pagination"
+                        screenReaderPageLabel="page"
+                        screenReaderCurrentLabel="You're on page">
+      </pagination-controls>
+    </div>
 
 </div>
 <!-- =======Main page content middle section end =========-->
