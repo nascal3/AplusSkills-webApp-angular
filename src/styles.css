@@ -12177,3 +12177,8 @@ hr.hr-dark{
 .ngx-pagination a, .ngx-pagination button {
     color: #7a7979 !important;
 }
+
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+    padding: 0.1875rem 0.875rem !important;
+    border-radius: 30px !important;
+}

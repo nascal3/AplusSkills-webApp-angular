@@ -8,7 +8,7 @@
         <div class="ad-titles">You might consider...</div>
 
         <div class="hr-top-line"></div>
-        <div class="suggested-pros no-background" *ngFor="let advert of ads">
+        <div class="suggested-pros no-background" *ngFor="let advert of ads | slice:firstSliceVal:secondSliceVal ; let i = index">
             <div class="pro-row">
                 <span>
                     <div class="profile" >
