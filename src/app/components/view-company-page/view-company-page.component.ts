@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyServiceService } from '../../services/company-service.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-view-company-page',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCompanyPageComponent implements OnInit {
 
-  constructor() { }
+  values: any[];
+
+  constructor(
+    public comServe: CompanyServiceService
+  ) {
+    this.getCompany();
+  }
 
   ngOnInit() {
+  }
+
+  getCompany() {
+    this.comServe.getValues().subscribe(values => {
+      this.values = values;
+      console.log(values);
+    });
   }
 
 }

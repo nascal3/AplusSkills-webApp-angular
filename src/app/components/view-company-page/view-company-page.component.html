@@ -1,6 +1,6 @@
 <div class="wrapper">
      <section class="user-dashboard">
-        <div class="row">
+        <div class="row" *ngFor="let comp of values">
             <!-- =======Top fixed nav bar start =========-->
             <app-navbar-with-bg></app-navbar-with-bg>
             <!-- =======Top fixed nav bar end =========-->
@@ -11,7 +11,7 @@
                 <div class="upper-info">
                     <!-- =======left section =========-->
                     <div class="prof-profile-pic col-lg-4">
-                        <div class="prof-name com-heading">Jim & Sons Landscaping</div>
+                        <div class="prof-name com-heading">{{comp.name}}</div>
                         <div class="prof-stats com-subheading">20 - Friends, 280 - Reviews</div>
                         <span class="rating">
                           <span class="rating">
@@ -63,60 +63,32 @@
                             <div class="prof-mid-column com-mid-column">
                                 <div class="row">
                                     <div class="com-prod-area">
-                                        <div class="com-prod-box col-lg-6">
-                                            <img src="assets/img/woodwork.jpg"/>
-                                            <div class="com-prod-info">
-                                                <div class="com-prod-header">Full house cabinet building</div>
-                                                <span class="rating">
-                                                  <span class="rating">
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star-half-empty"></i>
-                                                    <i class="icon-star-o"></i>
-                                                  </span>
-                                                </span>
-                                                <div class="com-prd-desc">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Mauris turpis tortor, sodales eu tellus sit amet, sagittis laoreet orci.
-                                                    Pellentesque vestibulum dolor lacus.
-                                                </div>
-                                                <div class="com-prd-price">
-                                                    KSH - 20, 000
-                                                </div>
-                                                <div class="com-prod-stats">
-                                                    <div class="pull-left">20 Reviews</div>
-                                                    <div class="pull-right">Jun 20th 2017</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="com-prod-box col-lg-6">
-                                            <img src="assets/img/woodwork.jpg"/>
-                                            <div class="com-prod-info">
-                                                <div class="com-prod-header">Full house cabinet building</div>
-                                                <span class="rating">
-                                                  <span class="rating">
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star-half-empty"></i>
-                                                    <i class="icon-star-o"></i>
-                                                  </span>
-                                                </span>
-                                                <div class="com-prd-desc">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Mauris turpis tortor, sodales eu tellus sit amet, sagittis laoreet orci.
-                                                    Pellentesque vestibulum dolor lacus.
-                                                </div>
-                                                <div class="com-prd-price">
-                                                    KSH - 20, 000
-                                                </div>
-                                                <div class="com-prod-stats">
-                                                    <div class="pull-left">20 Reviews</div>
-                                                    <div class="pull-right">Jun 20th 2017</div>
+                                        <owl-carousel
+                                           [options]="{items: 2, dots: true, navigation: true}"
+                                           [items]="comp.services"
+                                           [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                            <div class="com-prod-box col-lg-6" *ngFor="let prod of comp.services">
+                                                <img src="{{prod.backgroundpic}}"/>
+                                                <div class="com-prod-info">
+                                                    <div class="com-prod-header">{{prod.name}}</div>
+                                                    <span class="rating">
+                                                      <span class="rating">
+                                                        <app-rating-stars-icons [service]=prod></app-rating-stars-icons>
+                                                      </span>
+                                                    </span>
+                                                    <div class="com-prd-desc">
+                                                        {{ (prod.desc.length>166) ? (prod.desc | slice:0:166)+'...' : (prod.desc) }}
+                                                    </div>
+                                                    <div class="com-prd-price">
+                                                        {{prod.cost | currency:"KSH":"1"}}
+                                                    </div>
+                                                    <div class="com-prod-stats">
+                                                        <div class="pull-left">{{ (prod.review_num<2) ? (prod.review_num)+' Review' : (prod.review_num)+' Reviews' }}</div>
+                                                        <div class="pull-right">{{prod.date}}</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </owl-carousel>
                                     </div>
                                 </div>
                                 <div class="row">

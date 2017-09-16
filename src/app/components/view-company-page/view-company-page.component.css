@@ -204,7 +204,8 @@
 
 .com-prod-area {
     /*border: solid 1px green;*/
-    height: 250px;
+    /*height: 280px;*/
+    height: auto;
     overflow: hidden;
     width: 100%;
 }

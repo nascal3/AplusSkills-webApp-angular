@@ -6,12 +6,14 @@ import { RouterModule, Routes } from '@angular/router';
 // Plugin modules
 import { ImageUploadModule } from 'angular2-image-upload';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OwlModule } from 'ngx-owl-carousel';
 
 // Services
 import { ConstantsService } from './services/constants.service';
 import { AddNewServiceService } from './services/add-new-service.service';
 import { ViewJobsserviceService } from './services/view-jobsservice.service';
 import { AdsServiceService } from './services/ads-service.service';
+import { CompanyServiceService } from './services/company-service.service';
 
 // Page components
 import { AppComponent } from './app.component';
@@ -78,13 +80,15 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     ImageUploadModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    OwlModule
   ],
   providers: [
     AddNewServiceService,
     ViewJobsserviceService,
     ConstantsService,
-    AdsServiceService
+    AdsServiceService,
+    CompanyServiceService
   ],
   bootstrap: [AppComponent]
 })
