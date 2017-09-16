@@ -8,7 +8,7 @@
         <div class="user">
             <div class="ad-content-top">
               <div class="ad-name">
-                  {{advert.name}}
+                  {{(advert.name.length>sliceTitle) ? (advert.name | slice:0:sliceTitle)+'...' : (advert.name)}}
                   <span class="ad-badge">AD</span>
               </div>
               <span class="rating">

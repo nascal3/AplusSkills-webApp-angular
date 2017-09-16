@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class AdsComponent implements OnInit {
 
   ads: any[];
+  sliceTitle = 18;
   sliceCharacters = 102;
   itemsToShow = 3;
   numberOfAds: number;
