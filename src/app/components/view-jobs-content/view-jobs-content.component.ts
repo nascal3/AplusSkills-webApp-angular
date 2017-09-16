@@ -27,7 +27,7 @@ export class ViewJobsContentComponent implements OnInit {
   getjobs () {
     this.viewJobsReq.getJobRequests().subscribe(res => {
       this.jobReqs = res;
-      console.log(this.jobReqs);
+      //console.log(this.jobReqs);
     });
   }
 

@@ -8,99 +8,30 @@
         <div class="ad-titles">You might consider...</div>
 
         <div class="hr-top-line"></div>
-        <div class="suggested-pros no-background">
+        <div class="suggested-pros no-background" *ngFor="let advert of ads">
             <div class="pro-row">
                 <span>
-                    <span class="profile" style="background-image:url(assets/img/avatar-11.jpg);"></span>
+                    <div class="profile" >
+                      <img class="img-circle" src="{{advert.profthumbnail}}">
+                    </div>
                 </span>
                 <div class="user">
                     <div class="ad-content-top">
                       <div class="ad-name">
-                          Joseph Murimi
+                          {{advert.name}}
                           <span class="ad-badge">AD</span>
                       </div>
                       <span class="rating">
                           <span class="rating">
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star-half-empty"></i>
-                            <i class="icon-star-o"></i>
+                            <app-rating-stars-icons [service]=advert></app-rating-stars-icons>
                           </span>
                       </span>
-                      <span style="font-size: 12px;">203 reviews</span>
+                      <span style="font-size: 12px;">{{advert.reviews}} reviews</span>
                       <span class="ad-info-icon pull-right icon-info_outline"></span>
                     </div>
 
                     <div class="ad-description">
-                      sit amet, consectetur adipiscing elit. Curabitur luctus diam lorem,
-                      vel condimentum risus finibus vel...
-                    </div>
-                    <span class="read-more">Read More</span>
-                </div>
-
-            </div>
-        </div>
-        <div class="suggested-pros no-background">
-            <div class="pro-row">
-                <span>
-                    <span class="profile" style="background-image:url(assets/img/avatar-11.jpg);"></span>
-                </span>
-                <div class="user">
-                    <div class="ad-content-top">
-                      <div class="ad-name">
-                          Joseph Murimi
-                          <span class="ad-badge">AD</span>
-                      </div>
-                      <span class="rating">
-                          <span class="rating">
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star-half-empty"></i>
-                            <i class="icon-star-o"></i>
-                          </span>
-                      </span>
-                      <span style="font-size: 12px;">203 reviews</span>
-                      <span class="ad-info-icon pull-right icon-info_outline"></span>
-                    </div>
-
-                    <div class="ad-description">
-                      sit amet, consectetur adipiscing elit. Curabitur luctus diam lorem,
-                      vel condimentum risus finibus vel...
-                    </div>
-                    <span class="read-more">Read More</span>
-                </div>
-
-            </div>
-        </div>
-        <div class="suggested-pros no-background">
-            <div class="pro-row">
-                <span>
-                    <span class="profile" style="background-image:url(assets/img/avatar-11.jpg);"></span>
-                </span>
-                <div class="user">
-                    <div class="ad-content-top">
-                      <div class="ad-name">
-                          Joseph Murimi
-                          <span class="ad-badge">AD</span>
-                      </div>
-                      <span class="rating">
-                          <span class="rating">
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star-half-empty"></i>
-                            <i class="icon-star-o"></i>
-                          </span>
-                      </span>
-                      <span style="font-size: 12px;">203 reviews</span>
-                      <span class="ad-info-icon pull-right icon-info_outline"></span>
-                    </div>
-
-                    <div class="ad-description">
-                      sit amet, consectetur adipiscing elit. Curabitur luctus diam lorem,
-                      vel condimentum risus finibus vel...
+                      {{ (advert.body.length > sliceCharacters) ? (advert.body | slice:0:sliceCharacters)+'...' : (advert.body)}}
                     </div>
                     <span class="read-more">Read More</span>
                 </div>
@@ -111,35 +42,34 @@
         <div class="ad-titles">Related Services...</div>
 
         <div class="hr-top-line"></div>
-        <div class="suggested-pros no-background">
+        <div class="suggested-pros no-background" *ngFor="let service of services">
             <div class="pro-row">
                 <span>
-                    <span class="profile" style="background-image:url(assets/img/avatar-11.jpg);"></span>
+                    <div class="profile" >
+                      <img class="img-circle" src="{{service.profthumbnail}}">
+                    </div>
                 </span>
                 <div class="user">
                     <div class="ad-content-top">
-                      <div class="ad-name">Joseph Murimi</div>
+                      <div class="ad-name">{{service.name}}</div>
                       <span class="rating">
-                      <span class="rating">
-                        <i class="icon-star"></i>
-                        <i class="icon-star"></i>
-                        <i class="icon-star"></i>
-                        <i class="icon-star-half-empty"></i>
-                        <i class="icon-star-o"></i>
+                        <span class="rating">
+                          <app-rating-stars-icons [service]=service></app-rating-stars-icons>
+                        </span>
                       </span>
-                    </span><span style="font-size: 12px;">203 reviews</span>
+                      <span style="font-size: 12px;">{{service.reviews}} reviews</span>
                       <span class="ad-info-icon pull-right icon-info_outline"></span>
                     </div>
 
                     <div class="ad-description">
-                      sit amet, consectetur adipiscing elit. Curabitur luctus diam lorem,
-                      vel condimentum risus finibus vel...
+                     {{ (service.body.length>sliceCharacters) ? (service.body | slice:0:sliceCharacters)+'...' : (service.body) }}
                     </div>
                     <span class="read-more">Read More</span>
                 </div>
 
             </div>
         </div>
+
     </div>
 </div>
 <!-- =======Advertisment right side bar end =========-->

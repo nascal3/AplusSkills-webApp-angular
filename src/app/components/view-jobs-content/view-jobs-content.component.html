@@ -13,7 +13,9 @@
     <div class="suggested-pros bx-shadow" *ngFor="let job of jobReqs | paginate: { id: 'jobReq_id', itemsPerPage: itemsOnPage, currentPage: pageNum }">
         <div class="pro-row">
             <span>
-                <span class="profile" style="background-image:url({{job.profthumbnail}});"></span>
+                <div class="profile">
+                  <img class="img-circle" src="{{job.profthumbnail}}">
+                </div>
             </span>
             <div class="job-heading">{{job.title}}</div>
             <div class="user">{{job.name}} - <span style="font-weight: 300">{{job.location}}</span></div>
@@ -26,13 +28,15 @@
             <div class="job-request-footer">
                 <div class="col-lg-7">
                     <div class="col-lg-3">
-                        <span *ngFor="let review of job.reviews; let i=index">
-                          <span *ngIf="i<3" class="profile small-profile" style="background-image:url(assets/img/{{review.thumbnailUrl}});"></span>
+                        <span *ngFor="let review of job.reviews">
+                          <div class="profile small-profile">
+                            <img class="img-circle" src="{{review.thumbnailUrl}}">
+                          </div>
                         </span>
                     </div>
                     <div class="col-lg-9 job-request-comments">
                         <span style="font-weight: 500;font-size: 12px;">
-                        Worked with (<strong>{{jobReqs.length}}</strong>) other people.<br>
+                        Worked with (<strong>{{job.review_num}}</strong>) other people.<br>
                         <span class="read-more">See reviews</span>
                     </span>
                     </div>

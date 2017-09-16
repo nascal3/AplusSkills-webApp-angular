@@ -31,6 +31,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ConstantsService } from './services/constants.service';
 import { AddNewServiceService } from './services/add-new-service.service';
 import { ViewJobsserviceService } from './services/view-jobsservice.service';
+import { AdsServiceService } from './services/ads-service.service';
+import { RatingStarsIconsComponent } from './components/rating-stars-icons/rating-stars-icons.component';
 
 
 
@@ -62,7 +64,8 @@ const appRoutes: Routes = [
     NavbarProfileComponent,
     NavbarNoBgComponent,
     NavbarSearchComponent,
-    NavbarLogoComponent
+    NavbarLogoComponent,
+    RatingStarsIconsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ const appRoutes: Routes = [
   providers: [
     AddNewServiceService,
     ViewJobsserviceService,
-    ConstantsService
+    ConstantsService,
+    AdsServiceService
   ],
   bootstrap: [AppComponent]
 })

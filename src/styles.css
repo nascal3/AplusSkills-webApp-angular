@@ -12177,8 +12177,3 @@ hr.hr-dark{
 .ngx-pagination a, .ngx-pagination button {
     color: #7a7979 !important;
 }
-
-.paginate {
-    position: relative;
-    left: 30%;
-}
