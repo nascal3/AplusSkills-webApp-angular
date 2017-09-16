@@ -11,6 +11,7 @@ export class AdsComponent implements OnInit {
 
   ads: any[];
   sliceCharacters = 102;
+  itemsToShow = 3;
   numberOfAds: number;
 
   // Number of ads to show slice filter
@@ -30,7 +31,7 @@ export class AdsComponent implements OnInit {
     this.adsService.fetchAds().subscribe(adverts => {
       this.ads = adverts;
       this.numberOfAds = adverts.length;
-      this.getRandomInt(0, (this.numberOfAds - 3));
+      this.getRandomInt(0, (this.numberOfAds - this.itemsToShow));
       // console.log(this.numberOfAds - 3);
     });
   }
@@ -38,7 +39,7 @@ export class AdsComponent implements OnInit {
   // Generate random number
   getRandomInt(min: number, max: number) {
         this.firstSliceVal =  Math.floor(Math.random() * (max - min + 1)) + min;
-        this.secondSliceVal = this.firstSliceVal + 3;
+        this.secondSliceVal = this.firstSliceVal + this.itemsToShow;
         // console.log(this.firstSliceVal + '-' + this.secondSliceVal);
   }
 

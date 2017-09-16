@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-lg-9 job-request-comments">
                         <span style="font-weight: 500;font-size: 12px;">
-                        Worked with (<strong>{{job.review_num}}</strong>) other people.<br>
+                        Worked with (<strong>{{job.review_num}}</strong>) other <span>{{(job.review_num<2) ? ' person.' : ' people.'}}</span><br>
                         <span class="read-more">See reviews</span>
                     </span>
                     </div>

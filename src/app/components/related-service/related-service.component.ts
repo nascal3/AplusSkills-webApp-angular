@@ -11,6 +11,7 @@ export class RelatedServiceComponent implements OnInit {
 
   services: any[];
   sliceCharacters = 102;
+  itemsToShow = 1;
   numberOfAds: number;
 
   // Number of ads to show slice filter
@@ -30,7 +31,7 @@ export class RelatedServiceComponent implements OnInit {
     this.adsService.fetchRelated().subscribe(services => {
       this.services = services;
       this.numberOfAds = services.length;
-      this.getRandomInt(0, (this.numberOfAds - 1));
+      this.getRandomInt(0, (this.numberOfAds - this.itemsToShow));
       // console.log(this.numberOfAds - 3);
     });
   }
@@ -38,7 +39,7 @@ export class RelatedServiceComponent implements OnInit {
   // Generate random number
   getRandomInt(min: number, max: number) {
         this.firstSliceVal =  Math.floor(Math.random() * (max - min + 1)) + min;
-        this.secondSliceVal = this.firstSliceVal + 1;
+        this.secondSliceVal = this.firstSliceVal + this.itemsToShow;
         // console.log(this.firstSliceVal + '-' + this.secondSliceVal);
   }
 
