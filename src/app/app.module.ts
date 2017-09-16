@@ -3,6 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+// Plugin modules
+import { ImageUploadModule } from 'angular2-image-upload';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+// Services
+import { ConstantsService } from './services/constants.service';
+import { AddNewServiceService } from './services/add-new-service.service';
+import { ViewJobsserviceService } from './services/view-jobsservice.service';
+import { AdsServiceService } from './services/ads-service.service';
+
 // Page components
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -22,16 +32,7 @@ import { NavbarProfileComponent } from './components/navbar-profile/navbar-profi
 import { NavbarNoBgComponent } from './components/navbar-no-bg/navbar-no-bg.component';
 import { NavbarSearchComponent } from './components/navbar-search/navbar-search.component';
 import { NavbarLogoComponent } from './components/navbar-logo/navbar-logo.component';
-
-// Plugin modules
-import { ImageUploadModule } from 'angular2-image-upload';
-import { NgxPaginationModule } from 'ngx-pagination';
-
-// Services
-import { ConstantsService } from './services/constants.service';
-import { AddNewServiceService } from './services/add-new-service.service';
-import { ViewJobsserviceService } from './services/view-jobsservice.service';
-import { AdsServiceService } from './services/ads-service.service';
+import { AdsFewComponent } from './components/ads-few/ads-few.component';
 import { RatingStarsIconsComponent } from './components/rating-stars-icons/rating-stars-icons.component';
 import { AdsComponent } from './components/ads/ads.component';
 import { RelatedServiceComponent } from './components/related-service/related-service.component';
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     NavbarLogoComponent,
     RatingStarsIconsComponent,
     AdsComponent,
-    RelatedServiceComponent
+    RelatedServiceComponent,
+    AdsFewComponent
   ],
   imports: [
     BrowserModule,

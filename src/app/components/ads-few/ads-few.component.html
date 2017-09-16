@@ -1,0 +1,30 @@
+ <div class="suggested-pros no-background" *ngFor="let advert of ads | slice:firstSliceVal:secondSliceVal ; let i = index">
+    <div class="pro-row">
+        <span>
+            <div class="profile" >
+              <img class="img-circle" src="{{advert.profthumbnail}}">
+            </div>
+        </span>
+        <div class="user">
+            <div class="ad-content-top">
+              <div class="ad-name">
+                  {{(advert.name.length>sliceTitle) ? (advert.name | slice:0:sliceTitle)+'...' : (advert.name)}}
+                  <span class="ad-badge">AD</span>
+              </div>
+              <span class="rating">
+                  <span class="rating">
+                    <app-rating-stars-icons [service]=advert></app-rating-stars-icons>
+                  </span>
+              </span>
+              <span style="font-size: 12px;">{{advert.reviews}} reviews</span>
+              <span class="ad-info-icon pull-right icon-info_outline"></span>
+            </div>
+
+            <div class="ad-description">
+              {{ (advert.body.length > sliceCharacters) ? (advert.body | slice:0:sliceCharacters)+'...' : (advert.body)}}
+            </div>
+            <span class="read-more">Read More</span>
+        </div>
+
+    </div>
+</div>

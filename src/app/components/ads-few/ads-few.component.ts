@@ -3,16 +3,16 @@ import { AdsServiceService } from '../../services/ads-service.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-ads',
-  templateUrl: './ads.component.html',
-  styleUrls: ['./ads.component.css']
+  selector: 'app-ads-few',
+  templateUrl: './ads-few.component.html',
+  styleUrls: ['./ads-few.component.css']
 })
-export class AdsComponent implements OnInit {
+export class AdsFewComponent implements OnInit {
 
   ads: any[];
   sliceTitle = 18;
   sliceCharacters = 102;
-  itemsToShow = 3;
+  itemsToShow = 1;
   numberOfAds: number;
 
   // Number of ads to show slice filter

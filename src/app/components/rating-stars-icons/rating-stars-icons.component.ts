@@ -6,13 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./rating-stars-icons.component.css']
 })
 export class RatingStarsIconsComponent implements OnInit {
+
   @Input('service') service: any[];
 
   constructor() { }
 
   ngOnInit() {
   }
-
-
 
 }
