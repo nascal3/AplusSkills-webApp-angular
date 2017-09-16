@@ -3,13 +3,13 @@ import { AdsServiceService } from '../../services/ads-service.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-ads',
-  templateUrl: './ads.component.html',
-  styleUrls: ['./ads.component.css']
+  selector: 'app-related-service',
+  templateUrl: './related-service.component.html',
+  styleUrls: ['./related-service.component.css']
 })
-export class AdsComponent implements OnInit {
+export class RelatedServiceComponent implements OnInit {
 
-  ads: any[];
+  services: any[];
   sliceCharacters = 102;
   numberOfAds: number;
 
@@ -20,17 +20,17 @@ export class AdsComponent implements OnInit {
   constructor(
     public adsService: AdsServiceService
   ) {
-    this.getAds();
+    this.getRelated();
   }
 
   ngOnInit() {
   }
 
-  getAds() {
-    this.adsService.fetchAds().subscribe(adverts => {
-      this.ads = adverts;
-      this.numberOfAds = adverts.length;
-      this.getRandomInt(0, (this.numberOfAds - 3));
+  getRelated() {
+    this.adsService.fetchRelated().subscribe(services => {
+      this.services = services;
+      this.numberOfAds = services.length;
+      this.getRandomInt(0, (this.numberOfAds - 1));
       // console.log(this.numberOfAds - 3);
     });
   }
@@ -38,7 +38,7 @@ export class AdsComponent implements OnInit {
   // Generate random number
   getRandomInt(min: number, max: number) {
         this.firstSliceVal =  Math.floor(Math.random() * (max - min + 1)) + min;
-        this.secondSliceVal = this.firstSliceVal + 3;
+        this.secondSliceVal = this.firstSliceVal + 1;
         // console.log(this.firstSliceVal + '-' + this.secondSliceVal);
   }
 

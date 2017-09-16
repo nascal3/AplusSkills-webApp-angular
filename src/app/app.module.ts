@@ -34,6 +34,7 @@ import { ViewJobsserviceService } from './services/view-jobsservice.service';
 import { AdsServiceService } from './services/ads-service.service';
 import { RatingStarsIconsComponent } from './components/rating-stars-icons/rating-stars-icons.component';
 import { AdsComponent } from './components/ads/ads.component';
+import { RelatedServiceComponent } from './components/related-service/related-service.component';
 
 
 
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
     NavbarSearchComponent,
     NavbarLogoComponent,
     RatingStarsIconsComponent,
-    AdsComponent
+    AdsComponent,
+    RelatedServiceComponent
   ],
   imports: [
     BrowserModule,

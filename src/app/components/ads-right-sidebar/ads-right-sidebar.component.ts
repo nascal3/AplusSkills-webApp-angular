@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AdsServiceService } from '../../services/ads-service.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-ads-right-sidebar',
@@ -9,23 +7,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AdsRightSidebarComponent implements OnInit {
 
-  services: any[];
-  sliceCharacters = 102;
-
-  constructor(
-    public adsService: AdsServiceService
-  ) {
-    this.getRelated();
-  }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  getRelated() {
-    this.adsService.fetchRelated().subscribe(services => {
-      this.services = services;
-      // console.log(services);
-    });
   }
 
 }
