@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RatingStarsIconsComponent implements OnInit {
 
-  @Input('service') service: any[];
+  @Input('service') service;
 
   constructor() { }
 
