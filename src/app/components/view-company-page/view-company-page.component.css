@@ -81,6 +81,60 @@
 
 .prof-prev-pic {
     margin-bottom: 20px;
+    height: 226px ;
+    width: 89%;
+    /*bottom: 196px;*/
+    overflow: hidden;
+
+}
+
+.prof-prev-pic-frame {
+  float: left;
+  width: 820px;
+  height: 196px;
+  position: relative;
+  left: -40px;
+}
+
+.prof-prev-pic-box {
+  width: 270px;
+  height: 196px;
+  padding-left: 0px;
+}
+
+.prof-prev-pic-box:last-child {
+  padding-right: 0px;
+}
+
+.prof-prev-pic-box img {
+  height: 196px;
+  width: 270px;
+}
+
+.prof-prev-pic .icon-navigate_before {
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    background: black;
+    opacity: 0.5;
+    position: absolute;
+    height: 196px ;
+    left: 15px;
+    float: left;
+    z-index: 2;
+}
+
+.pic-scroll-next .icon-navigate_next {
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    background: black;
+    opacity: 0.5;
+    position: absolute;
+    height: 196px ;
+    float: right;
+    z-index: 1;
+    right: 130px;
 }
 
 .suggested-pros .pro-row{
@@ -173,6 +227,8 @@
 .com-num-pics span {
     font-size: 55px;
     font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .com-top-share-btn {
@@ -253,4 +309,8 @@
     font-size: 12px;
     font-weight: 800;
     margin-top: 15px;
+}
+
+.navigate-icon-pos {
+  padding-top: 75px;
 }

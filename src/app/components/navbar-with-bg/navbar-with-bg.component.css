@@ -3,7 +3,7 @@ ul.nav-user {
   left: 0% !important;
   background: transparent url("../../../assets/img/pattern.jpg");
   width: 100% !important;
-  z-index: 2;
+  z-index: 3;
 }
 
 /*.user-dashboard > .row > div.dash-content {*/

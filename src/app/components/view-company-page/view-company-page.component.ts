@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CompanyServiceService } from '../../services/company-service.service';
+import {OwlCarousel} from 'ngx-owl-carousel';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./view-company-page.component.css']
 })
 export class ViewCompanyPageComponent implements OnInit {
-
+  @ViewChild('owlElement') owlElement: OwlCarousel
   values: any[];
 
   constructor(
@@ -25,6 +26,14 @@ export class ViewCompanyPageComponent implements OnInit {
       this.values = values;
       console.log(values);
     });
+  }
+
+  prevPicture() {
+    this.owlElement.previous([200]);
+  }
+
+  nextPicture() {
+    this.owlElement.next([200]);
   }
 
 }
