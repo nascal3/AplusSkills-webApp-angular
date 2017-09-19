@@ -17,7 +17,9 @@
                           <app-rating-stars-icons [service]=comp></app-rating-stars-icons>
                         </span>
                         <div class="map-box">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.237201281458!2d36.8230421!3d-1.2886059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5846aa44b544448a!2sKenyatta+International+Convention+Centre+TSAVO!5e0!3m2!1sen!2s!4v1504555110457" width="371" height="213" frameborder="0" style="border:0" allowfullscreen></iframe>
+                           <agm-map [latitude]="lat" [longitude]="lng">
+                              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                            </agm-map>
                         </div>
                     </div>
                     <!-- =======right section =========-->

@@ -9,7 +9,9 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./view-company-page.component.css']
 })
 export class ViewCompanyPageComponent implements OnInit {
-  @ViewChild('owlElement') owlElement: OwlCarousel
+  @ViewChild('owlElement') owlElement: OwlCarousel;
+  lat: number;
+  lng: number;
   values: any[];
 
   constructor(
@@ -24,10 +26,17 @@ export class ViewCompanyPageComponent implements OnInit {
   getCompany() {
     this.comServe.getValues().subscribe(values => {
       this.values = values;
-      console.log(values);
+      // console.log(this.values);
+      this.getMapMarker();
     });
   }
 
+  getMapMarker() {
+    for (const v of this.values ) {
+          this.lat = parseFloat(v.geo.lat);
+          this.lng = parseFloat(v.geo.lng);
+    }
+  }
   prevPicture() {
     this.owlElement.previous([200]);
   }

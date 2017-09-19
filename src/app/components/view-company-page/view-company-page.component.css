@@ -314,3 +314,7 @@
 .navigate-icon-pos {
   padding-top: 75px;
 }
+
+agm-map {
+  height: 213px;
+}
