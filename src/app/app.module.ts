@@ -2,12 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Plugin modules
 import { ImageUploadModule } from 'angular2-image-upload';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OwlModule } from 'ngx-owl-carousel';
 import { AgmCoreModule } from '@agm/core';
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+import 'hammerjs';
+import 'mousetrap';
+import { ModalGalleryModule } from 'angular-modal-gallery';
 
 // Services
 import { ConstantsService } from './services/constants.service';
@@ -85,7 +90,9 @@ const appRoutes: Routes = [
     OwlModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBx1h0CUaEu1AbHOfGhGqi2j7YX_qxm3UY'
-    })
+    }),
+    AngularFontAwesomeModule,
+    ModalGalleryModule.forRoot()
   ],
   providers: [
     AddNewServiceService,

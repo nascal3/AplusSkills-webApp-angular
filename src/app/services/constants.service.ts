@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ConstantsService {
 
-  URL = 'http://upload.dev/';
+  URL = 'http://upload.aplusskill.com/';
   constructor() {  }
 
   mainAPIUrl() {

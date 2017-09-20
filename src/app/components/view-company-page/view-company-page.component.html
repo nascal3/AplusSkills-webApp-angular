@@ -35,21 +35,28 @@
                             <div class="com-pics">
                                 <div class="com-pic1" *ngFor="let profpic of comp.compics; let i = index" >
                                   <span *ngIf="comp.compics.length>0">
-                                     <img *ngIf="i == 1" src="{{profpic.image}}" />
-                                     <div class="com-num-pics"><span>{{comp.compics.length}}</span><br>Photos</div>
+                                     <img *ngIf="i == 1" src="{{profpic.img}}" />
+                                     <div class="com-num-pics" (click)="openImageModal(profpic)"><span>{{comp.compics.length}}</span><br>Photos</div>
                                   </span>
                                 </div>
                                 <div class="com-pic2" *ngFor="let profpic of comp.compics; let i = index">
                                   <span *ngIf="comp.compics.length>0">
-                                    <img *ngIf="i == 0" src="{{profpic.image}}" />
+                                    <img *ngIf="i == 0" src="{{profpic.img}}" />
                                   </span>
                                 </div>
                                 <div class="com-pic3" *ngFor="let profpic of comp.compics; let i = index">
                                   <span *ngIf="comp.compics.length>0">
-                                    <img *ngIf="i == 2" src="{{profpic.image}}" />
+                                    <img *ngIf="i == 2" src="{{profpic.img}}" />
                                   </span>
                                 </div>
                                  <br style="clear: left;" />
+                                <div *ngIf="openModalWindow">
+                                  <modal-gallery [modalImages]="images"
+                                                 [imagePointer]="imagePointer"
+                                                 (close)="onCloseImageModal($event)"
+                                                 [enableCloseOutside]="true">
+                                  </modal-gallery>
+                                </div>
                             </div>
                         </div>
                     </div>
