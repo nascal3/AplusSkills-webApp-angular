@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class RelatedServiceComponent implements OnInit {
 
-  services: any[];
+  services;
   sliceCharacters = 102;
   itemsToShow = 1;
   numberOfAds: number;
@@ -30,7 +30,7 @@ export class RelatedServiceComponent implements OnInit {
   getRelated() {
     this.adsService.fetchRelated().subscribe(services => {
       this.services = services;
-      this.numberOfAds = services.length;
+      this.numberOfAds = this.services.length;
       this.getRandomInt(0, (this.numberOfAds - this.itemsToShow));
       // console.log(this.numberOfAds - 3);
     });

@@ -9,11 +9,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AdsFewComponent implements OnInit {
 
-  ads: any[];
+  ads;
   sliceTitle = 18;
   sliceCharacters = 102;
   itemsToShow = 1;
-  numberOfAds: number;
+  max: number;
 
   // Number of ads to show slice filter
   firstSliceVal: number;
@@ -22,7 +22,7 @@ export class AdsFewComponent implements OnInit {
   constructor(
     public adsService: AdsServiceService
   ) {
-    this.getAds();
+      this.getAds();
   }
 
   ngOnInit() {
@@ -31,17 +31,11 @@ export class AdsFewComponent implements OnInit {
   getAds() {
     this.adsService.fetchAds().subscribe(adverts => {
       this.ads = adverts;
-      this.numberOfAds = adverts.length;
-      this.getRandomInt(0, (this.numberOfAds - this.itemsToShow));
-      // console.log(this.itemsToShow);
-    });
-  }
+      this.max = this.ads.length -  this.itemsToShow ;
 
-  // Generate random number
-  getRandomInt(min: number, max: number) {
-        this.firstSliceVal =  Math.floor(Math.random() * (max - min + 1)) + min;
-        this.secondSliceVal = this.firstSliceVal + this.itemsToShow;
-        // console.log(this.firstSliceVal + '-' + this.secondSliceVal);
+      this.firstSliceVal =  this.adsService.getRandomInt1(this.max);
+      this.secondSliceVal = this.adsService.getRandomInt2(this.itemsToShow);
+    });
   }
 
 }
