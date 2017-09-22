@@ -6,14 +6,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AdsServiceService {
 
-  ad;
-  ads;
   apiUrl: string;
-  numberOfAds: number;
-
-  // Number of ads to show slice filter
   firstSliceVal: number;
-  secondSliceVal: number;
 
   constructor(
     public http: HttpClient,
@@ -32,12 +26,11 @@ export class AdsServiceService {
 
   // Generate random number
   getRandomInt1(max: number) {
-    console.log(max);
-      return this.firstSliceVal =  Math.floor(Math.random() * (max - 0 + 1)) + 0;
+    return this.firstSliceVal = Math.floor(Math.random() * (max - 0 + 1)) + 0;
   }
 
   getRandomInt2( itemsToShow: number) {
-      return this.secondSliceVal = this.firstSliceVal + itemsToShow;
+    return this.firstSliceVal + itemsToShow;
   }
 
 
