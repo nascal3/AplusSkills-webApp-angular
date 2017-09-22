@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AdsComponent implements OnInit {
 
-  ads: any[];
+  ads;
   sliceTitle = 18;
   sliceCharacters = 102;
   itemsToShow = 3;
@@ -31,7 +31,7 @@ export class AdsComponent implements OnInit {
   getAds() {
     this.adsService.fetchAds().subscribe(adverts => {
       this.ads = adverts;
-      this.numberOfAds = adverts.length;
+      this.numberOfAds = this.ads.length;
       this.getRandomInt(0, (this.numberOfAds - this.itemsToShow));
       // console.log(this.itemsToShow);
     });

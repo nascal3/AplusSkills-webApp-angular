@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { ConstantsService } from './constants.service';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CompanyServiceService {
@@ -9,14 +8,14 @@ export class CompanyServiceService {
   apiURL: string;
 
   constructor(
-    public http: Http,
+    public http: HttpClient,
     public conService: ConstantsService
   ) {
     this.apiURL = conService.mainAPIUrl();
   }
 
   getValues() {
-    return this.http.get(this.apiURL + 'companypage.json').map(res => res.json());
+    return this.http.get(this.apiURL + 'companypage.json');
   }
 
 }

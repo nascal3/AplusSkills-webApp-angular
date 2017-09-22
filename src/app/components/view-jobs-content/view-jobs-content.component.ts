@@ -13,7 +13,7 @@ export class ViewJobsContentComponent implements OnInit {
   readMore = true;
   viewMoreTxt = 'View More';
   sliceCharacters = 280;
-  jobReqs: any[];
+  jobReqs;
 
   constructor(
     public viewJobsReq: ViewJobsserviceService
@@ -27,7 +27,7 @@ export class ViewJobsContentComponent implements OnInit {
   getjobs () {
     this.viewJobsReq.getJobRequests().subscribe(res => {
       this.jobReqs = res;
-      //console.log(this.jobReqs);
+      // console.log(this.jobReqs);
     });
   }
 

@@ -36,7 +36,11 @@
                                 <div class="com-pic1" *ngFor="let profpic of comp.compics; let i = index" >
                                   <span *ngIf="comp.compics.length>0">
                                      <img *ngIf="i == 1" src="{{profpic.img}}" />
-                                     <div class="com-num-pics" (click)="openImageModal(profpic)"><span>{{comp.compics.length}}</span><br>Photos</div>
+                                     <div class="com-num-pics" (click)="openImageModal(profpic)">
+                                       <section *ngIf="comp.compics.length>3">
+                                          <span>+{{comp.compics.length - 3}}</span><br>Photos
+                                       </section>
+                                     </div>
                                   </span>
                                 </div>
                                 <div class="com-pic2" *ngFor="let profpic of comp.compics; let i = index">

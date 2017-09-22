@@ -16,7 +16,7 @@ export class ViewCompanyPageComponent implements OnInit {
   imagePointer = 0;
   lat: number;
   lng: number;
-  values: any[];
+  values;
   images: Array<Image>;
 
 
