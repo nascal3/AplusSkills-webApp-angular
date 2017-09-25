@@ -30,6 +30,7 @@
 .prof-profile-pic.col-lg-4 img {
     height: 213px;
     float: left;
+    background-color: #cccccc;
 }
 
 .prof-name {
@@ -175,4 +176,32 @@
     color: #1c9aea !important;
     font-size: 20px;
     margin-top: 30px;
+}
+
+.prof-prev-pic-frame {
+  float: left;
+  width: 510px;
+  height: 196px;
+  position: relative;
+  /*left: -40px;*/
+}
+
+.prof-prev-pic-box {
+  height: 160px;
+  width: 234px;
+  padding-left: 0px;
+}
+
+.prof-prev-pic-box:last-child {
+  padding-right: 0px;
+}
+
+.prof-prev-pic-box img {
+  height: 160px;
+  width: 234px;
+}
+
+.tiny-margin {
+  position: relative;
+  top: -30px;
 }

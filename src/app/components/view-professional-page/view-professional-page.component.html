@@ -1,6 +1,6 @@
 <div class="wrapper">
      <section class="user-dashboard">
-        <div >
+        <div *ngFor="let com of records">
             <!-- =======Top fixed nav bar start =========-->
             <app-navbar-with-bg></app-navbar-with-bg>
             <!-- =======Top fixed nav bar end =========-->
@@ -11,16 +11,15 @@
                 <div class="upper-info">
                     <!-- =======left section =========-->
                     <div class="prof-profile-pic col-lg-4">
-                        <img src="assets/img/img1.jpg"/>
+                        <img src="{{com.profpic}}"/>
                     </div>
                     <!-- =======mid section =========-->
                     <div class="col-lg-4 prof-personal-info">
-                        <div class="prof-name">Caleb Nasio</div>
-                        <div class="prof-location">Nairobi, Kenya</div>
-                        <div class="prof-stats">20 - Friends, 280 - Reviews</div>
+                        <div class="prof-name">{{com.name}}</div>
+                        <div class="prof-location">{{com.location}}</div>
+                        <div class="prof-stats">{{com.friends}} - Friends, {{com.reviews.length}} - Reviews</div>
                         <div class="prof-bio">
-                            sit amet, consectetur adipiscing elit. Luctus diam lorem,
-                            vel condimentum risus finibus vel...
+                            {{ (com.bio.length>sliceBioWords) ? (com.bio | slice:0:sliceBioWords)+'...' : (com.bio) }}
                         </div>
                     </div>
                     <!-- =======right section =========-->
@@ -40,7 +39,7 @@
                     <div class="" style="float: left">
                         <div class="prof-left-column">
                             <div class="prof-column-heading">
-                                Caleb's Profile
+                                {{com.first_name}}'s Profile
                             </div>
                             <hr class="prop-column-heading-ul col-lg-7">
                             <div class="prof-left-column-content col-lg-8">
@@ -67,78 +66,83 @@
                             </div>
                             <hr class="prop-column-heading-ul col-lg-10" style="margin-left: 35px">
                             <div class="prof-mid-column-content">
-                                <div class="prof-review">
+                                <div class="prof-review" *ngFor="let rev of com.reviews">
                                     <div class="user">
                                         <div class="row prof-rev-content-top">
                                           <div class="col-lg-3" style="padding: 0px; width: 95px">
-                                            <img class="img-circle large-prof-pic" src="assets/img/avatar-11.jpg">
+                                            <img class="img-circle large-prof-pic" src="{{rev.thumbnailUrl}}">
                                           </div>
                                           <div class="col-lg-9" style="padding: 0px;">
                                               <div class="ad-name large-name">
-                                                  Joseph Murimi Obado
+                                                  {{rev.name}}
                                               </div>
                                               <div style="color: #1c9aea">
-                                                  Maintain lawns, Perimeter gardening
+                                                  {{rev.title}}
                                               </div>
                                               <div style="font-size: 12px;">Naivasha, Jun 30, 17</div>
                                               <span class="rating">
-                                                  <span class="rating">
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star-half-empty"></i>
-                                                    <i class="icon-star-o"></i>
-                                                  </span>
+                                                  <app-rating-stars-icons [service]=rev></app-rating-stars-icons>
                                               </span>
                                           </div>
                                         </div>
                                         <div class="row prof-review-desc">
-                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu hendrerit urna.
-                                            In sed lobortis massa. Donec quis urna gravida, congue turpis eu, blandit nisi.
-                                            Praesent porta nec nulla a porta. Mauris dapibus mi id malesuada condimentum.
-                                            Nullam at placerat tortor. Nunc hendrerit leo elit, fermentum iaculis urna convallis eu.
-                                            Ut ultrices ligula sit amet est blandit, sed tincidunt sapien viverra.
-                                            Proin sit amet dolor tempus, consectetur leo sit amet, euismod dolor.
+                                          {{rev.body}}
                                         </div>
-                                        <div class="prof-prev-pic">
-                                            <img src="assets/img/review_pic.jpg" height="196" width="532"/>
-                                        </div>
+                                        <div class="prof-prev-pic" *ngIf="rev.reviewpics.length>0">
+                                               <!--<div  class="pic-scroll-prev" (click)="prevPicture()" *ngIf="rev.reviewpics.length>3">-->
+                                                 <!--<i class="icon-navigate_before navigate-icon-pos"></i>-->
+                                               <!--</div>-->
+                                               <div class="prof-prev-pic-frame">
+                                                  <owl-carousel #owlElement
+                                                 [options]="{items: 2, dots: true, navigation: false}"
+                                                 [items]="rev.reviewpics"
+                                                 [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                                   <div class="col-lg-4 prof-prev-pic-box" *ngFor="let pic of rev.reviewpics; let i = index ">
+                                                     <img src="{{pic.image}}">
+                                                   </div>
+                                                  </owl-carousel>
+                                               </div>
+                                               <!--<div class="pic-scroll-next" (click)="nextPicture()" *ngIf="rev.reviewpics.length>3">-->
+                                                 <!--<i class="icon-navigate_next navigate-icon-pos"></i>-->
+                                               <!--</div>-->
+                                               <div class="clear-both"></div>
+                                            </div>
                                     </div>
+                                  <div class="row tiny-margin">
+                                      <div class="col-lg-6"></div>
+                                      <div class="col-lg-6">
+                                          <div class="prof-interact-icons pull-right" style="color: #1c9aea"><i class="icon-share3 prof-icon-mid-size"></i> SHARE</div>
+                                      </div>
+                                  </div>
+                                  <!--<hr class="prop-column-heading-ul col-lg-10" style="margin-left: 35px">-->
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6"></div>
-                                <div class="col-lg-6">
-                                    <div class="prof-interact-icons pull-right" style="color: #1c9aea"><i class="icon-share3 prof-icon-mid-size"></i> SHARE</div>
-                                </div>
-                            </div>
-                            <hr class="prop-column-heading-ul col-lg-10" style="margin-left: 35px">
+
+
                         </div>
                     </div>
                     <!-- =======right section =========-->
                     <div class="" style="float: left">
                         <div class="prof-right-column">
                             <div class="prof-column-heading">
-                                About Caleb
+                                About {{com.first_name}}
                             </div>
                             <hr class="prop-column-heading-ul col-lg-10">
                             <div class="prof-right-column-content">
                                 <div class="prof-about-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Quisque eu hendrerit urna. In sed lobortis massa.
-                                    Donec quis urna gravida, congue turpis eu, blandit nisi.
-                                    Praesent porta nec nulla a porta. Mauris dapibus mi id malesuada condimentum.
-                                    Nullam at placerat tortor
+                                    {{(com.about.length>sliceAboutWords) ? (com.about | slice:0:sliceAboutWords)+'...' : (com.about)}}
                                 </div>
                                 <div class="pro-about-info">
                                     <div class="heading">Location</div>
-                                    <div>Nairobi, Kenya</div>
+                                    <div>{{com.location}}</div>
 
                                     <div class="heading">Member Since</div>
-                                    <div>June 20th, 2008</div>
+                                    <div>{{com.joined}}</div>
 
-                                    <div class="heading">Website</div>
-                                    <div>www.test.co.ke</div>
+                                    <div *ngIf="com.website.length>0" >
+                                          <div class="heading">Website</div>
+                                          <div>{{com.website}}</div>
+                                        </div>
 
                                     <div class="ad-titles">You might consider...</div>
 

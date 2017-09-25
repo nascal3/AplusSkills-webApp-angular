@@ -45,7 +45,6 @@ export class ViewCompanyPageComponent implements OnInit {
       this.images = v.compics;
       // console.log(v.compics);
     }
-
   }
 
   openImageModal(image: Image) {
@@ -64,7 +63,4 @@ export class ViewCompanyPageComponent implements OnInit {
   nextPicture() {
     this.owlElement.next([200]);
   }
-
-
-
 }

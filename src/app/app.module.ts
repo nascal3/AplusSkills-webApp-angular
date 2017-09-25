@@ -21,6 +21,7 @@ import { AddNewServiceService } from './services/add-new-service.service';
 import { ViewJobsserviceService } from './services/view-jobsservice.service';
 import { AdsServiceService } from './services/ads-service.service';
 import { CompanyServiceService } from './services/company-service.service';
+import { ProfessionalServiceService } from './services/professional-service.service';
 
 // Page components
 import { AppComponent } from './app.component';
@@ -101,7 +102,8 @@ const appRoutes: Routes = [
     ViewJobsserviceService,
     ConstantsService,
     AdsServiceService,
-    CompanyServiceService
+    CompanyServiceService,
+    ProfessionalServiceService
   ],
   bootstrap: [AppComponent]
 })
