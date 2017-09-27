@@ -2,10 +2,10 @@
   background-color: white;
   border-radius: 2px;
   border: 1px solid #ddd;
-  height: 450px;
+  min-height: 500px;
   width: 600px;
   position: absolute;
-  top: 55%;
+  top: 35%;
   -webkit-box-shadow: 1px 0px 111px -1px rgba(0,0,0,0.43);
   -moz-box-shadow: 1px 0px 111px -1px rgba(0,0,0,0.43);
   box-shadow: 1px 0px 111px -1px rgba(0,0,0,0.43);
@@ -68,6 +68,22 @@ div.tab button:hover {
     padding: 6px 12px;
     /*border: 1px solid #ccc;*/
     border-top: none;
-    height: 305px;
+    min-height: 355px;
     overflow-y: auto;
+}
+
+.imageSelect {
+  margin-bottom: 25px;
+}
+
+.imageSelect img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.imageFileName {
+  /*height: 20px;*/
+  width: 65px;
+  color: #777777;
 }

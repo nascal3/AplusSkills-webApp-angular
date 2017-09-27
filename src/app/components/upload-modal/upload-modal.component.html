@@ -11,13 +11,34 @@
   </div>
 
   <div [hidden]="showUpTab" class="tabcontent">
-    <h3>Upload</h3>
-    <p>London is the capital city of England.</p>
+    <h4>Upload Images</h4>
+
+    <image-upload
+      [max]="100"
+      [url]="uploadURL"
+      [buttonCaption]="'Select Images!'"
+      [headers]="[
+        {header: 'Authorization', value: 'MyToken'}
+      ]"
+      [dropBoxMessage]="'Drop your images here!'"
+      [extensions]="['jpg','png','gif']"
+      (onFileUploadFinish)="imageFinishedUploading($event)"
+      (onRemove)="imageRemoved($event)"
+      (isPending)="uploadStateChange($event)"
+    ></image-upload>
+    {{res}}
+
   </div>
 
   <div [hidden]="!showSelTab" class="tabcontent">
-    <h3>Select</h3>
-    <p>Paris is the capital of France.</p>
+    <h4>Select Image to use</h4>
+    <p>&nbsp;</p>
+    <div class="row">
+      <div class="col-lg-2 imageSelect" *ngFor="let image of Imagefiles">
+        <img src="{{image.fullPath}}">
+        <div class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
+      </div>
+    </div>
   </div>
 
 

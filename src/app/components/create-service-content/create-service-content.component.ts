@@ -31,12 +31,12 @@ export class CreateServiceContentComponent implements OnInit {
 
   openUploadModal() {
       this.openModal = true;
-      console.log(this.openModal);
+      // console.log(this.openModal);
   }
 
   closeUploadModal(event) {
     this.openModal = event;
-    console.log(this.openModal);
+    // console.log(this.openModal);
   }
 
   uploadImage() {

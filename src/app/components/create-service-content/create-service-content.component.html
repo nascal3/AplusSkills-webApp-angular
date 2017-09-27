@@ -57,11 +57,9 @@
                 <div class="col-lg-4">
                     <span class="input-title">Set Feature Image</span>
                     <div class="upload-btn-wrapper">
-                      <button class="btn">
-                        <img [hidden]="showSpinner" src="/assets/img/spinner.gif" width="150" length="90" >
-                        <i class="icon-plus" [hidden]="showIcon" style="padding-top: 20px"></i>
+                      <button class="btn" (click)="openUploadModal()">
+                        <i class="icon-plus" style="padding-top: 20px"></i>
                       </button>
-                      <input type="file" id="selectfile" name="selectfile" (change)="changeListner()" />
                     </div>
                     <div>{{filename}}</div>
                 </div>
