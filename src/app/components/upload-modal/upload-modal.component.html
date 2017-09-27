@@ -1,0 +1,24 @@
+<div class="modalBox">
+  <span class="modalCloseIcon" (click)="closeModal()">
+      <i class="icon-close"></i>
+    </span>
+  <div align="center" class="modalHeader"><h3>Media library</h3></div>
+  <hr>
+
+  <div class="tab">
+    <button class="tablinks" (click)="showUploadTab()" [className]="active" >Upload picture</button>
+    <button class="tablinks" (click)="showSelectTab()" [className]="active2" >Select picture</button>
+  </div>
+
+  <div [hidden]="showUpTab" class="tabcontent">
+    <h3>Upload</h3>
+    <p>London is the capital city of England.</p>
+  </div>
+
+  <div [hidden]="!showSelTab" class="tabcontent">
+    <h3>Select</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+
+
+</div>

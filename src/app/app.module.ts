@@ -14,6 +14,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awes
 import 'hammerjs';
 import 'mousetrap';
 import { ModalGalleryModule } from 'angular-modal-gallery';
+import { TagInputModule } from 'ngx-chips';
+
 
 // Services
 import { ConstantsService } from './services/constants.service';
@@ -22,6 +24,7 @@ import { ViewJobsserviceService } from './services/view-jobsservice.service';
 import { AdsServiceService } from './services/ads-service.service';
 import { CompanyServiceService } from './services/company-service.service';
 import { ProfessionalServiceService } from './services/professional-service.service';
+import { ModalServiceService } from './services/modal-service.service';
 
 // Page components
 import { AppComponent } from './app.component';
@@ -46,6 +49,8 @@ import { AdsFewComponent } from './components/ads-few/ads-few.component';
 import { RatingStarsIconsComponent } from './components/rating-stars-icons/rating-stars-icons.component';
 import { AdsComponent } from './components/ads/ads.component';
 import { RelatedServiceComponent } from './components/related-service/related-service.component';
+import { UploadModalComponent } from './components/upload-modal/upload-modal.component';
+
 
 
 
@@ -81,7 +86,8 @@ const appRoutes: Routes = [
     RatingStarsIconsComponent,
     AdsComponent,
     RelatedServiceComponent,
-    AdsFewComponent
+    AdsFewComponent,
+    UploadModalComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +101,9 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyBx1h0CUaEu1AbHOfGhGqi2j7YX_qxm3UY'
     }),
     AngularFontAwesomeModule,
-    ModalGalleryModule.forRoot()
+    ModalGalleryModule.forRoot(),
+    BrowserAnimationsModule,
+    TagInputModule
   ],
   providers: [
     AddNewServiceService,
@@ -103,7 +111,8 @@ const appRoutes: Routes = [
     ConstantsService,
     AdsServiceService,
     CompanyServiceService,
-    ProfessionalServiceService
+    ProfessionalServiceService,
+    ModalServiceService
   ],
   bootstrap: [AppComponent]
 })

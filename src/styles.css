@@ -11651,7 +11651,7 @@ input 				{
   width:100%;
   border:none;
   background-color: transparent;
-  border-bottom:1px solid #b1b1b1;
+  border-bottom:1px solid #ddd;
 }
 input:focus 		{ outline:none; }
 
@@ -11683,7 +11683,7 @@ textarea 				{
   width:100%;
   border:none;
   background-color: transparent;
-  border-bottom:1px solid #b1b1b1;
+  border-bottom:1px solid #ddd;
 }
 textarea:focus 		{ outline:none; }
 
@@ -11790,7 +11790,7 @@ hr.hr-dark{
 .cbx:checked ~ label { background: #319dea; }
 .cbx:checked ~ label:after {
   left: 20px;
-  background: #fff;
+  background: #0347B4;
 }
 
 .cbx:disabled ~ label {

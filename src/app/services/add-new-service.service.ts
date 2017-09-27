@@ -13,7 +13,7 @@ export class AddNewServiceService {
   constructor(private http: Http) { }
 
   uploadFile(formdata: any) {
-    const url = 'http://upload.dev/fileUpload.php';
+    const url = 'http://upload.aplusskill.com/fileUpload.php';
     return this.http.post(url, formdata).catch(this.errorHandler);
   }
 

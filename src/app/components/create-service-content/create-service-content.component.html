@@ -13,7 +13,7 @@
     <div>
         <form>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="group">
                       <span class="input-title">Service Title</span>
                       <input type="text" required>
@@ -22,10 +22,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="group">
                       <span class="input-title">Service Category</span>
-                      <input type="text" required>
+                      <tag-input [(ngModel)]='items' [maxItems]='3' [secondaryPlaceholder]='placeHolder' [separatorKeys]="[188]" theme='bootstrap' name="items" ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
                     </div>
@@ -79,7 +79,7 @@
                 <div class="col-lg-12">
                     <div class="group">
                       <span class="input-title">Related Service Categories</span>
-                      <input type="text">
+                      <tag-input [(ngModel)]='relatedCat' [maxItems]='5' [secondaryPlaceholder]='placeHolder2' [separatorKeys]="[188]" theme='bootstrap' name="relatedCat" ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
                     </div>
@@ -89,13 +89,14 @@
                 <div class="col-lg-12">
                     <span class="input-title">Add up to 5 additional images related to the service</span><br>
                     <div class="upload-btn-wrapper">
-                      <button class="btn">
-                        <img src="/assets/img/spinner3.gif" width="150" length="90" >
-                        <!--<i class="icon-plus" style="padding-top: 20px"></i>-->
+                      <button class="btn" (click)="openUploadModal()">
+                        <i class="icon-plus" style="padding-top: 20px"></i>
                       </button>
-                      <input type="file" name="myfile" />
                     </div>
                 </div>
+            </div>
+            <div [hidden]="!openModal">
+              <app-upload-modal (modalValue)="closeUploadModal($event)"></app-upload-modal>
             </div>
             <hr class="hr-dark">
             <div class="row">
