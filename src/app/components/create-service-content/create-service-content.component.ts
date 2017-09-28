@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AddNewServiceService } from '../../services/add-new-service.service';
 import { ModalServiceService } from '../../services/modal-service.service';
+import { ConstantsService } from '../../services/constants.service';
 
 @Component({
   selector: 'app-create-service-content',
@@ -8,31 +9,39 @@ import { ModalServiceService } from '../../services/modal-service.service';
   styleUrls: ['./create-service-content.component.css']
 })
 export class CreateServiceContentComponent implements OnInit {
-  @Input() TargetInput;
-
-  filename: string;
-  showSpinner = true;
-  showIcon = false;
-  openModal: boolean;
-  placeHolder = 'Insert 3 categories';
-  placeHolder2 = 'Insert 5 related categories';
 
   items;
   relatedCat;
+  feature = 'FeatureImage';
+  servImg = 'serviceImages';
+  apiURL: string;
+  uploadsPath: string;
+
+  openModal: boolean;
+  placeHolder = 'Press enter after each category';
+  placeHolder2 = 'Press enter after each category';
+  selectedImages = [];
+
+  showFeatureThumb = false;
+  featureImg;
+  servImgs = [];
 
   constructor(
     private addService: AddNewServiceService,
-    private modalService: ModalServiceService
-
+    private modalService: ModalServiceService,
+    public constURL: ConstantsService
   ) {
+    this.apiURL = this.constURL.URL;
+    this.uploadsPath = this.modalService.uploadsFilePath;
   }
 
   ngOnInit() {
   }
 
-  openUploadModal() {
+  openUploadModal(inputID) {
       this.openModal = true;
-      // console.log(this.openModal);
+      this.modalService.getInputId(inputID);
+      // console.log(inputID);
   }
 
   closeUploadModal(event) {
@@ -40,6 +49,19 @@ export class CreateServiceContentComponent implements OnInit {
     // console.log(this.openModal);
   }
 
+  getImagesFromModal(event) {
+    this.selectedImages = event;
+    // console.log(this.selectedImages);
+  }
 
+  inputRequesting(event) {
+    if (event === 'FeatureImage') {
+        this.showFeatureThumb = true;
+        this.featureImg = this.selectedImages[0];
+    }else if (event === 'serviceImages') {
+        this.servImgs = this.selectedImages;
+    }
+
+  }
 
 }

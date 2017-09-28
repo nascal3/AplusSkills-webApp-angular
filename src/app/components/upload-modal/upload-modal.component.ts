@@ -3,7 +3,6 @@ import { ConstantsService } from '../../services/constants.service';
 import { ModalServiceService } from '../../services/modal-service.service';
 import {FileHolder} from 'angular2-image-upload/lib/image-upload/image-upload.component';
 import { AddNewServiceService } from '../../services/add-new-service.service';
-import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-upload-modal',
@@ -12,19 +11,21 @@ import {forEach} from '@angular/router/src/utils/collection';
 })
 export class UploadModalComponent implements OnInit {
   @Output() modalValue = new EventEmitter();
+  @Output() imagesToForm = new EventEmitter();
+  @Output() inputRequest = new EventEmitter();
 
   showUpTab: boolean;
   showSelTab: boolean;
   active = 'tabActive';
   active2 = 'tabInactive';
+
   NumSelectedImg: number;
-  activex: boolean;
   response;
   Imagefiles;
   selectedImages = [];
   res = [];
-  apiURL: string;
-  uploadURL;
+  uploadURL: string;
+  inputRequesting: string;
 
 
   constructor(
@@ -33,26 +34,24 @@ export class UploadModalComponent implements OnInit {
     public constURL: ConstantsService
   ) {
     this.getAllImages();
-    this.apiURL = this.constURL.URL;
-    this.uploadURL = this.apiURL + 'fileUpload.php';
+    this.uploadURL = this.modalService.uploadURL;
   }
 
   ngOnInit() {
-  }
-
-  imageFinishedUploading(file: FileHolder) {
-    this.getAllImages();
-    // console.log(JSON.stringify(file.serverResponse));
-    this.response = file.serverResponse;
-    this.res = this.response._body;
-    console.log(this.response._body);
   }
 
   getAllImages() {
     this.addService.getImageFiles().subscribe(files => {
       this.Imagefiles = files;
     });
+  }
 
+  imageFinishedUploading(file: FileHolder) {
+    this.getAllImages();
+    this.selectedImages = [];
+    this.response = file.serverResponse;
+    this.res = this.response._body;
+    // console.log(this.response._body);
   }
 
   getImageName(imagename: string) {
@@ -64,12 +63,15 @@ export class UploadModalComponent implements OnInit {
         });
     }
     this.NumSelectedImg = this.selectedImages.length;
-    console.log(this.selectedImages);
+    // console.log(this.selectedImages);
   }
 
   moveImageToForm() {
     this.modalValue.emit(false);
-
+    this.imagesToForm.emit(this.selectedImages);
+    this.inputRequesting = this.modalService.inputId;
+    this.inputRequest.emit(this.inputRequesting);
+    // console.log(this.inputRequesting);
   }
 
   showUploadTab() {
@@ -88,8 +90,8 @@ export class UploadModalComponent implements OnInit {
 
   closeModal() {
     this.modalValue.emit(false);
-    this.selectedImages = [];
     this.getAllImages();
+    this.selectedImages = [];
   }
 
 }

@@ -24,7 +24,7 @@
 
                 <div class="col-lg-6">
                     <div class="group">
-                      <span class="input-title">Three Service Category</span>
+                      <span class="input-title">3 Service Category</span>
                       <tag-input [(ngModel)]='items' [maxItems]='3' [secondaryPlaceholder]='placeHolder' [separatorKeys]="[188]" theme='bootstrap' name="items" ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
@@ -57,7 +57,7 @@
                 <div class="col-lg-4">
                     <span class="input-title">Set Feature Image</span>
                     <div class="upload-btn-wrapper">
-                      <button class="btn" (click)="openUploadModal()">
+                      <button class="btn" (click)="openUploadModal(feature)">
                         <i class="icon-plus" style="padding-top: 20px"></i>
                       </button>
                     </div>
@@ -72,10 +72,15 @@
                     </div>
                 </div>
             </div>
+            <div class="selectedFetImage" *ngIf="selectedImages.length>=1" >
+              <div class="okGreen" *ngIf="showFeatureThumb">
+                 <img class="thumbnail" src="{{apiURL}}{{uploadsPath}}{{featureImg}}" width="60px" height="60px">
+              </div>
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="group">
-                      <span class="input-title">Five Related Service Categories</span>
+                      <span class="input-title">5 Related Service Categories</span>
                       <tag-input [(ngModel)]='relatedCat' [maxItems]='5' [secondaryPlaceholder]='placeHolder2' [separatorKeys]="[188]" theme='bootstrap' name="relatedCat" ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
@@ -86,15 +91,22 @@
                 <div class="col-lg-12">
                     <span class="input-title">Add up to 5 additional images related to the service</span><br>
                     <div class="upload-btn-wrapper">
-                      <button class="btn" (click)="openUploadModal()">
+                      <button class="btn" (click)="openUploadModal(servImg)">
                         <i class="icon-plus" style="padding-top: 20px"></i>
                       </button>
                     </div>
                 </div>
             </div>
-            <div [hidden]="!openModal">
-              <app-upload-modal (modalValue)="closeUploadModal($event)"></app-upload-modal>
+            <div class="selectedImages" *ngIf="selectedImages.length>=1" >
+              <span class="okGreen" *ngFor="let image of servImgs">
+                <img class="thumbnail" src="{{apiURL}}{{uploadsPath}}{{image}}" width="60px" height="60px">
+              </span>
             </div>
+            <!--==========Upload image modal==========-->
+            <div [hidden]="!openModal">
+              <app-upload-modal (modalValue)="closeUploadModal($event)" (imagesToForm)="getImagesFromModal($event)" (inputRequest)="inputRequesting($event)"></app-upload-modal>
+            </div>
+            <!--==========Upload image modal==========-->
             <hr class="hr-dark">
             <div class="row">
                 <div class="col-lg-6">

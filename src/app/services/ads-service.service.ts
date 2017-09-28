@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConstantsService } from './constants.service';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AdsServiceService {
@@ -13,7 +12,7 @@ export class AdsServiceService {
     public http: HttpClient,
     public con: ConstantsService
   ) {
-    this.apiUrl = this.con.mainAPIUrl();
+    this.apiUrl = this.con.URL;
   }
 
   fetchAds() {

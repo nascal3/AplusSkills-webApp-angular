@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
+import { ConstantsService } from './constants.service';
 
 @Injectable()
 export class ModalServiceService {
 
-  modalState;
+  inputId: string;
+  uploadURL: string;
+  apiURL: string;
+  uploadsFilePath = 'assets/uploads/';
 
-  constructor() { }
+  constructor(
+    public constURL: ConstantsService
+  ) {
+    this.apiURL = this.constURL.URL;
+    this.uploadURL = this.apiURL + 'fileUpload.php';
+  }
 
-  modalOpen() {
-    this.modalState = true;
-    console.log(this.modalState);
+  getInputId(input) {
+    this.inputId = input;
+    // console.log(this.inputId);
   }
 
   modalClose() {
-    this.modalState = false;
-    console.log(this.modalState);
+
   }
 
 }

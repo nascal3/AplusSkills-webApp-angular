@@ -22,3 +22,22 @@
   top: 0;
   opacity: 0;
 }
+.selectedFetImage {
+  position: relative;
+  bottom: 35px;
+  left: 15px;
+}
+
+.selectedImages {
+  position: relative;
+  top: 5px;
+  left: 20px;
+}
+
+.okGreen {
+  color: limegreen;
+}
+
+.thumbnail {
+  display: inline !important;
+}

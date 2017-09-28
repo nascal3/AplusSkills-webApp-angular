@@ -10,7 +10,7 @@ export class ProfessionalServiceService {
     public http: HttpClient,
     public constURL: ConstantsService
   ) {
-    this.apiURL = this.constURL.mainAPIUrl();
+    this.apiURL = this.constURL.URL;
   }
 
   getPro() {

@@ -12173,9 +12173,9 @@ label.clear.button {
     display: none;
 }
 
-.x-mark {
-  /*display: none;*/
-}
+/*.x-mark {*/
+  /*!*display: none;*!*/
+/*}*/
 
 /*pagination styles*/
 
@@ -12191,4 +12191,9 @@ label.clear.button {
 .ngx-pagination a:hover, .ngx-pagination button:hover {
     padding: 0.1875rem 0.875rem !important;
     border-radius: 30px !important;
+}
+
+/*Styles for tags*/
+.ng2-tag-input__text-input {
+  width: 210px !important;
 }

@@ -11,7 +11,7 @@ export class CompanyServiceService {
     public http: HttpClient,
     public conService: ConstantsService
   ) {
-    this.apiURL = conService.mainAPIUrl();
+    this.apiURL = conService.URL;
   }
 
   getValues() {
