@@ -1,7 +1,7 @@
 <div class="modalBox">
   <span class="modalCloseIcon" (click)="closeModal()">
       <i class="icon-close"></i>
-    </span>
+  </span>
   <div align="center" class="modalHeader"><h3>Media library</h3></div>
   <hr>
 
@@ -9,7 +9,7 @@
     <button class="tablinks" (click)="showUploadTab()" [className]="active" >Upload picture</button>
     <button class="tablinks" (click)="showSelectTab()" [className]="active2" >Select picture</button>
   </div>
-
+  <!--============Upload image tab=========-->
   <div [hidden]="showUpTab" class="tabcontent">
     <h4>Upload Images</h4>
 
@@ -25,19 +25,25 @@
       (onFileUploadFinish)="imageFinishedUploading($event)"
     ></image-upload>
     {{res}}
-
   </div>
 
+  <!--============Select image tab=========-->
   <div [hidden]="!showSelTab" class="tabcontent">
-    <h4>Select Image to use</h4>
+    <div class="row">
+      <div class="col-lg-6"><h4>Select Image to use</h4></div>
+      <div class="col-lg-6" align="right">
+        <span style="top: 15px;position: relative;" class="btn-filled" (click)="moveImageToForm()">
+          Use Selected{{(NumSelectedImg>1) ? ' Images' : ' Image'}}
+        </span>
+      </div>
+    </div>
     <p>&nbsp;</p>
     <div class="row">
       <div class="col-lg-2 imageSelect" *ngFor="let image of Imagefiles">
         <img (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" src="{{image.fullPath}}">
-        <div (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" [class.selected]= "image.activex  === true" class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
+        <div (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" [class.selected]= "image.activex === true" class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
       </div>
     </div>
   </div>
-
 
 </div>

@@ -24,7 +24,7 @@
 
                 <div class="col-lg-6">
                     <div class="group">
-                      <span class="input-title">Service Category</span>
+                      <span class="input-title">Three Service Category</span>
                       <tag-input [(ngModel)]='items' [maxItems]='3' [secondaryPlaceholder]='placeHolder' [separatorKeys]="[188]" theme='bootstrap' name="items" ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
@@ -61,7 +61,6 @@
                         <i class="icon-plus" style="padding-top: 20px"></i>
                       </button>
                     </div>
-                    <div>{{filename}}</div>
                 </div>
 
                 <div class="col-lg-8">
@@ -76,7 +75,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="group">
-                      <span class="input-title">Related Service Categories</span>
+                      <span class="input-title">Five Related Service Categories</span>
                       <tag-input [(ngModel)]='relatedCat' [maxItems]='5' [secondaryPlaceholder]='placeHolder2' [separatorKeys]="[188]" theme='bootstrap' name="relatedCat" ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
@@ -102,7 +101,7 @@
                    <span class="btn-outline pull-left" >Save as Draft</span>
                 </div>
                 <div class="col-lg-6">
-                    <span class="btn-filled pull-right" (click)="uploadImage()" >Publish</span>
+                    <span class="btn-filled pull-right"  >Publish</span>
                 </div>
             </div>
         </form>

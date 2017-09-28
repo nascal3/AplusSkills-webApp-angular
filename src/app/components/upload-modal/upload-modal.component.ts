@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { ConstantsService } from '../../services/constants.service';
 import { ModalServiceService } from '../../services/modal-service.service';
 import {FileHolder} from 'angular2-image-upload/lib/image-upload/image-upload.component';
 import { AddNewServiceService } from '../../services/add-new-service.service';
@@ -17,20 +17,24 @@ export class UploadModalComponent implements OnInit {
   showSelTab: boolean;
   active = 'tabActive';
   active2 = 'tabInactive';
-  selected = 'selected';
-  // activex = false;
+  NumSelectedImg: number;
+  activex: boolean;
   response;
   Imagefiles;
   selectedImages = [];
   res = [];
-  uploadURL = 'http://upload.dev/fileUpload.php';
+  apiURL: string;
+  uploadURL;
 
 
   constructor(
     public modalService: ModalServiceService,
-    public addService: AddNewServiceService
+    public addService: AddNewServiceService,
+    public constURL: ConstantsService
   ) {
     this.getAllImages();
+    this.apiURL = this.constURL.URL;
+    this.uploadURL = this.apiURL + 'fileUpload.php';
   }
 
   ngOnInit() {
@@ -59,7 +63,13 @@ export class UploadModalComponent implements OnInit {
           return item !== imagename;
         });
     }
+    this.NumSelectedImg = this.selectedImages.length;
     console.log(this.selectedImages);
+  }
+
+  moveImageToForm() {
+    this.modalValue.emit(false);
+
   }
 
   showUploadTab() {
@@ -79,7 +89,7 @@ export class UploadModalComponent implements OnInit {
   closeModal() {
     this.modalValue.emit(false);
     this.selectedImages = [];
-    // this.activex = false;
+    this.getAllImages();
   }
 
 }
