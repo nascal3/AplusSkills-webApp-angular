@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { ModalServiceService } from '../../services/modal-service.service';
 import {FileHolder} from 'angular2-image-upload/lib/image-upload/image-upload.component';
 import { AddNewServiceService } from '../../services/add-new-service.service';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-upload-modal',
@@ -16,8 +17,11 @@ export class UploadModalComponent implements OnInit {
   showSelTab: boolean;
   active = 'tabActive';
   active2 = 'tabInactive';
+  selected = 'selected';
+  // activex = false;
   response;
   Imagefiles;
+  selectedImages = [];
   res = [];
   uploadURL = 'http://upload.dev/fileUpload.php';
 
@@ -43,19 +47,20 @@ export class UploadModalComponent implements OnInit {
   getAllImages() {
     this.addService.getImageFiles().subscribe(files => {
       this.Imagefiles = files;
-       console.log(this.Imagefiles);
     });
 
   }
 
-
-imageRemoved(file: FileHolder) {
-  // do some stuff with the removed file.
-}
-
-uploadStateChange(state: boolean) {
-  console.log(JSON.stringify(state));
-}
+  getImageName(imagename: string) {
+    this.selectedImages.unshift(imagename);
+    const i = this.selectedImages.filter( item => item === imagename).length;
+    if (i >= 2) {
+        this.selectedImages = this.selectedImages.filter(function(item) {
+          return item !== imagename;
+        });
+    }
+    console.log(this.selectedImages);
+  }
 
   showUploadTab() {
       this.showUpTab = false;
@@ -73,5 +78,8 @@ uploadStateChange(state: boolean) {
 
   closeModal() {
     this.modalValue.emit(false);
+    this.selectedImages = [];
+    // this.activex = false;
   }
+
 }

@@ -80,10 +80,21 @@ div.tab button:hover {
   width: 70px;
   height: 70px;
   cursor: pointer;
+  background-color: white;
 }
 
 .imageFileName {
   /*height: 20px;*/
   width: 65px;
   color: #777777;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.selected {
+  background-color: #319dea;
+  color: white;
+  border-radius: 3px;
+  width: 83px;
 }

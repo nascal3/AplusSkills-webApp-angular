@@ -23,8 +23,6 @@
       [dropBoxMessage]="'Drop your images here!'"
       [extensions]="['jpg','png','gif']"
       (onFileUploadFinish)="imageFinishedUploading($event)"
-      (onRemove)="imageRemoved($event)"
-      (isPending)="uploadStateChange($event)"
     ></image-upload>
     {{res}}
 
@@ -35,8 +33,8 @@
     <p>&nbsp;</p>
     <div class="row">
       <div class="col-lg-2 imageSelect" *ngFor="let image of Imagefiles">
-        <img src="{{image.fullPath}}">
-        <div class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
+        <img (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" src="{{image.fullPath}}">
+        <div (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" [class.selected]= "image.activex  === true" class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
       </div>
     </div>
   </div>
