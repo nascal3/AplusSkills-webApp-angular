@@ -32,18 +32,20 @@
     <div class="row">
       <div class="col-lg-6"><h4>Select Image to use</h4></div>
       <div class="col-lg-6" align="right">
-        <span style="top: 15px;position: relative;" class="btn-filled" (click)="moveImageToForm()">
+        <span *ngIf="numOfImages>=1" style="top: 15px;position: relative;" class="btn-filled" (click)="moveImageToForm()">
           Use Selected{{(NumSelectedImg>1) ? ' Images' : ' Image'}}
         </span>
       </div>
     </div>
     <p>&nbsp;</p>
-    <div class="row">
+    <div class="row" *ngIf="numOfImages>=1; else message">
       <div class="col-lg-2 imageSelect" *ngFor="let image of Imagefiles">
         <img (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" src="{{image.fullPath}}">
         <div (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" [class.selected]= "image.activex === true" class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
       </div>
     </div>
+    <ng-template #message class="text-center">
+      <div align="center"> <h4>No Images uploaded</h4></div>
+    </ng-template>
   </div>
-
 </div>

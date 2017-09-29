@@ -20,8 +20,9 @@ export class UploadModalComponent implements OnInit {
   active2 = 'tabInactive';
 
   NumSelectedImg: number;
-  response;
-  Imagefiles;
+  numOfImages: number;
+  response: any;
+  Imagefiles: any;
   selectedImages = [];
   res = [];
   uploadURL: string;
@@ -43,6 +44,7 @@ export class UploadModalComponent implements OnInit {
   getAllImages() {
     this.addService.getImageFiles().subscribe(files => {
       this.Imagefiles = files;
+      this.numOfImages = this.Imagefiles.length;
     });
   }
 
