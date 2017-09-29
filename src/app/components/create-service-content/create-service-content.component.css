@@ -36,6 +36,12 @@
 
 .okGreen {
   color: limegreen;
+  width: 86px;
+  length:86px;
+}
+
+.okGreen img {
+  width: 86px;
 }
 
 .thumbnail {

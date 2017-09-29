@@ -99,7 +99,7 @@
             </div>
             <div class="selectedImages" *ngIf="selectedImages.length>=1" >
               <span class="okGreen" *ngFor="let image of servImgs">
-                <img class="thumbnail" src="{{apiURL}}{{uploadsPath}}{{image}}" width="60px" height="60px">
+                <img class="thumbnail" src="{{apiURL}}{{uploadsPath}}{{image}}" >
               </span>
             </div>
             <!--==========Upload image modal==========-->

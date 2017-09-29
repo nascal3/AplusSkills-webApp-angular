@@ -74,11 +74,12 @@ div.tab button:hover {
 
 .imageSelect {
   margin-bottom: 25px;
+  width: 86px;
+  height: 86px;
 }
 
 .imageSelect img {
-  width: 70px;
-  height: 70px;
+  width: 100%;
   cursor: pointer;
   background-color: white;
 }

@@ -39,7 +39,7 @@
     </div>
     <p>&nbsp;</p>
     <div class="row" *ngIf="numOfImages>=1; else message">
-      <div class="col-lg-2 imageSelect" *ngFor="let image of Imagefiles">
+      <div class="col-lg-4 imageSelect" *ngFor="let image of Imagefiles">
         <img (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" src="{{image.fullPath}}">
         <div (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" [class.selected]= "image.activex === true" class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
       </div>
