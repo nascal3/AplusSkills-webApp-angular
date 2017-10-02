@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +25,7 @@ import { AdsServiceService } from './services/ads-service.service';
 import { CompanyServiceService } from './services/company-service.service';
 import { ProfessionalServiceService } from './services/professional-service.service';
 import { ModalServiceService } from './services/modal-service.service';
+import {InterceptorServiceService} from './services/interceptor-service.service';
 
 // Page components
 import { AppComponent } from './app.component';
@@ -50,6 +51,7 @@ import { RatingStarsIconsComponent } from './components/rating-stars-icons/ratin
 import { AdsComponent } from './components/ads/ads.component';
 import { RelatedServiceComponent } from './components/related-service/related-service.component';
 import { UploadModalComponent } from './components/upload-modal/upload-modal.component';
+
 
 
 
@@ -112,7 +114,8 @@ const appRoutes: Routes = [
     AdsServiceService,
     CompanyServiceService,
     ProfessionalServiceService,
-    ModalServiceService
+    ModalServiceService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorServiceService, multi: true }
   ],
   bootstrap: [AppComponent]
 })
