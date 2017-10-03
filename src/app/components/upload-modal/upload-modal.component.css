@@ -5,7 +5,7 @@
   min-height: 500px;
   width: 600px;
   position: absolute;
-  top: 35%;
+  top: 25%;
   -webkit-box-shadow: 1px 0px 111px -1px rgba(0,0,0,0.43);
   -moz-box-shadow: 1px 0px 111px -1px rgba(0,0,0,0.43);
   box-shadow: 1px 0px 111px -1px rgba(0,0,0,0.43);
@@ -87,7 +87,7 @@ div.tab button:hover {
     padding: 6px 12px;
     /*border: 1px solid #ccc;*/
     border-top: none;
-    min-height: 355px;
+    min-height: 425px;
     overflow-y: auto;
 }
 
@@ -119,9 +119,18 @@ div.tab button:hover {
   width: 83px;
 }
 
+.uploadArea {
+  position: relative;
+  top: 110px;
+}
+
 .uploadModal-left {
   background-color: #F6FAFD ;
   min-height: 500px;
   padding: 10px 0px 0px 0px;
   border-right: 1px solid #DEF0FC;
+}
+
+img.imageUploadIcon {
+  width: 10%;
 }

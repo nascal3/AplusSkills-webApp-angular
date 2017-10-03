@@ -24,7 +24,7 @@ export class UploadModalComponent implements OnInit {
   response: any;
   Imagefiles: any;
   selectedImages = [];
-  res = [];
+  res: string;
   uploadURL: string;
   inputRequesting: string;
 
@@ -94,6 +94,7 @@ export class UploadModalComponent implements OnInit {
     this.modalValue.emit(false);
     this.getAllImages();
     this.selectedImages = [];
+    this.res = '';
   }
 
 }

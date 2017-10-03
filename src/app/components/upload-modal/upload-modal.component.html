@@ -14,20 +14,23 @@
     <div class="col-lg-9">
       <!--============Upload image tab=========-->
       <div [hidden]="showUpTab" class="tabcontent">
-        <h4>Upload Images</h4>
-
-        <image-upload
-          [max]="5"
-          [url]="uploadURL"
-          [buttonCaption]="'Select Images!'"
-          [headers]="[
-            {header: 'Authorization', value: 'MyToken'}
-          ]"
-          [dropBoxMessage]="'Drop your images here!'"
-          [extensions]="['jpg','png','gif']"
-          (onFileUploadFinish)="imageFinishedUploading($event)"
-        ></image-upload>
-        {{res}}
+        <div class="uploadArea">
+          <div  align="center">
+            <img class="imageUploadIcon" src="/assets/img/uploader-icon.png" />
+          </div>
+          <image-upload
+            [max]="5"
+            [url]="uploadURL"
+            [buttonCaption]="'Browse Files'"
+            [headers]="[
+              {header: 'Authorization', value: 'MyToken'}
+            ]"
+            [dropBoxMessage]="'Drag and drop your file here or'"
+            [extensions]="['jpg','png','gif']"
+            (onFileUploadFinish)="imageFinishedUploading($event)"
+            ></image-upload>
+            {{res}}
+        </div>
       </div>
 
       <!--============Select image tab=========-->
