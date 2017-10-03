@@ -38,8 +38,8 @@
         <div class="row">
           <div class="col-lg-6" style="color: #319dea;">
             <div>
-              <strong> {{numOfImages}}</strong>
-              <span> FILES</span>
+              <strong> {{(numOfImages==0) ? 'NO' : (numOfImages)}}</strong>
+              <span> FILE{{numOfImages>1 ? 'S' : ''}}</span>
             </div>
           </div>
           <div class="col-lg-6" align="right">
@@ -54,7 +54,7 @@
           </div>
         </div>
         <ng-template #message class="text-center">
-          <div align="center"> <h4>No Images uploaded</h4></div>
+          <div align="center"> <h4>No Files uploaded</h4></div>
         </ng-template>
         <div class="imagePreview">
           <div class="col-lg-8" style="padding: 0px">
