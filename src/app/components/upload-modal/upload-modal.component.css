@@ -131,11 +131,14 @@ div.tab button:hover {
   position: relative;
   cursor: pointer;
   height: 96px;
+  background-image: url("../../../assets/img/tick.png");
+  background-repeat: no-repeat;
+  background-position: center;
   overflow: hidden;
 }
 
 .selected {
-  opacity: .4;
+  opacity: .7;
 }
 
 img.selected {
