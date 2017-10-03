@@ -32,18 +32,36 @@ hr {
 /* Style the tab */
 div.tab {
     overflow: hidden;
-    /*border: 1px solid #ccc;*/
-    background-color: #f1f1f1;
+    background-color: #F6FAFD;
+}
+
+.icons {
+  margin-right: 7px;
+  font-size: 16px;
 }
 
 /* Style the buttons inside the tab */
+.headingTab {
+  border-bottom: 1px solid #DEF0FC;
+  cursor: default !important;
+  color: #319dea;
+  font-weight: bolder;
+}
+
+.headingTab:hover {
+  border-bottom: 1px solid #DEF0FC;
+  background-color: #F6FAFD !important;
+}
+
 div.tab button {
     background-color: inherit;
     float: left;
+    width: 150px;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
+    border-bottom: 1px solid #DEF0FC;
     transition: 0.3s;
 }
 
@@ -56,7 +74,8 @@ div.tab button:hover {
 /* Create an active/current tablink class */
 .tabActive {
     background-color: #fff !important;
-    color: #319dea
+    color: #319dea;
+    width: 200px;
 }
 
 .tabInctive {
@@ -98,4 +117,11 @@ div.tab button:hover {
   color: white;
   border-radius: 3px;
   width: 83px;
+}
+
+.uploadModal-left {
+  background-color: #F6FAFD ;
+  min-height: 500px;
+  padding: 10px 0px 0px 0px;
+  border-right: 1px solid #DEF0FC;
 }
