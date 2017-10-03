@@ -56,6 +56,7 @@
         <ng-template #message class="text-center">
           <div align="center"> <h4>No Files uploaded</h4></div>
         </ng-template>
+        <!--========Preview selected images in modal start=====-->
         <div class="imagePreview">
           <div class="col-lg-8" style="padding: 0px">
             <div class="row" *ngIf="selectedImages.length==1">
@@ -63,7 +64,7 @@
                 <img class="thumbnail" src="{{apiURL}}{{uploadsFilePath}}{{prev}}" >
               </div>
               <div class="col-lg-6" *ngFor="let prev of selectedImages">
-                <span  style="color: #319dea;">{{prev}}</span>
+                <span  style="color: #319dea;">{{(prev.length>imageNameCount) ? (prev | slice:0:imageNameCount)+'...' : (prev)}}</span>
               </div>
             </div>
             <div class="row" *ngIf="selectedImages.length>1 && selectedImages.length<=3 ">
@@ -88,6 +89,7 @@
             </span>
           </div>
         </div>
+        <!--========Preview selected images in modal end=====-->
       </div>
     </div>
   </div>

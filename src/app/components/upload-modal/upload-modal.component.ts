@@ -23,6 +23,7 @@ export class UploadModalComponent implements OnInit {
 
   NumSelectedImg: number;
   numOfImages: number;
+  imageNameCount = 15;
   response: any;
   Imagefiles: any;
   selectedImages = [];

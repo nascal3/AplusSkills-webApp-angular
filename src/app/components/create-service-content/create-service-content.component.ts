@@ -70,14 +70,20 @@ export class CreateServiceContentComponent implements OnInit {
     if (event === 'FeatureImage') {
         this.showFeatureThumb = true;
         this.featureImg = this.selectedImages[0];
+
     }else if (event === 'serviceImages') {
         this.servImgs = this.selectedImages;
+
     }
   }
 
-  onSubmit(value: NewService, valid: boolean) {
+  onSubmit({value, valid}: {value: NewService, valid: boolean}) {
       if (valid) {
         console.log(value);
+        console.log(this.featureImg );
+        console.log(this.servImgs );
+      }else {
+        console.log(valid);
       }
   }
 

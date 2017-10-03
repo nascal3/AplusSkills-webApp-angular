@@ -4,7 +4,7 @@ export interface NewService {
   offer?: boolean;
   price?: string;
   description?: string;
-  fImg?: string;
+  fImg?: any;
   relatedCat?: any[];
-  sImgs?: any[];
+  sImgs?: any;
 }
