@@ -16,6 +16,8 @@ export class UploadModalComponent implements OnInit {
 
   showUpTab: boolean;
   showSelTab: boolean;
+  apiURL: string;
+  uploadsFilePath: string;
   active = 'tabActive';
   active2 = 'tabInactive';
 
@@ -36,6 +38,8 @@ export class UploadModalComponent implements OnInit {
   ) {
     this.getAllImages();
     this.uploadURL = this.modalService.uploadURL;
+    this.apiURL = this.constURL.URL;
+    this.uploadsFilePath = this.modalService.uploadsFilePath;
   }
 
   ngOnInit() {
@@ -45,6 +49,7 @@ export class UploadModalComponent implements OnInit {
     this.addService.getImageFiles().subscribe(files => {
       this.Imagefiles = files;
       this.numOfImages = this.Imagefiles.length;
+      // console.log( this.numOfImages);
     });
   }
 

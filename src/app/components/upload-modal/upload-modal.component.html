@@ -11,7 +11,7 @@
             <button class="tablinks" (click)="showSelectTab()" [className]="active2" ><i class="icon-perm_media icons"></i> Media Library</button>
          </div>
     </div>
-    <div class="col-lg-9">
+    <div class="col-lg-9" style="padding: 0px">
       <!--============Upload image tab=========-->
       <div [hidden]="showUpTab" class="tabcontent">
         <div class="uploadArea">
@@ -36,23 +36,58 @@
       <!--============Select image tab=========-->
       <div [hidden]="!showSelTab" class="tabcontent">
         <div class="row">
-          <div class="col-lg-6"><h4>Select Image to use</h4></div>
+          <div class="col-lg-6" style="color: #319dea;">
+            <div>
+              <strong> {{numOfImages}}</strong>
+              <span> FILES</span>
+            </div>
+          </div>
           <div class="col-lg-6" align="right">
-            <span *ngIf="numOfImages>=1" style="top: 15px;position: relative;" class="btn-filled" (click)="moveImageToForm()">
-              Use Selected{{(NumSelectedImg>1) ? ' Images' : ' Image'}}
-            </span>
+
           </div>
         </div>
         <p>&nbsp;</p>
-        <div class="row" *ngIf="numOfImages>=1; else message">
+        <div class="row imageSelectBox" *ngIf="numOfImages>=1; else message">
           <div class="col-lg-4 imageSelect" *ngFor="let image of Imagefiles">
-            <img (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" src="{{image.fullPath}}">
-            <div (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" [class.selected]= "image.activex === true" class="imageFileName">{{(image.fileName.length>12) ? (image.fileName | slice:0:12)+'...' : (image.fileName)}}</div>
+            <div class="mask" (click)="getImageName(image.fileName)" (click)="image.activex = !image.activex" [class.selected]= "image.activex === true"></div>
+            <img src="{{image.fullPath}}">
           </div>
         </div>
         <ng-template #message class="text-center">
           <div align="center"> <h4>No Images uploaded</h4></div>
         </ng-template>
+        <div class="imagePreview">
+          <div class="col-lg-8" style="padding: 0px">
+            <div class="row" *ngIf="selectedImages.length==1">
+              <div class="col-lg-6 thumb" *ngFor="let prev of selectedImages">
+                <img class="thumbnail" src="{{apiURL}}{{uploadsFilePath}}{{prev}}" >
+              </div>
+              <div class="col-lg-6" *ngFor="let prev of selectedImages">
+                <span  style="color: #319dea;">{{prev}}</span>
+              </div>
+            </div>
+            <div class="row" *ngIf="selectedImages.length>1 && selectedImages.length<=3 ">
+              <div class="col-lg-6 thumb" *ngFor="let prev of selectedImages">
+                <img class="thumbnail" src="{{apiURL}}{{uploadsFilePath}}{{prev}}" >
+              </div>
+            </div>
+            <div class="row" *ngIf="selectedImages.length>3">
+              <div class="hideThumb">
+                <div class="col-lg-6 thumb" *ngFor="let prev of selectedImages">
+                  <img class="thumbnail" src="{{apiURL}}{{uploadsFilePath}}{{prev}}" >
+                </div>
+              </div>
+              <div class="more">
+                  <span  style="color: #319dea;">+ {{selectedImages.length - 3}} More</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" align="right" style="padding: 0px">
+            <span *ngIf="numOfImages>=1" style="top: 15px;position: relative;" class="btn-filled" (click)="moveImageToForm()">
+              Use Selected{{(NumSelectedImg>1) ? ' Files' : ' File'}}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

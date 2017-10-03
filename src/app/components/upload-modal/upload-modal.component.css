@@ -2,7 +2,7 @@
   background-color: white;
   border-radius: 2px;
   border: 1px solid #ddd;
-  min-height: 500px;
+  height: 500px;
   width: 600px;
   position: absolute;
   top: 25%;
@@ -91,20 +91,31 @@ div.tab button:hover {
     overflow-y: auto;
 }
 
+.imageSelectBox {
+  overflow-y: auto;
+  height: 350px;
+  /*border: solid 1px;*/
+  position: relative;
+  padding: 0px 15px;
+  bottom: 25px;
+}
+
 .imageSelect {
-  margin-bottom: 25px;
-  width: 86px;
-  height: 86px;
+  margin-bottom: 5px;
+  padding: 0px 5px 0px 5px;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
 }
 
 .imageSelect img {
   width: 100%;
   cursor: pointer;
-  background-color: white;
+  position: relative;
+  bottom: 96px;
 }
 
 .imageFileName {
-  /*height: 20px;*/
   width: 65px;
   color: #777777;
   cursor: pointer;
@@ -112,11 +123,22 @@ div.tab button:hover {
   margin-top: 3px;
 }
 
+.mask {
+  background: rgb(49, 157, 234);
+  z-index: 1;
+  opacity: 0;
+  position: relative;
+  cursor: pointer;
+  height: 96px;
+  overflow: hidden;
+}
+
 .selected {
-  background-color: #319dea;
-  color: white;
-  border-radius: 3px;
-  width: 83px;
+  opacity: .4;
+}
+
+img.selected {
+  width: 100%;
 }
 
 .uploadArea {
@@ -126,11 +148,48 @@ div.tab button:hover {
 
 .uploadModal-left {
   background-color: #F6FAFD ;
-  min-height: 500px;
+  height: 498px;
   padding: 10px 0px 0px 0px;
   border-right: 1px solid #DEF0FC;
 }
 
 img.imageUploadIcon {
   width: 10%;
+}
+
+.imagePreview {
+    /*border: solid 1px;*/
+    padding: 5px 5px;
+    position: relative;
+    bottom: 20px;
+    height: 60px;
+    width: 100%;
+    /*overflow: hidden;*/
+}
+
+.thumb {
+    height: 50px;
+    width: 50px;
+    border: solid 2px #319dea;
+    overflow: hidden;
+    padding: 0px;
+    margin-right: 3px;
+}
+
+.hideThumb {
+  width: 170px;
+  /*border: solid 1px;*/
+  height: 50px;
+  overflow: hidden;
+}
+
+.more {
+    position: relative;
+    float: right;
+    bottom: 40px;
+    right: 45px;
+}
+
+img.thumb {
+    width: 100%;
 }

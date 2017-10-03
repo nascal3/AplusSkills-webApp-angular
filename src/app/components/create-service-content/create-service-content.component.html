@@ -75,7 +75,7 @@
             </div>
             <div class="selectedFetImage" *ngIf="selectedImages.length>=1" >
               <div class="okGreen" *ngIf="showFeatureThumb">
-                 <img class="thumbnail" src="{{apiURL}}{{uploadsPath}}{{featureImg}}" width="60px" height="60px">
+                 <img class="thumbnail" src="{{apiURL}}{{uploadsFilePath}}{{featureImg}}">
               </div>
             </div>
             <div class="row">
@@ -101,7 +101,7 @@
             </div>
             <div class="selectedImages" *ngIf="selectedImages.length>=1" >
               <span class="okGreen" *ngFor="let image of servImgs">
-                <img class="thumbnail" src="{{apiURL}}{{uploadsPath}}{{image}}" >
+                <img class="thumbnail" src="{{apiURL}}{{uploadsFilePath}}{{image}}" >
               </span>
             </div>
             <!--==========Upload image modal==========-->

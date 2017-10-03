@@ -16,7 +16,7 @@ export class CreateServiceContentComponent implements OnInit {
   feature = 'FeatureImage';
   servImg = 'serviceImages';
   apiURL: string;
-  uploadsPath: string;
+  uploadsFilePath: string;
 
   openModal: boolean;
   placeHolder = 'Press enter after each category';
@@ -44,7 +44,7 @@ export class CreateServiceContentComponent implements OnInit {
     public constURL: ConstantsService
   ) {
     this.apiURL = this.constURL.URL;
-    this.uploadsPath = this.modalService.uploadsFilePath;
+    this.uploadsFilePath = this.modalService.uploadsFilePath;
   }
 
   ngOnInit() {
