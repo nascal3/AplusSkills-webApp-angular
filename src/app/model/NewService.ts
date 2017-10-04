@@ -2,9 +2,9 @@ export interface NewService {
   name?: string;
   items?: any[];
   offer?: boolean;
-  price?: string;
+  price?: number;
   description?: string;
-  fImg?: any;
+  fImg?: string;
   relatedCat?: any[];
-  sImgs?: any;
+  sImgs?: any[];
 }

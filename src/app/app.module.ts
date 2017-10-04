@@ -15,6 +15,7 @@ import 'hammerjs';
 import 'mousetrap';
 import { ModalGalleryModule } from 'angular-modal-gallery';
 import { TagInputModule } from 'ngx-chips';
+import { FlashMessagesModule } from 'ngx-flash-messages';
 
 
 // Services
@@ -105,7 +106,8 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     ModalGalleryModule.forRoot(),
     BrowserAnimationsModule,
-    TagInputModule
+    TagInputModule,
+    FlashMessagesModule
   ],
   providers: [
     AddNewServiceService,

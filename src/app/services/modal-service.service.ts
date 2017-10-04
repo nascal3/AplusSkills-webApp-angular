@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ConstantsService } from './constants.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ModalServiceService {
@@ -10,10 +11,15 @@ export class ModalServiceService {
   uploadsFilePath = 'assets/uploads/';
 
   constructor(
-    public constURL: ConstantsService
+    public constURL: ConstantsService,
+    public http: HttpClient
   ) {
     this.apiURL = this.constURL.URL;
     this.uploadURL = this.apiURL + 'fileUpload.php';
+  }
+
+  getImageFiles() {
+    return this.http.get(this.apiURL + 'getFilesFromDirectory.php');
   }
 
   getInputId(input) {

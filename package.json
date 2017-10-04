@@ -32,6 +32,7 @@
     "jquery": "^3.2.1",
     "mousetrap": "^1.6.1",
     "ngx-chips": "^1.5.3",
+    "ngx-flash-messages": "^1.0.4",
     "ngx-owl-carousel": "^1.0.1",
     "ngx-pagination": "^3.0.1",
     "node-sass": "^4.5.3",

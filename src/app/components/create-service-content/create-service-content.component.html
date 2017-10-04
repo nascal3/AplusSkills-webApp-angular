@@ -9,6 +9,7 @@
             <span class="btn-outline pull-right" >Save as Draft</span>
         </div>
     </div>
+    <ngx-flash-messages></ngx-flash-messages>
     <!-- =======add service form section start =========-->
     <div>
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
@@ -16,18 +17,20 @@
                 <div class="col-lg-6">
                     <div class="group">
                       <span class="input-title">Service Title</span>
-                      <input type="text" [(ngModel)]="service.name" name="name" required>
+                      <input type="text" [(ngModel)]="service.name" name="name" #name="ngModel" required="">
                       <span class="highlight"></span>
                       <span class="bar"></span>
+                      <span class="text-danger" *ngIf="name.errors?.required && name.touched">Please fill in the service title!</span>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="group">
                       <span class="input-title">3 Service Categories</span>
-                      <tag-input [(ngModel)]='service.items' [maxItems]='3' [secondaryPlaceholder]='placeHolder' [separatorKeys]="[188]" theme='bootstrap' name="items" ></tag-input>
+                      <tag-input [(ngModel)]='service.items' [maxItems]='3' [secondaryPlaceholder]='placeHolder' [separatorKeys]="[188]" theme='bootstrap' name="items" #items="ngModel" required ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
+                      <span class="text-danger" *ngIf="service.items.length<1 && items.touched">Please insert at least one category!</span>
                     </div>
                 </div>
             </div>
@@ -47,9 +50,11 @@
                 <div class="col-lg-8">
                     <div class="group">
                       <span class="input-title">Service Pricing</span>
-                      <input type="number" [(ngModel)]="service.price" name="price" required>
+                      <input type="number" [(ngModel)]="service.price" name="price" #price="ngModel" required>
                       <span class="highlight"></span>
                       <span class="bar"></span>
+                      <span class="text-danger" *ngIf="price.errors?.required && price.touched">Please insert a valid price!</span>
+                      <span class="text-danger" *ngIf="price.errors?.invalid && price.touched">Numbers only accepted!</span>
                     </div>
                 </div>
             </div>
@@ -66,12 +71,13 @@
                 <div class="col-lg-8">
                     <div class="group">
                       <span class="input-title">Describe service</span>
-                      <textarea rows="3" [(ngModel)]="service.description" name="description" required></textarea>
+                      <textarea rows="3" [(ngModel)]="service.description" name="description" #description="ngModel" required></textarea>
                       <span class="highlight"></span>
                       <span class="bar"></span>
+                      <span class="text-danger" *ngIf="description.errors?.required && description.touched">Please insert a description!</span>
                     </div>
                 </div>
-                <input type="hidden" [(ngModel)]="service.fImg" name="featureImg">
+
             </div>
             <div class="selectedFetImage" *ngIf="selectedImages.length>=1" >
               <div class="okGreen" *ngIf="showFeatureThumb">
@@ -82,13 +88,14 @@
                 <div class="col-lg-12">
                     <div class="group">
                       <span class="input-title">5 Related Service Categories</span>
-                      <tag-input [(ngModel)]='service.relatedCat' [maxItems]='5' [secondaryPlaceholder]='placeHolder2' [separatorKeys]="[188]" theme='bootstrap' name="relatedCat" ></tag-input>
+                      <tag-input [(ngModel)]='service.relatedCat' [maxItems]='5' [secondaryPlaceholder]='placeHolder2' [separatorKeys]="[188]" theme='bootstrap' name="relatedCat" #relatedCat="ngModel" ></tag-input>
                       <span class="highlight"></span>
                       <span class="bar"></span>
+                      <span class="text-danger" *ngIf="service.relatedCat.length<1 && relatedCat.touched">Please insert at least one Category!</span>
                     </div>
                 </div>
             </div>
-            <input type="hidden" [(ngModel)]="service.sImgs" name="servImgs">
+
             <div class="row">
                 <div class="col-lg-12">
                     <span class="input-title">Add up to 5 additional images related to the service</span><br>
@@ -115,11 +122,13 @@
                    <span class="btn-outline pull-left" >Save as Draft</span>
                 </div>
                 <div class="col-lg-6">
-                  <button class="btn-filled pull-right" type="submit" >Publish</button>
+                  <button type="submit" class="btn-filled pull-right">Publish</button>
                 </div>
             </div>
         </form>
     </div>
     <!-- =======add service from section end =========-->
+  <p>&nbsp; &nbsp; &nbsp;</p>
+  <p><ngx-flash-messages></ngx-flash-messages></p>
 </div>
 <!-- =======Main page content middle section end =========-->

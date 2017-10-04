@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConstantsService } from './constants.service';
+import { NewService } from '../model/NewService';
 
 @Injectable()
 export class AddNewServiceService {
 
   apiURL: string;
+  addServiceURL = 'addService.php';
 
   constructor(
     private http: HttpClient,
@@ -14,8 +16,10 @@ export class AddNewServiceService {
     this.apiURL = this.consServ.URL;
   }
 
-  getImageFiles() {
-    return this.http.get(this.apiURL + 'getFilesFromDirectory.php');
+  createNewService(values: NewService) {
+     return this.http.post(this.apiURL + this.addServiceURL, {values});
   }
+
+
 
 }

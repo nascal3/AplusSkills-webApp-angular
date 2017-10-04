@@ -47,10 +47,10 @@ export class UploadModalComponent implements OnInit {
   }
 
   getAllImages() {
-    this.addService.getImageFiles().subscribe(files => {
-      this.Imagefiles = files;
-      this.numOfImages = this.Imagefiles.length;
-      // console.log( this.numOfImages);
+    this.modalService.getImageFiles().subscribe(files => {
+    this.Imagefiles = files;
+    this.numOfImages = this.Imagefiles.length;
+    // console.log( this.numOfImages);
     });
   }
 
