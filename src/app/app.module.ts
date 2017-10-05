@@ -27,6 +27,8 @@ import { CompanyServiceService } from './services/company-service.service';
 import { ProfessionalServiceService } from './services/professional-service.service';
 import { ModalServiceService } from './services/modal-service.service';
 import {InterceptorServiceService} from './services/interceptor-service.service';
+import { AuthGuardService } from './guards/auth.guard';
+import { GetTokenService } from './services/get-token.service';
 
 // Page components
 import { AppComponent } from './app.component';
@@ -59,9 +61,9 @@ import { UploadModalComponent } from './components/upload-modal/upload-modal.com
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
-  {path: 'createservice', component: CreateServicePageComponent},
-  {path: 'professional', component: ViewProfessionalPageComponent},
-  {path: 'company', component: ViewCompanyPageComponent},
+  {path: 'createservice', component: CreateServicePageComponent, canActivate: [AuthGuardService]},
+  {path: 'professional', component: ViewProfessionalPageComponent, canActivate: [AuthGuardService]},
+  {path: 'company', component: ViewCompanyPageComponent, canActivate: [AuthGuardService]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -117,6 +119,8 @@ const appRoutes: Routes = [
     CompanyServiceService,
     ProfessionalServiceService,
     ModalServiceService,
+    AuthGuardService,
+    GetTokenService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorServiceService, multi: true }
   ],
   bootstrap: [AppComponent]
