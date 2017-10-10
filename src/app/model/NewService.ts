@@ -1,6 +1,6 @@
 export interface NewService {
   name?: string;
-  items?: any[];
+  items: any[];
   offer?: boolean;
   price?: number;
   description?: string;

@@ -59,6 +59,7 @@ export class UploadModalComponent implements OnInit {
     this.selectedImages = [];
     this.response = file.serverResponse;
     this.res = this.response._body;
+    this.showSelectTab();
     // console.log(this.response._body);
   }
 

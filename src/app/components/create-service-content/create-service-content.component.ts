@@ -96,16 +96,31 @@ export class CreateServiceContentComponent implements OnInit {
         }else {
           value.fImg = this.featureImg;
           value.sImgs = this.servImgs;
+
+          // =====Format tags arrays removing "value" key start====
+          const arrayItems = [] ;
+          const arrayRelCat = [] ;
+          let i;
+          for (i = 0; i < value.items.length; i++ ) {
+                   arrayItems.push(value.items[i].display);
+          }
+          for (i = 0; i < value.relatedCat.length; i++ ) {
+                   arrayRelCat.push(value.relatedCat[i].display);
+          }
+          // =====Format tags arrays removing "value" key end====
+
+          value.items =  arrayItems;
+          value.relatedCat = arrayRelCat;
           this.addService.createNewService(value).subscribe(res => {
             console.log(res);
           });
           console.log(value);
-          this.flashMessage.show('New service successfully created.', {classes: ['alert', 'alert-success'], timeout: 5000});
+          this.flashMessage.show('New service successfully created.', {classes: ['alert', 'alert-success'], timeout: 4000});
           this.router.navigate(['createservice']);
 
         }
       }else {
-        this.flashMessage.show('ERROR! Please fill form befor submitting it', {classes: ['alert', 'alert-danger'], timeout: 5000});
+        this.flashMessage.show('ERROR! Please fill form befor submitting it', {classes: ['alert', 'alert-danger'], timeout: 4000});
         // console.log(valid);
       }
   }
