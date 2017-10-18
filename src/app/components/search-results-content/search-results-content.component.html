@@ -1,0 +1,54 @@
+<!-- =======Main page content middle section start =========-->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="result-count">
+      <div class="result-num pull-left">323 results</div>
+      <div class="sort-button pull-right" >
+        <span class="btn-outline pull-right" >Sort By <i class="icon-chevron-down" style="font-size: 17px"></i></span>
+      </div>
+    </div>
+  </div>
+  <!--=======Search results start=======-->
+  <div class="row search-results">
+    <div class="col-lg-12 results-area">
+      <div class="com-prod-box col-lg-4" *ngFor="let prod of services | paginate: { id: 'results_id', itemsPerPage: itemsOnPage, currentPage: pageNum} ">
+        <img src="{{prod.backgroundpic}}"/>
+        <div class="com-prod-info">
+            <div class="com-prod-header">{{prod.name}}</div>
+            <span class="rating">
+              <span class="rating">
+                <app-rating-stars-icons [service]=prod></app-rating-stars-icons>
+              </span>
+            </span>
+            <div class="com-prd-desc">
+                {{ (prod.desc.length>trimDescription) ? (prod.desc | slice:0:trimDescription)+'...' : (prod.desc) }}
+            </div>
+            <div class="com-prd-price">
+                {{prod.cost | currency:"KSH":"1"}}
+            </div>
+            <div class="com-prod-stats">
+                <div class="pull-left">{{ (prod.review_num<2) ? (prod.review_num)+' Review' : (prod.review_num)+' Reviews' }}</div>
+                <div class="pull-right">{{prod.date}}</div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--============pagination========== -->
+    <div align="center">
+      <pagination-controls
+                        id="results_id"
+                        (pageChange)="pageChanged($event)"
+                        maxSize="9"
+                        directionLinks="false"
+                        autoHide="true"
+                        previousLabel=""
+                        nextLabel=""
+                        screenReaderPaginationLabel="Pagination"
+                        screenReaderPageLabel="page"
+                        screenReaderCurrentLabel="You're on page">
+      </pagination-controls>
+    </div>
+  </div>
+  <!--=======Search results end=======-->
+</div>
+<!-- =======Main page content middle section end =========-->

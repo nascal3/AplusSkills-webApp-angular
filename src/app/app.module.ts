@@ -17,7 +17,6 @@ import { ModalGalleryModule } from 'angular-modal-gallery';
 import { TagInputModule } from 'ngx-chips';
 import { FlashMessagesModule } from 'ngx-flash-messages';
 
-
 // Services
 import { ConstantsService } from './services/constants.service';
 import { AddNewServiceService } from './services/add-new-service.service';
@@ -26,6 +25,7 @@ import { AdsServiceService } from './services/ads-service.service';
 import { CompanyServiceService } from './services/company-service.service';
 import { ProfessionalServiceService } from './services/professional-service.service';
 import { ModalServiceService } from './services/modal-service.service';
+import { SearchServiceService } from './services/search-service.service';
 import {InterceptorServiceService} from './services/interceptor-service.service';
 import { AuthGuardService } from './guards/auth.guard';
 import { GetTokenService } from './services/get-token.service';
@@ -54,13 +54,13 @@ import { RatingStarsIconsComponent } from './components/rating-stars-icons/ratin
 import { AdsComponent } from './components/ads/ads.component';
 import { RelatedServiceComponent } from './components/related-service/related-service.component';
 import { UploadModalComponent } from './components/upload-modal/upload-modal.component';
-
-
-
-
+import { SearchPageComponent } from './components/search-page/search-page.component';
+import { SearchFilterLeftsidebarComponent } from './components/search-filter-leftsidebar/search-filter-leftsidebar.component';
+import { SearchResultsContentComponent } from './components/search-results-content/search-results-content.component';
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
+  {path: 'search', component: SearchPageComponent},
   {path: 'createservice', component: CreateServicePageComponent, canActivate: [AuthGuardService]},
   {path: 'professional', component: ViewProfessionalPageComponent, canActivate: [AuthGuardService]},
   {path: 'company', component: ViewCompanyPageComponent, canActivate: [AuthGuardService]},
@@ -92,7 +92,10 @@ const appRoutes: Routes = [
     AdsComponent,
     RelatedServiceComponent,
     AdsFewComponent,
-    UploadModalComponent
+    UploadModalComponent,
+    SearchPageComponent,
+    SearchFilterLeftsidebarComponent,
+    SearchResultsContentComponent
   ],
   imports: [
     BrowserModule,
@@ -121,6 +124,7 @@ const appRoutes: Routes = [
     ModalServiceService,
     AuthGuardService,
     GetTokenService,
+    SearchServiceService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorServiceService, multi: true }
   ],
   bootstrap: [AppComponent]
