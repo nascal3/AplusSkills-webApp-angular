@@ -12,6 +12,10 @@ export class SearchFilterLeftsidebarComponent implements OnInit {
   starsCount: number;
   location: string;
   category: string;
+  offer: boolean;
+  morning: string;
+  afternoon: string;
+  evening: string;
 
   priceRangeConfig: any = {
   behaviour: 'drag',

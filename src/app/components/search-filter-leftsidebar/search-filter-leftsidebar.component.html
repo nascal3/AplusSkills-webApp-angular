@@ -75,13 +75,41 @@
     <div class="filter-section">
       <span class="header">Availability</span>
       <br><br>
-      <input class="location-input" type="text" name="category" [(ngModel)]="category" placeholder="E.g  Plumbing">
+      <div class="row">
+        <input type="checkbox" value="morning" [(ngModel)]="morning">
+        <span>
+          <span class="main-time" >Morning</span><br>
+          <span class="subs">8.00 am to 12.00 pm</span>
+        </span>
+      </div>
+      <p>&nbsp;</p>
+
+      <div class="row">
+        <input type="checkbox" value="afternoon" [(ngModel)]="afternoon">
+        <span>
+          <span class="main-time-text"> Afternoon</span><br>
+          <span class="subs">12.00 pm to 4.00 pm</span>
+        </span>
+      </div>
+      <p>&nbsp;</p>
+
+      <div class="row">
+        <input type="checkbox" value="evening" [(ngModel)]="evening">
+        <span>
+          <span class="main-time" >Evening</span><br>
+          <span class="subs">4.00 pm to 7.00 pm</span>
+        </span>
+      </div>
+
     </div>
 
     <div class="filter-section">
       <span class="header">Offers Only</span>
-      <br><br>
-      <input class="location-input" type="text" name="category" [(ngModel)]="category" placeholder="E.g  Plumbing">
+
+      <span style="top: 20px; right: 10px; position: relative;">
+          <input type="checkbox" id="checked" [(ngModel)]="offer" name="offer" class="cbx hidden"/>
+          <label for="checked" class="lbl"></label>
+      </span>
     </div>
 
   </div>
