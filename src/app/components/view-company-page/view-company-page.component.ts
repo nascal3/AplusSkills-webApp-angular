@@ -34,7 +34,7 @@ export class ViewCompanyPageComponent implements OnInit {
     this.comServe.getValues().subscribe(values => {
       this.values = values;
       this.getMapMarker();
-     //  console.log(this.values[1]);
+      // console.log(this.values[1]);
     });
   }
 
@@ -42,13 +42,29 @@ export class ViewCompanyPageComponent implements OnInit {
     for (const v of this.values ) {
       this.lat = parseFloat(v.geo.lat);
       this.lng = parseFloat(v.geo.lng);
+
+      let arra = [];
+      let imagex = {};
+      let key = ['img'];
+      let i=0;v
+      for (i; i<v.compics.length; i++) {
+       imagex['img'] = v.compics[i];
+       arra.push(imagex);
+      }
+
       this.images = v.compics;
-      // console.log(v.compics);
+      console.log(arra);
+      console.log(imagex);
     }
   }
 
+  // Make compics object array
+
+
+
   openImageModal(image: Image) {
     this.imagePointer = this.images.indexOf(image);
+    console.log(this.imagePointer);
     this.openModalWindow = true;
   }
 
