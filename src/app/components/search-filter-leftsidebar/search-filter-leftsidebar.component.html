@@ -1,16 +1,90 @@
 <!-- =======Left sidebar menu start =========-->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <span class="menu-label">Services</span>
-        <ul class="collapse navbar-collapse">
-            <li class="nav-item active"><a class="nav-link" href="/dashboard"><i class="icon-bubbles4"></i>Equipment</a></li>
-            <li class="nav-item"><a class="nav-link" href="/user"><i class="icon-bubbles4"></i>Consumables</a></li>
-            <li class="nav-item"><a class="nav-link" href="/user"><i class="icon-bubbles4"></i>Ambulance</a></li>
-        </ul>
-    <span class="menu-label">Jobs</span>
-         <ul class="collapse navbar-collapse">
-            <li class="nav-item"><a class="nav-link" href="/offers"><i class="icon-bubbles4"></i>Equipment</a></li>
-            <li class="nav-item"><a class="nav-link" href="/user"><i class="icon-bubbles4"></i>Consumables</a></li>
-            <li class="nav-item"><a class="nav-link" href="/user"><i class="icon-bubbles4"></i>Ambulance</a></li>
-         </ul>
+
+  <div class="search-filters" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+
+    <div class="filter-section">
+      <span class="header">FILTERS</span>
+      <span>Reset</span>
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Rating</span>
+      <span class="rate">
+        <rating [(ngModel)]="starsCount"></rating>
+      </span>
+      {{starsCount}}
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Price Range</span>
+      <p>&nbsp;</p>
+      <nouislider [config]="priceRangeConfig" [(ngModel)]="priceRange"></nouislider>
+      <div class="row slider-value-box">
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KES
+          </div>
+          <div class="col-lg-8 range-value">
+            <span>{{priceRange[0] | currency:'usd':true}}</span>
+          </div>
+        </div>
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KES
+          </div>
+          <div class="col-lg-8 range-value">
+            <span>{{priceRange[1] | currency:'usd':true}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Location</span>
+      <br><br>
+      <input class="location-input" type="text" name="location" [(ngModel)]="location" placeholder="E.g  Nairobi">
+      <p>&nbsp;</p>
+      <nouislider [config]="distanceRangeConfig" [(ngModel)]="distanceRange"></nouislider>
+      <div class="row slider-value-box">
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KM
+          </div>
+          <div class="col-lg-8 range-value">
+            {{distanceRange[0]}}
+          </div>
+        </div>
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KM
+          </div>
+          <div class="col-lg-8 range-value">
+           {{distanceRange[1]}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Category</span>
+      <br><br>
+      <input class="location-input" type="text" name="category" [(ngModel)]="category" placeholder="E.g  Plumbing">
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Availability</span>
+      <br><br>
+      <input class="location-input" type="text" name="category" [(ngModel)]="category" placeholder="E.g  Plumbing">
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Offers Only</span>
+      <br><br>
+      <input class="location-input" type="text" name="category" [(ngModel)]="category" placeholder="E.g  Plumbing">
+    </div>
+
+  </div>
+
 </div>
 <!-- =======Left sidebar menu end =========-->

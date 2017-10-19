@@ -16,6 +16,9 @@ import 'mousetrap';
 import { ModalGalleryModule } from 'angular-modal-gallery';
 import { TagInputModule } from 'ngx-chips';
 import { FlashMessagesModule } from 'ngx-flash-messages';
+import { NouisliderModule } from 'ng2-nouislider/src/nouislider';
+import { RatingModule } from 'ng2-rating';
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 // Services
 import { ConstantsService } from './services/constants.service';
@@ -57,6 +60,8 @@ import { UploadModalComponent } from './components/upload-modal/upload-modal.com
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { SearchFilterLeftsidebarComponent } from './components/search-filter-leftsidebar/search-filter-leftsidebar.component';
 import { SearchResultsContentComponent } from './components/search-results-content/search-results-content.component';
+
+
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
@@ -112,7 +117,10 @@ const appRoutes: Routes = [
     ModalGalleryModule.forRoot(),
     BrowserAnimationsModule,
     TagInputModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    NouisliderModule,
+    RatingModule,
+    MalihuScrollbarModule.forRoot()
   ],
   providers: [
     AddNewServiceService,
