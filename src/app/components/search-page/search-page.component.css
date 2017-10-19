@@ -1,0 +1,11 @@
+.user-dashboard > .row > div.dash-content > .dash-widgets {
+    padding: 30px 10px 30px 10px !important;
+}
+
+.user-dashboard > .row > div.left-sticky {
+    position: absolute !important;
+}
+
+.navbar {
+  position: fixed !important;
+}

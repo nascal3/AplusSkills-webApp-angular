@@ -1,0 +1,118 @@
+<!-- =======Left sidebar menu start =========-->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+  <div class="search-filters" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+
+    <div class="filter-section">
+      <span class="header">FILTERS</span>
+      <span>Reset</span>
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Rating</span>
+      <span class="rate">
+        <rating [(ngModel)]="starsCount"></rating>
+      </span>
+      {{starsCount}}
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Price Range</span>
+      <p>&nbsp;</p>
+      <nouislider [config]="priceRangeConfig" [(ngModel)]="priceRange"></nouislider>
+      <div class="row slider-value-box">
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KES
+          </div>
+          <div class="col-lg-8 range-value">
+            <span>{{priceRange[0] | currency:'usd':true}}</span>
+          </div>
+        </div>
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KES
+          </div>
+          <div class="col-lg-8 range-value">
+            <span>{{priceRange[1] | currency:'usd':true}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Location</span>
+      <br><br>
+      <input class="location-input" type="text" name="location" [(ngModel)]="location" placeholder="E.g  Nairobi">
+      <p>&nbsp;</p>
+      <nouislider [config]="distanceRangeConfig" [(ngModel)]="distanceRange"></nouislider>
+      <div class="row slider-value-box">
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KM
+          </div>
+          <div class="col-lg-8 range-value">
+            {{distanceRange[0]}}
+          </div>
+        </div>
+        <div class="slider-value col-lg-6 ">
+          <div class="col-lg-4 range-type">
+            KM
+          </div>
+          <div class="col-lg-8 range-value">
+           {{distanceRange[1]}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Category</span>
+      <br><br>
+      <input class="location-input" type="text" name="category" [(ngModel)]="category" placeholder="E.g  Plumbing">
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Availability</span>
+      <br><br>
+      <div class="row">
+        <input type="checkbox" value="morning" [(ngModel)]="morning">
+        <span>
+          <span class="main-time" >Morning</span><br>
+          <span class="subs">8.00 am to 12.00 pm</span>
+        </span>
+      </div>
+      <p>&nbsp;</p>
+
+      <div class="row">
+        <input type="checkbox" value="afternoon" [(ngModel)]="afternoon">
+        <span>
+          <span class="main-time-text"> Afternoon</span><br>
+          <span class="subs">12.00 pm to 4.00 pm</span>
+        </span>
+      </div>
+      <p>&nbsp;</p>
+
+      <div class="row">
+        <input type="checkbox" value="evening" [(ngModel)]="evening">
+        <span>
+          <span class="main-time" >Evening</span><br>
+          <span class="subs">4.00 pm to 7.00 pm</span>
+        </span>
+      </div>
+
+    </div>
+
+    <div class="filter-section">
+      <span class="header">Offers Only</span>
+
+      <span style="top: 20px; right: 10px; position: relative;">
+          <input type="checkbox" id="checked" [(ngModel)]="offer" name="offer" class="cbx hidden"/>
+          <label for="checked" class="lbl"></label>
+      </span>
+    </div>
+
+  </div>
+
+</div>
+<!-- =======Left sidebar menu end =========-->
