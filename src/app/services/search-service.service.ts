@@ -17,6 +17,12 @@ export class SearchServiceService {
     return this.http.get(this.apiURL + 'searchResultsPage.json');
   }
 
+  getSearchFilterResults() {
+    // return this.http.post(this.apiURL + 'searchFilterResultsPage.json', {
+    //   params
+    // });
+  }
+
 
 
 }
