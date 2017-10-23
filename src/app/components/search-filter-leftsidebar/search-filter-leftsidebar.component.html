@@ -11,22 +11,21 @@
     <div class="filter-section">
       <span class="header">Rating</span>
       <span class="rate">
-        <rating [(ngModel)]="starsCount"></rating>
+        <rating [(ngModel)]="filter.starsCount" (ngModelChange)="runFilter($event)"></rating>
       </span>
-      {{starsCount}}
     </div>
 
     <div class="filter-section">
       <span class="header">Price Range</span>
       <p>&nbsp;</p>
-      <nouislider [config]="priceRangeConfig" [(ngModel)]="priceRange"></nouislider>
+      <nouislider [config]="priceRangeConfig" [(ngModel)]="filter.priceRange" (ngModelChange)="runFilter($event)"></nouislider>
       <div class="row slider-value-box">
         <div class="slider-value col-lg-6 ">
           <div class="col-lg-4 range-type">
             KES
           </div>
           <div class="col-lg-8 range-value">
-            <span>{{priceRange[0] | currency:'usd':true}}</span>
+            <span>{{filter.priceRange[0] | currency:'usd':true}}</span>
           </div>
         </div>
         <div class="slider-value col-lg-6 ">
@@ -34,7 +33,7 @@
             KES
           </div>
           <div class="col-lg-8 range-value">
-            <span>{{priceRange[1] | currency:'usd':true}}</span>
+            <span>{{filter.priceRange[1] | currency:'usd':true}}</span>
           </div>
         </div>
       </div>
@@ -43,16 +42,16 @@
     <div class="filter-section">
       <span class="header">Location</span>
       <br><br>
-      <input class="location-input" type="text" name="location" [(ngModel)]="location" placeholder="E.g  Nairobi">
+      <input class="location-input" type="text" name="location" [(ngModel)]="filter.location" (ngModelChange)="runFilter($event)" placeholder="E.g  Nairobi">
       <p>&nbsp;</p>
-      <nouislider [config]="distanceRangeConfig" [(ngModel)]="distanceRange"></nouislider>
+      <nouislider [config]="distanceRangeConfig" [(ngModel)]="filter.distanceRange"></nouislider>
       <div class="row slider-value-box">
         <div class="slider-value col-lg-6 ">
           <div class="col-lg-4 range-type">
             KM
           </div>
           <div class="col-lg-8 range-value">
-            {{distanceRange[0]}}
+            {{filter.distanceRange[0]}}
           </div>
         </div>
         <div class="slider-value col-lg-6 ">
@@ -60,7 +59,7 @@
             KM
           </div>
           <div class="col-lg-8 range-value">
-           {{distanceRange[1]}}
+           {{filter.distanceRange[1]}}
           </div>
         </div>
       </div>
@@ -69,14 +68,14 @@
     <div class="filter-section">
       <span class="header">Category</span>
       <br><br>
-      <input class="location-input" type="text" name="category" [(ngModel)]="category" placeholder="E.g  Plumbing">
+      <input class="location-input" type="text" name="category" [(ngModel)]="filter.category" (ngModelChange)="runFilter($event)" placeholder="E.g  Plumbing">
     </div>
 
     <div class="filter-section">
       <span class="header">Availability</span>
       <br><br>
       <div class="row">
-        <input type="checkbox" value="morning" [(ngModel)]="morning">
+        <input type="checkbox" value="morning" [(ngModel)]="filter.morning" (ngModelChange)="runFilter($event)">
         <span>
           <span class="main-time" >Morning</span><br>
           <span class="subs">8.00 am to 12.00 pm</span>
@@ -85,7 +84,7 @@
       <p>&nbsp;</p>
 
       <div class="row">
-        <input type="checkbox" value="afternoon" [(ngModel)]="afternoon">
+        <input type="checkbox" value="afternoon" [(ngModel)]="filter.afternoon" (ngModelChange)="runFilter($event)">
         <span>
           <span class="main-time-text"> Afternoon</span><br>
           <span class="subs">12.00 pm to 4.00 pm</span>
@@ -94,7 +93,7 @@
       <p>&nbsp;</p>
 
       <div class="row">
-        <input type="checkbox" value="evening" [(ngModel)]="evening">
+        <input type="checkbox" value="evening" [(ngModel)]="filter.evening" (ngModelChange)="runFilter($event)">
         <span>
           <span class="main-time" >Evening</span><br>
           <span class="subs">4.00 pm to 7.00 pm</span>
@@ -107,7 +106,7 @@
       <span class="header">Offers Only</span>
 
       <span style="top: 20px; right: 10px; position: relative;">
-          <input type="checkbox" id="checked" [(ngModel)]="offer" name="offer" class="cbx hidden"/>
+          <input type="checkbox" id="checked" [(ngModel)]="filter.offer" name="offer" (ngModelChange)="runFilter($event)" class="cbx hidden"/>
           <label for="checked" class="lbl"></label>
       </span>
     </div>
