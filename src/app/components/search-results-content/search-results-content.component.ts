@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchServiceService } from '../../services/search-service.service';
-import { NouisliderComponent } from 'ng2-nouislider';
 import { Observer} from 'rxjs/Observer';
 
 @Component({

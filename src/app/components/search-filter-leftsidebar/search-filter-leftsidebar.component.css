@@ -6,7 +6,7 @@
   width: 264px;
   height: 450px;
   left: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   /*border: 1px solid;*/
 }
 
@@ -76,7 +76,7 @@ span.rating {
 
 .range-value span {
   position: relative;
-  left: -5px;
+  left: -6px;
 }
 
 .location-input {

@@ -51,14 +51,15 @@ export class SearchFilterLeftsidebarComponent implements OnInit {
   }
 
   runFilter(event) {
-    // console.log(event);
-    console.log(this.filter);
+    // console.log(this.filter);
+    this.implementFilter();
   }
 
   implementFilter() {
-     // this.searchSrv.getSearchFilterResults().subscribe(res => {
-     //    this.filterResults.emit(res);
-     // });
+     this.searchSrv.getSearchFilterResults(this.filter).subscribe(res => {
+        console.log(res);
+        this.filterResults.emit(res);
+     });
   }
 
 
