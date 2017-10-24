@@ -18,7 +18,9 @@
     <div class="filter-section">
       <span class="header">Price Range</span>
       <p>&nbsp;</p>
-      <nouislider [config]="priceRangeConfig" [(ngModel)]="filter.priceRange" (ngModelChange)="runFilter($event)"></nouislider>
+      <div class="nouislider-box">
+        <nouislider [config]="priceRangeConfig" [(ngModel)]="filter.priceRange" (ngModelChange)="runFilter($event)"></nouislider>
+      </div>
       <div class="row slider-value-box">
         <div class="slider-value col-lg-6 ">
           <div class="col-lg-4 range-type">
@@ -42,9 +44,9 @@
     <div class="filter-section">
       <span class="header">Location</span>
       <br><br>
-      <input class="location-input" type="text" name="location" [(ngModel)]="filter.location" (ngModelChange)="runFilter($event)" placeholder="E.g  Nairobi">
-      <p>&nbsp;</p>
-      <nouislider [config]="distanceRangeConfig" [(ngModel)]="filter.distanceRange"></nouislider>
+      <div class="nouislider-box">
+        <nouislider [config]="distanceRangeConfig" [(ngModel)]="filter.distanceRange"></nouislider>
+      </div>
       <div class="row slider-value-box">
         <div class="slider-value col-lg-6 ">
           <div class="col-lg-4 range-type">

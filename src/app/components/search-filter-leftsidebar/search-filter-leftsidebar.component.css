@@ -1,12 +1,12 @@
 .search-filters {
   position: absolute;
   top: 65px;
-  padding: 45px 25px 0px 30px;
+  padding: 45px 15px 0px 20px;
   overflow-y: auto;
   width: 264px;
   height: 450px;
   left: 0px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   /*border: 1px solid;*/
 }
 
@@ -45,6 +45,11 @@ span.rating {
 .rate {
   position: relative;
   bottom: 10px;
+}
+
+.nouislider-box {
+  position: relative;
+  left: 19px;
 }
 
 .slider-value-box {

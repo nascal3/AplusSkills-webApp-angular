@@ -12,10 +12,9 @@ export class SearchFilterLeftsidebarComponent implements OnInit {
   @Output() filterResults = new EventEmitter();
 
   filter: FilterInterface = {
-    priceRange : [20000, 80000],
-    distanceRange: [10, 40],
+    priceRange : [0, 80000],
+    distanceRange: [0, 40],
     starsCount: 0,
-    location: '',
     category: '',
     offer: false,
     morning: '',
