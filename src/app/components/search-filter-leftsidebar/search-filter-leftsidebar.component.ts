@@ -56,8 +56,8 @@ export class SearchFilterLeftsidebarComponent implements OnInit {
 
   implementFilter() {
      this.searchSrv.getSearchFilterResults(this.filter).subscribe(res => {
-        console.log(res);
         this.filterResults.emit(res);
+        // console.log(res);
      });
   }
 

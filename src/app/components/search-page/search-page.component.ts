@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
+  filterResults: any;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getFilterResults(event) {
+      this.filterResults = event;
+      // console.log(event);
   }
 
 }

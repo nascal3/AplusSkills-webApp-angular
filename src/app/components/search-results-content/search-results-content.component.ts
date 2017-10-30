@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { SearchServiceService } from '../../services/search-service.service';
 import { Observer} from 'rxjs/Observer';
+import {isUndefined} from "util";
 
 @Component({
   selector: 'app-search-results-content',
   templateUrl: './search-results-content.component.html',
   styleUrls: ['./search-results-content.component.css']
 })
-export class SearchResultsContentComponent implements OnInit {
+export class SearchResultsContentComponent implements OnInit, OnChanges {
+  @Input('filterResults') filterResults;
 
   pageNum = 1;
   itemsOnPage =  12;
@@ -18,17 +20,24 @@ export class SearchResultsContentComponent implements OnInit {
   constructor(
     private searchServ: SearchServiceService
   ) {
-    this.getSearchResutlts();
+     this.getSearchResutlts();
   }
 
   ngOnInit() {
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.services = changes.filterResults.currentValue;
+    // this.numOfServices = this.services.length;
+    console.log(changes.filterResults.currentValue);
   }
 
   getSearchResutlts() {
      this.searchServ.getSearchResults().subscribe( res => {
      this.services = res;
      this.numOfServices = this.services.length;
-     // console.log(res);
+     console.log(res);
     });
   }
 

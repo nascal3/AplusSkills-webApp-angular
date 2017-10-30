@@ -17,7 +17,7 @@
                             <!-- =======Logo Aplus end =========-->
 
                             <!-- =======Left sidebar menu start =========-->
-                            <app-search-filter-leftsidebar></app-search-filter-leftsidebar>
+                            <app-search-filter-leftsidebar (filterResults)="getFilterResults($event)"></app-search-filter-leftsidebar>
                             <!-- =======Left sidebar menu end =========-->
 
                         </div><!-- /.container-fluid -->
@@ -35,7 +35,7 @@
                 <div class="dash-widgets">
                     <div class="row">
                         <!-- =======Main page content middle section start =========-->
-                        <app-search-results-content></app-search-results-content>
+                        <app-search-results-content [filterResults] = filterResults ></app-search-results-content>
                         <!-- =======Main page content middle section end =========-->
                     </div>
                 </div>
