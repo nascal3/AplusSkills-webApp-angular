@@ -68,7 +68,7 @@ const appRoutes: Routes = [
   {path: 'search', component: SearchPageComponent},
   {path: 'createservice', component: CreateServicePageComponent, canActivate: [AuthGuardService]},
   {path: 'professional', component: ViewProfessionalPageComponent, canActivate: [AuthGuardService]},
-  {path: 'company', component: ViewCompanyPageComponent, canActivate: [AuthGuardService]},
+  {path: 'company/:id', component: ViewCompanyPageComponent, canActivate: [AuthGuardService]},
   {path: '**', component: PageNotFoundComponent}
 ];
 

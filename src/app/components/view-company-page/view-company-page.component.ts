@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Params, Route, ActivatedRoute } from '@angular/router';
 import { CompanyServiceService } from '../../services/company-service.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import { Observable } from 'rxjs/Observable';
@@ -14,6 +15,7 @@ export class ViewCompanyPageComponent implements OnInit {
 
   openModalWindow = false;
   imagePointer = 0;
+  id: number;
   lat: number;
   lng: number;
   values;
@@ -22,12 +24,16 @@ export class ViewCompanyPageComponent implements OnInit {
 
 
   constructor(
+    public route: ActivatedRoute,
     public comServe: CompanyServiceService
   ) {
-    this.getCompany();
+
   }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
+    this.getCompany();
   }
 
   getCompany() {

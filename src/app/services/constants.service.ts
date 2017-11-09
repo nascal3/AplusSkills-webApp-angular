@@ -4,7 +4,5 @@ import { Injectable } from '@angular/core';
 export class ConstantsService {
   // URL = 'http://upload.aplusskill.com/';
   URL = 'http://upload.dev/';
-  constructor() {  }
-
 
 }
