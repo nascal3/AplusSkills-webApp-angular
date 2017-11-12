@@ -1,7 +1,9 @@
 <!-- =======Search input nav bar start =========-->
+<form (keydown)="keyDownFunction($event)">
    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon3">Services</span>
-      <input type="text" class="form-control normal-border-radius remove-right-border" id="basic-url" placeholder="Plumber in Nairobi">
+      <span class="input-group-addon">Services</span>
+      <input type="text" [(ngModel)]="searchTerm" name="searchPhrase" class="form-control normal-border-radius remove-right-border" placeholder="Plumber in Nairobi">
       <i class="icon-search input-group-addon"></i>
    </div>
+</form>
 <!-- =======Search input nav bar end =========-->

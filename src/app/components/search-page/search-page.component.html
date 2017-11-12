@@ -28,14 +28,14 @@
 
             <div class="dash-content">
                 <!-- =======Top fixed nav bar start =========-->
-                <app-navbar-no-bg></app-navbar-no-bg>
+                <app-navbar-no-bg (searchText)="getSearchTerm($event)" ></app-navbar-no-bg>
                 <!-- =======Top fixed nav bar end =========-->
 
                 <!-- =======Main page content all sections (middle & right sidebar) start =========-->
                 <div class="dash-widgets">
                     <div class="row">
                         <!-- =======Main page content middle section start =========-->
-                        <app-search-results-content [filterResults] = filterResults ></app-search-results-content>
+                        <app-search-results-content [searchTerm]="searchTerm"  [filterResults] = "filterResults" ></app-search-results-content>
                         <!-- =======Main page content middle section end =========-->
                     </div>
                 </div>

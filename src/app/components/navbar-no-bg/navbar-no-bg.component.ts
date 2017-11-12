@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-navbar-no-bg',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-no-bg.component.css']
 })
 export class NavbarNoBgComponent implements OnInit {
+  @Output() searchText = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) {
+  }
 
   ngOnInit() {
+  }
+
+  // Get phrase from search input field
+  searchPhrase(phrase) {
+     // Send search term to search page
+    this.searchText.emit(phrase);
+    this.router.navigate(['search']);
+
   }
 
 }

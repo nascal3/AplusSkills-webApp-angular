@@ -2,7 +2,7 @@
   <!-- =======Search input nav bar start =========-->
   <div class="col-lg-8">
      <div class="col-lg-12">
-      <app-navbar-search></app-navbar-search>
+      <app-navbar-search (searchPhrase)="searchPhrase($event)"></app-navbar-search>
      </div>
   </div>
   <!-- =======Search input nav bar end =========-->

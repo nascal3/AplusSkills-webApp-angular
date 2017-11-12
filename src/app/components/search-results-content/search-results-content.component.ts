@@ -1,7 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { SearchServiceService } from '../../services/search-service.service';
-import { Observer} from 'rxjs/Observer';
-import {isUndefined} from "util";
 
 @Component({
   selector: 'app-search-results-content',
@@ -10,6 +8,7 @@ import {isUndefined} from "util";
 })
 export class SearchResultsContentComponent implements OnInit, OnChanges {
   @Input('filterResults') filterResults;
+  @Input('searchTerm') searchTerm: string;
 
   pageNum = 1;
   itemsOnPage =  12;
@@ -18,9 +17,9 @@ export class SearchResultsContentComponent implements OnInit, OnChanges {
   numOfServices: number;
 
   constructor(
-    private searchServ: SearchServiceService
+    private searchSrv: SearchServiceService
   ) {
-     this.getSearchResutlts();
+
   }
 
   ngOnInit() {
@@ -28,17 +27,20 @@ export class SearchResultsContentComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.services = changes.filterResults.currentValue;
-    // this.numOfServices = this.services.length;
-    console.log(changes.filterResults.currentValue);
+    if (changes.filterResults) {
+      this.services = changes.filterResults.currentValue;
+    } else if (changes.searchTerm) {
+      this.getSearchResults();
+    }
   }
 
-  getSearchResutlts() {
-     this.searchServ.getSearchResults().subscribe( res => {
-     this.services = res;
-     this.numOfServices = this.services.length;
-     console.log(res);
+  getSearchResults() {
+    this.searchSrv.getSearchResults(this.searchTerm).subscribe( res => {
+      this.services = res;
+      this.numOfServices = this.services.length;
+      console.log(res);
     });
+
   }
 
   pageChanged(event) {
