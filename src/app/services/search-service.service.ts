@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 @Injectable()
 export class SearchServiceService {
 
-  searchResults: any;
+  searchPhrase: string;
   apiURL: string;
 
   constructor(
@@ -21,9 +21,8 @@ export class SearchServiceService {
     return this.http.post(this.apiURL + 'searchResultsPage.json', {searchTerm});
   }
 
-  setSearchResults(results) {
-    this.searchResults = results;
-    this.router.navigate([`search/${results}`]);
+  setSearchPhrase(results) {
+    this.searchPhrase = results;
   }
 
   getSearchFilterResults(filter) {

@@ -14,20 +14,19 @@ export class SearchPageComponent implements OnInit {
   constructor(
     private searchSrv: SearchServiceService
   ) {
-
+    this.getSearchTerm();
   }
 
   ngOnInit() {
+
   }
 
   getFilterResults(event) {
       this.filterResults = event;
   }
 
-  getSearchTerm(term) {
-      this.searchTerm = term;
-      term === null ? console.log('nothing') :
-      console.log(this.searchTerm);
+  getSearchTerm() {
+      this.searchTerm = this.searchSrv.searchPhrase;
   }
 
 }

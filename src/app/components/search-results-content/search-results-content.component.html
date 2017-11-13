@@ -3,6 +3,10 @@
   <div class="col-lg-12">
     <div class="result-count">
       <div class="result-num pull-left">{{(numOfServices>1) ? (numOfServices)+' results' : (numOfServices)+' result'}}</div>
+      <div class="search-term">
+        Search term:
+        <span class="italic">"{{searchTerm}}"</span>
+      </div>
       <div class="sort-button pull-right" >
         <span class="btn-outline pull-right" >Sort By <i class="icon-chevron-down" style="font-size: 17px"></i></span>
       </div>
@@ -10,7 +14,7 @@
   </div>
   <!--=======Search results start=======-->
   <div class="row search-results">
-    <div class="col-lg-12 results-area">
+    <div class="col-lg-12 results-area" *ngIf="numOfServices > 1; else noResults">
       <div class="com-prod-box col-lg-4" *ngFor="let prod of services | paginate: { id: 'results_id', itemsPerPage: itemsOnPage, currentPage: pageNum} ">
         <img src="{{prod.backgroundpic}}"/>
         <div class="com-prod-info">
@@ -33,6 +37,11 @@
         </div>
       </div>
     </div>
+    <ng-template #noResults>
+      <div align="center">
+        <h2>Oops! No results found.</h2>
+      </div>
+    </ng-template>
     <!--============pagination========== -->
     <div align="center">
       <pagination-controls

@@ -1,5 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { SearchServiceService } from "../../services/search-service.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -12,7 +11,6 @@ export class NavbarSearchComponent implements OnInit {
   searchTerm: string;
 
   constructor(
-    public searchSrv: SearchServiceService,
     public router: Router
   ) { }
 
@@ -22,7 +20,9 @@ export class NavbarSearchComponent implements OnInit {
   keyDownFunction(event) {
     if(event.keyCode === 13) {
       // sent search term to nav bar on enter key press
-      this.searchPhrase.emit(this.searchTerm);
+      if (this.searchTerm) {
+        this.searchPhrase.emit(this.searchTerm);
+      }
     }
   }
 
