@@ -17,7 +17,7 @@ import { ModalGalleryModule } from 'angular-modal-gallery';
 import { TagInputModule } from 'ngx-chips';
 import { FlashMessagesModule } from 'ngx-flash-messages';
 import { NouisliderModule } from 'ng2-nouislider/src/nouislider';
-import { RatingModule } from 'ng2-rating';
+import {RatingModule} from 'ngx-rating';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 // Services
@@ -60,12 +60,16 @@ import { UploadModalComponent } from './components/upload-modal/upload-modal.com
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { SearchFilterLeftsidebarComponent } from './components/search-filter-leftsidebar/search-filter-leftsidebar.component';
 import { SearchResultsContentComponent } from './components/search-results-content/search-results-content.component';
+import { SingleServicePageComponent } from './components/single-service-page/single-service-page.component';
+import { NavbarNoBgFixedComponent } from './components/navbar-no-bg-fixed/navbar-no-bg-fixed.component';
+import { FooterSecondComponent } from './components/footer-second/footer-second.component';
 
 
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
   {path: 'search', component: SearchPageComponent},
+  {path: 'service/:id', component: SingleServicePageComponent},
   {path: 'createservice', component: CreateServicePageComponent, canActivate: [AuthGuardService]},
   {path: 'professional', component: ViewProfessionalPageComponent, canActivate: [AuthGuardService]},
   {path: 'company/:id', component: ViewCompanyPageComponent, canActivate: [AuthGuardService]},
@@ -100,7 +104,10 @@ const appRoutes: Routes = [
     UploadModalComponent,
     SearchPageComponent,
     SearchFilterLeftsidebarComponent,
-    SearchResultsContentComponent
+    SearchResultsContentComponent,
+    SingleServicePageComponent,
+    NavbarNoBgFixedComponent,
+    FooterSecondComponent
   ],
   imports: [
     BrowserModule,

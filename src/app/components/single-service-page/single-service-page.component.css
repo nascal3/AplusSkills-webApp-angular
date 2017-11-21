@@ -1,0 +1,86 @@
+.container {
+  position: relative;
+  top: 87px;
+  margin-top: 60px;
+  width: 100%;
+  height: auto;
+  padding: 0px 70px 0px 70px;
+}
+
+.service-box {
+  background: #ffffff;
+  height: 530px;
+  overflow: hidden;
+}
+
+.service-image {
+  height: 350px;
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+}
+
+.service-info {
+  margin: 30px 35px;
+}
+
+.service-heading {
+  font-size: 23px;
+  font-weight: bolder;
+  color: #bfb7b1;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.views-count {
+  color: #898989;
+    border-bottom: solid 2px #319dea;
+  width: auto;
+  font-size: 20px;
+  float: right;
+}
+
+.bottom-border {
+   border-bottom: solid 1px #dddddd;
+}
+
+.right-border {
+   border-right: solid 1px #dddddd;
+}
+
+.smaller1 {
+  font-size: 16px;
+}
+
+.smaller2 {
+  font-size: 13px;
+}
+
+.smaller3 {
+  font-size: 20px;
+}
+
+img.img-circle {
+  width: 50px;
+}
+
+.name-loc {
+  position: relative;
+  right: 140px;
+}
+
+.no-left-padding {
+  padding-left: 0;
+}
+
+.no-right-padding {
+  padding-right: 0;
+}

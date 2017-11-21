@@ -1,3 +1,6 @@
 .footer-link {
   cursor: pointer;
 }
+.footer-logo img {
+      width: 50% !important;
+}
