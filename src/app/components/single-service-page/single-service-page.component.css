@@ -9,8 +9,9 @@
 
 .service-box {
   background: #ffffff;
-  height: 530px;
+  height: auto;
   overflow: hidden;
+  margin-bottom: 70px;
 }
 
 .service-image {
@@ -42,7 +43,7 @@
 
 .views-count {
   color: #898989;
-    border-bottom: solid 2px #319dea;
+  border-bottom: solid 2px #319dea;
   width: auto;
   font-size: 20px;
   float: right;
@@ -83,4 +84,32 @@ img.img-circle {
 
 .no-right-padding {
   padding-right: 0;
+}
+
+.tab {
+  cursor: pointer;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #bfb7b1;
+}
+
+.tab:hover {
+  color: #319dea;
+  border-bottom: solid 1px #319dea;
+}
+
+.tab-content {
+  color: #bfb7b1;
+  font-size: 19px;
+  font-weight: 600;
+  padding: 60px;
+  height: 227px;
+  overflow: hidden;
+}
+
+.activeTab {
+  color: #319dea;
+  border-bottom: solid 1px #319dea;
 }

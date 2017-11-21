@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleServicePageComponent implements OnInit {
 
+  offer = false;
+  review = true;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  showOffer() {
+    this.review === false ? this.offer = false : this.review = true;
+    this.review = true;
+  }
+
+   showReviews() {
+      this.review = false;
+      this.offer === false ? this.offer = true : this.review = false;
+  }
 }
