@@ -1152,9 +1152,6 @@ h1.page-heading small{
 	color: #ACB5BE;
 }
 
-
-
-
 /*==========================================
   Header
 ===========================================*/
@@ -1186,51 +1183,12 @@ header .navbar span.menu-label{
     font-size: 16px;
     margin: 20px 0 10px;
 }
-
-
 .container-fluid{ position: relative; }
-/*.navbar-nav>li.nav-btn>a {
-    line-height: 15px;
-    padding: 0px;
-    display: block;
-    margin-top: 7px;
-    height: auto;
-}*/
-
-
-/*.navbar-nav>li.nav-btn>a span {
-    padding: 8px;
-    min-width: 106px;
-    display: inline-block;
-    border-radius: 30px;
-    text-align: center;
-    background: transparent;
-    color: #3d4b61;
-    border: 2px solid #3d4b61;
-    transition: all 0.2s
-}
-
-.navbar-nav>li.nav-btn.active>a span,
-.navbar-nav>li.nav-btn>a:hover span,
-.navbar-nav>li.nav-btn>a:focus span {
-	background: #3d4b61;
-	color: #fff;
-}*/
-
-
-
-
 
 
 /*==========================================
   Footer
 ===========================================*/
-
-/*footer {
-    overflow: hidden;
-    position: relative;
-    background: #3d4b61;
-}*/
 
 footer .container, footer > .container > .row [class*="col-"]{ padding: 0; }
 footer.dash-view .container {
@@ -1240,18 +1198,31 @@ footer.dash-view .container {
 
 footer{
 	padding: 20px 0px;
-	border-top: 1px solid #eceae9;
-	position: fixed;
-	bottom:0; width: 100%;
-	background: #f8f4f1;
-    /*background: #3d4b61;*/
-    /*padding: 40px 0 0px;*/
-    /*border-top:10px solid #bbb;*/
+	/*border-top: 1px solid #eceae9;*/
+	position: absolute;
+	bottom:0;
+  width: 82%;
+  left: 20%;
+	background: transparent;
 }
 
 footer .credits{
 	color:#7a7979;
 	font-weight: 600;
+}
+
+footer .menu {
+  color:#319dea;
+	font-weight: 900;
+  font-size: 17px;
+  line-height: 2;
+}
+
+footer hr {
+  border-top: 1px solid #319dea;
+  width: 90%;
+  left: 45px;
+  position: relative;
 }
 
 footer .credits [class*="col-"]:last-child,
@@ -1260,137 +1231,12 @@ footer .credits a{
 	color:#7a7979;
 	font-weight: 600;
 }
+
 footer .credits a:first-child{
 	border-right: 1px solid #ccc;
 	padding-right:20px;
 	margin-right: 20px;
 }
-
-/*footer .widget {
-    margin-bottom: 15px;
-    position: relative;
-    z-index: 1;
-}
-
-footer .nav>li>a{
-    padding: 0;
-    line-height: 26px;
-    color: #b0b2b5;
-    transition: all 0.2s;
-    font-size: 14px;
-}
-
-footer .nav>li>a.sub-menu-link{
-    font-size: 16px;
-    padding-bottom: 4px;
-}
-
-footer .widget p{
-    line-height: 23px;
-    color:#b0b2b5;
-}
-
-footer .widget .widget-title{
-    text-transform: uppercase;
-    font-size: 16px;
-    color:#fff;
-    margin-top: 0;
-    font-weight: 600;
-}
-
-footer .social{ text-align: right; }
-footer .social > a{
-    color: #fff;
-    display: inline-block;
-    border-radius: 50%;
-    font-size: 22px;
-    margin-right: 10px;
-    transition: all 0.2s;
-    border: 1px solid;
-}
-
-footer .social > a:hover, footer .social > a:focus{
-    opacity: 0.9;
-    background-color: #fff;
-    border-color:#fff;
-    color: #3d4b61;
-}
-
-footer .social > a:last-child{ margin-right: 0;}
-
-footer .social > a > i{
-    width: 35px;
-    height: 33px;
-    line-height: 35px;
-    text-align: center;
-    font-size: 14px;
-}
-
-footer .widget .widget-title.social-title{
-    font-size: 35px;
-}
-
-footer .nav>li:last-child>a{
-    padding: 0px 0 0px;
-}
-
-footer .nav>li>a:hover, footer .nav>li>a:focus{
-    background: transparent;
-    color: #fff;
-}
-
-.copyright {
-    padding: 15px 0;
-    color: #fff;
-    font-size: 14px;
-    margin-top: 15px;
-    transition:all 0.2s;
-}
-
-.copyright > .row [class*="col-"]{ padding: 0; }
-
-footer.light .copyright {
-    color: #888;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-footer:not(.light) .copyright{ border-top: 1px solid rgba(255,255,255,.1); }
-
-.copyright > div > div > a{
-    color: #ccc;
-    display: inline-block;
-    transition:all 0.2s;
-}
-
-footer.light .copyright > div > div > a{ color: #888; }
-
-.copyright > div > div > a:first-child{ margin-right: 5px;}
-
-.copyright > div > div > a:first-child:after{
-    content: "|";
-    width: 5px;
-    height: 5px;
-    display: inline-block;
-    margin: 0 4px 0 7px;
-    top: -2px;
-    border-radius: 50%;
-}
-
-.copyright > div > div:last-child{
-    text-align: right;
-}
-
-.copyright > div > div > a:hover, .copyright > div > div > a:focus{
-    color:#fff;
-    text-decoration: none;
-}*/
-
-
-
-
-
-
 
 /**
 +++++++++++++++++++++++++++++++++++++++++++

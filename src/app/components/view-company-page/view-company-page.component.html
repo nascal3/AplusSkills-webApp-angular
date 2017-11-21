@@ -6,252 +6,258 @@
             <!-- =======Top fixed nav bar end =========-->
 
             <!-- =======Main page content all sections (upper & lower section) start =========-->
-            <!-- =======Upper section start =========-->
-            <div class="row ">
-                <div class="upper-info">
-                    <!-- =======left section =========-->
-                    <div class="prof-profile-pic col-lg-4">
-                        <div class="prof-name com-heading">{{comp.name}}</div>
-                        <div class="prof-stats com-subheading">{{comp.friends}} - Friends, {{comp.reviews.length}} - Reviews</div>
-                        <span class="rating">
-                          <app-rating-stars-icons [service]=comp></app-rating-stars-icons>
-                        </span>
-                        <div class="map-box">
-                           <agm-map [latitude]="lat" [longitude]="lng">
-                              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                            </agm-map>
-                        </div>
-                    </div>
-                    <!-- =======right section =========-->
-                    <div class="col-lg-8 prof-personal-info">
-                        <div class="row">
-                            <div class="prof-location com-subheading pull-right">Nairobi, Kenya</div>
-                        </div>
-                        <div class="row" style="margin-bottom: 56px;">
-                            <div class="btn-round-white pull-right no-background com-top-share-btn" ><i class="icon-share3 prof-icon-mid-size "></i>Share</div>
-                            <div class="btn-filled-white pull-right" >Write a review</div>
-                        </div>
-                        <div class="row">
-                            <div class="com-pics">
-                                <div class="com-pic1" *ngFor="let profpic of comp.compics; let i = index" >
-                                  <span *ngIf="comp.compics.length>0">
-                                     <img *ngIf="i == 1" src="{{profpic.img}}" />
-                                     <div class="com-num-pics" (click)="openImageModal(profpic)">
-                                       <section *ngIf="comp.compics.length>3">
-                                          <span>+{{comp.compics.length - 3}}</span><br>Photos
-                                       </section>
-                                     </div>
-                                  </span>
-                                </div>
-                                <div class="com-pic2" *ngFor="let profpic of comp.compics; let i = index">
-                                  <span *ngIf="comp.compics.length>0">
-                                    <img *ngIf="i == 0" src="{{profpic.img}}" />
-                                  </span>
-                                </div>
-                                <div class="com-pic3" *ngFor="let profpic of comp.compics; let i = index">
-                                  <span *ngIf="comp.compics.length>0">
-                                    <img *ngIf="i == 2" src="{{profpic.img}}" />
-                                  </span>
-                                </div>
-                                 <br style="clear: left;" />
-                                <div *ngIf="openModalWindow">
-                                  <modal-gallery [modalImages]="images"
-                                                 [imagePointer]="imagePointer"
-                                                 (close)="onCloseImageModal($event)"
-                                                 [enableCloseOutside]="true">
-                                  </modal-gallery>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- =======Upper section end =========-->
-            <!-- =======Lower section start =========-->
-            <div class="row ">
-                    <div class="lower-info com-lower-sec">
-                        <!-- =======left section =========-->
-                        <div class="col-lg-9" style=" border-right: solid 1px #F3EFEC;">
-                            <!-- =======left upper section =========-->
-                            <div class="prof-mid-column com-mid-column">
-                                <div class="row">
-                                    <div class="com-prod-area">
-                                        <owl-carousel
-                                           [options]="{items: 2, dots: true, navigation: true}"
-                                           [items]="comp.services"
-                                           [carouselClasses]="['owl-theme', 'row', 'sliding']">
-                                            <div class="com-prod-box col-lg-6" *ngFor="let prod of comp.services">
-                                                <img src="{{prod.backgroundpic}}"/>
-                                                <div class="com-prod-info">
-                                                    <div class="com-prod-header">{{prod.name}}</div>
-                                                    <span class="rating">
-                                                      <span class="rating">
-                                                        <app-rating-stars-icons [service]=prod></app-rating-stars-icons>
-                                                      </span>
-                                                    </span>
-                                                    <div class="com-prd-desc">
-                                                        {{ (prod.desc.length>166) ? (prod.desc | slice:0:166)+'...' : (prod.desc) }}
-                                                    </div>
-                                                    <div class="com-prd-price">
-                                                        {{prod.cost | currency:"KSH":"1"}}
-                                                    </div>
-                                                    <div class="com-prod-stats">
-                                                        <div class="pull-left">{{ (prod.review_num<2) ? (prod.review_num)+' Review' : (prod.review_num)+' Reviews' }}</div>
-                                                        <div class="pull-right">{{prod.date}}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </owl-carousel>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="com-mid-ads-area">
-                                        <div class="col-lg-6" style="padding: 0px">
-                                           <app-ads-few></app-ads-few>
-                                        </div>
-                                        <div class="col-lg-6" style="padding: 0px">
-                                           <app-ads-few></app-ads-few>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- =======left lower section =========-->
-                            <div class="prof-mid-column com-mid-column">
-                                <div class="row prof-mid-column-header">
-                                    <div class="col-lg-6">
-                                        <div class="prof-column-heading">
-                                            Reviews
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <span class="btn-filled pull-right" >Sort by</span>
-                                    </div>
-                                </div>
-                                <hr class="prop-column-heading-ul col-lg-11" style="margin-left: 35px">
-                                <div class="com-reviews" *ngFor="let rev of comp.reviews">
-                                  <div class="prof-mid-column-content">
-                                    <div class="prof-review">
-                                        <div class="user">
-                                            <div class="row prof-rev-content-top">
-                                              <div class="col-lg-3" style="padding: 0px; width: 95px">
-                                                <img class="img-circle large-prof-pic" src="{{rev.thumbnailUrl}}">
-                                              </div>
-                                              <div class="col-lg-9" style="padding: 0px;">
-                                                  <div class="ad-name large-name">
-                                                      {{rev.name}}
-                                                  </div>
-                                                  <div style="color: #1c9aea">
-                                                      {{rev.title}}
-                                                  </div>
-                                                  <div style="font-size: 12px;">{{rev.date}}</div>
-                                                  <span class="rating">
-                                                     <app-rating-stars-icons [service]=rev></app-rating-stars-icons>
-                                                  </span>
-                                              </div>
-                                            </div>
-                                            <div class="row prof-review-desc">
-                                              {{rev.body}}
-                                            </div>
-                                            <div class="prof-prev-pic" *ngIf="rev.reviewpics.length>0">
-                                               <!--<div  class="pic-scroll-prev" (click)="prevPicture()" *ngIf="rev.reviewpics.length>3">-->
-                                                 <!--<i class="icon-navigate_before navigate-icon-pos"></i>-->
-                                               <!--</div>-->
-                                               <div class="prof-prev-pic-frame">
-                                                  <owl-carousel #owlElement
-                                                 [options]="{items: 3, dots: true, navigation: false}"
-                                                 [items]="rev.reviewpics"
-                                                 [carouselClasses]="['owl-theme', 'row', 'sliding']">
-                                                   <div class="col-lg-4 prof-prev-pic-box" *ngFor="let pic of rev.reviewpics; let i = index ">
-                                                     <img src="{{pic.image}}">
-                                                   </div>
-                                                  </owl-carousel>
-                                               </div>
-                                               <!--<div class="pic-scroll-next" (click)="nextPicture()" *ngIf="rev.reviewpics.length>3">-->
-                                                 <!--<i class="icon-navigate_next navigate-icon-pos"></i>-->
-                                               <!--</div>-->
-                                               <div class="clear-both"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="content-area row">
+              <!-- =======Upper section start =========-->
+              <div class="row ">
+                  <div class="upper-info">
+                      <!-- =======left section =========-->
+                      <div class="prof-profile-pic col-lg-4">
+                          <div class="prof-name com-heading">{{comp.name}}</div>
+                          <div class="prof-stats com-subheading">{{comp.friends}} - Friends, {{comp.reviews.length}} - Reviews</div>
+                          <span class="rating">
+                            <app-rating-stars-icons [service]=comp></app-rating-stars-icons>
+                          </span>
+                          <div class="map-box">
+                             <agm-map [latitude]="lat" [longitude]="lng">
+                                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                              </agm-map>
+                          </div>
+                      </div>
+                      <!-- =======right section =========-->
+                      <div class="col-lg-8 prof-personal-info">
+                          <div class="row">
+                              <div class="prof-location com-subheading pull-right">Nairobi, Kenya</div>
+                          </div>
+                          <div class="row" style="margin-bottom: 56px;">
+                              <div class="btn-round-white pull-right no-background com-top-share-btn" ><i class="icon-share3 prof-icon-mid-size "></i>Share</div>
+                              <div class="btn-filled-white pull-right" >Write a review</div>
+                          </div>
+                          <div class="row">
+                              <div class="com-pics">
+                                  <div class="com-pic1" *ngFor="let profpic of comp.compics; let i = index" >
+                                    <span *ngIf="comp.compics.length>0">
+                                       <img *ngIf="i == 1" src="{{profpic.img}}" />
+                                       <div class="com-num-pics" (click)="openImageModal(profpic)">
+                                         <section *ngIf="comp.compics.length>3">
+                                            <span>+{{comp.compics.length - 3}}</span><br>Photos
+                                         </section>
+                                       </div>
+                                    </span>
+                                  </div>
+                                  <div class="com-pic2" *ngFor="let profpic of comp.compics; let i = index">
+                                    <span *ngIf="comp.compics.length>0">
+                                      <img *ngIf="i == 0" src="{{profpic.img}}" />
+                                    </span>
+                                  </div>
+                                  <div class="com-pic3" *ngFor="let profpic of comp.compics; let i = index">
+                                    <span *ngIf="comp.compics.length>0">
+                                      <img *ngIf="i == 2" src="{{profpic.img}}" />
+                                    </span>
+                                  </div>
+                                   <br style="clear: left;" />
+                                  <div *ngIf="openModalWindow">
+                                    <modal-gallery [modalImages]="images"
+                                                   [imagePointer]="imagePointer"
+                                                   (close)="onCloseImageModal($event)"
+                                                   [enableCloseOutside]="true">
+                                    </modal-gallery>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- =======Upper section end =========-->
+              <!-- =======Lower section start =========-->
+              <div class="row ">
+                      <div class="lower-info com-lower-sec">
+                          <!-- =======left section =========-->
+                          <div class="col-lg-9" style=" border-right: solid 1px #F3EFEC;">
+                              <!-- =======left upper section =========-->
+                              <div class="prof-mid-column com-mid-column">
                                   <div class="row">
-                                    <div class="col-lg-6"></div>
-                                    <div class="col-lg-6">
-                                        <div class="prof-interact-icons pull-right" style="color: #1c9aea"><i class="icon-share3 prof-icon-mid-size"></i> SHARE</div>
-                                    </div>
-                                </div>
-                                  <hr class="prop-column-heading-ul col-lg-11" style="margin-left: 35px; margin-top: 25px">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- =======right section =========-->
-                        <div class="col-lg-3" >
-                            <div class="prof-right-column">
-                                <div class="prof-column-heading">
-                                    More Business Info
-                                </div>
-                                <hr class="prop-column-heading-ul col-lg-10">
-                                <div class="prof-right-column-content">
-                                    <div class="prof-about-content">
-                                        <div class="com-biz-info">
-                                            <div class="row com-biz-time">
-                                                <span class="col-lg-3 day">Mon</span>
-                                                <span class="col-lg-9 time">{{comp.bizinfo.mon}}</span>
-                                            </div>
-                                            <div class="row com-biz-time">
-                                                <span class="col-lg-3 day">Tue</span>
-                                                <span class="col-lg-9 time">{{comp.bizinfo.tue}}</span>
-                                            </div>
-                                            <div class="row com-biz-time">
-                                                <span class="col-lg-3 day">Wed</span>
-                                                <span class="col-lg-9 time">{{comp.bizinfo.wed}}</span>
-                                            </div>
-                                            <div class="row com-biz-time">
-                                                <span class="col-lg-3 day">Thur</span>
-                                                <span class="col-lg-9 time">{{comp.bizinfo.thur}}</span>
-                                            </div>
-                                            <div class="row com-biz-time">
-                                                <span class="col-lg-3 day">Fri</span>
-                                                <span class="col-lg-9 time">{{comp.bizinfo.fri}}</span>
-                                            </div>
-                                            <div class="row com-biz-time">
-                                                <span class="col-lg-3 day">Sat</span>
-                                                <span class="col-lg-9 time">{{comp.bizinfo.sat}}</span>
-                                            </div>
-                                            <div class="row com-biz-time">
-                                                <span class="col-lg-3 day">Sun</span>
-                                                <span class="col-lg-9 time">{{comp.bizinfo.sun}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr class="prop-column-heading-ul col-lg-10" style="margin-top: 30px">
-                                    <div class="pro-about-info">
-                                        <div class="heading">Location</div>
-                                        <div>{{comp.location}}</div>
+                                      <div class="com-prod-area">
+                                          <owl-carousel
+                                             [options]="{items: 2, dots: true, navigation: true}"
+                                             [items]="comp.services"
+                                             [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                              <div class="com-prod-box col-lg-6" *ngFor="let prod of comp.services">
+                                                  <img src="{{prod.backgroundpic}}"/>
+                                                  <div class="com-prod-info">
+                                                      <div class="com-prod-header">{{prod.name}}</div>
+                                                      <span class="rating">
+                                                        <span class="rating">
+                                                          <app-rating-stars-icons [service]=prod></app-rating-stars-icons>
+                                                        </span>
+                                                      </span>
+                                                      <div class="com-prd-desc">
+                                                          {{ (prod.desc.length>166) ? (prod.desc | slice:0:166)+'...' : (prod.desc) }}
+                                                      </div>
+                                                      <div class="com-prd-price">
+                                                          {{prod.cost | currency:"KSH":"1"}}
+                                                      </div>
+                                                      <div class="com-prod-stats">
+                                                          <div class="pull-left">{{ (prod.review_num<2) ? (prod.review_num)+' Review' : (prod.review_num)+' Reviews' }}</div>
+                                                          <div class="pull-right">{{prod.date}}</div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </owl-carousel>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="com-mid-ads-area">
+                                          <div class="col-lg-6" style="padding: 0px">
+                                             <app-ads-few></app-ads-few>
+                                          </div>
+                                          <div class="col-lg-6" style="padding: 0px">
+                                             <app-ads-few></app-ads-few>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- =======left lower section =========-->
+                              <div class="prof-mid-column com-mid-column">
+                                  <div class="row prof-mid-column-header">
+                                      <div class="col-lg-6">
+                                          <div class="prof-column-heading">
+                                              Reviews
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <span class="btn-filled pull-right" >Sort by</span>
+                                      </div>
+                                  </div>
+                                  <hr class="prop-column-heading-ul col-lg-11" style="margin-left: 35px">
+                                  <div class="com-reviews" *ngFor="let rev of comp.reviews">
+                                    <div class="prof-mid-column-content">
+                                      <div class="prof-review">
+                                          <div class="user">
+                                              <div class="row prof-rev-content-top">
+                                                <div class="col-lg-3" style="padding: 0px; width: 95px">
+                                                  <img class="img-circle large-prof-pic" src="{{rev.thumbnailUrl}}">
+                                                </div>
+                                                <div class="col-lg-9" style="padding: 0px;">
+                                                    <div class="ad-name large-name">
+                                                        {{rev.name}}
+                                                    </div>
+                                                    <div style="color: #1c9aea">
+                                                        {{rev.title}}
+                                                    </div>
+                                                    <div style="font-size: 12px;">{{rev.date}}</div>
+                                                    <span class="rating">
+                                                       <app-rating-stars-icons [service]=rev></app-rating-stars-icons>
+                                                    </span>
+                                                </div>
+                                              </div>
+                                              <div class="row prof-review-desc">
+                                                {{rev.body}}
+                                              </div>
+                                              <div class="prof-prev-pic" *ngIf="rev.reviewpics.length>0">
+                                                 <!--<div  class="pic-scroll-prev" (click)="prevPicture()" *ngIf="rev.reviewpics.length>3">-->
+                                                   <!--<i class="icon-navigate_before navigate-icon-pos"></i>-->
+                                                 <!--</div>-->
+                                                 <div class="prof-prev-pic-frame">
+                                                    <owl-carousel #owlElement
+                                                   [options]="{items: 3, dots: true, navigation: false}"
+                                                   [items]="rev.reviewpics"
+                                                   [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                                     <div class="col-lg-4 prof-prev-pic-box" *ngFor="let pic of rev.reviewpics; let i = index ">
+                                                       <img src="{{pic.image}}">
+                                                     </div>
+                                                    </owl-carousel>
+                                                 </div>
+                                                 <!--<div class="pic-scroll-next" (click)="nextPicture()" *ngIf="rev.reviewpics.length>3">-->
+                                                   <!--<i class="icon-navigate_next navigate-icon-pos"></i>-->
+                                                 <!--</div>-->
+                                                 <div class="clear-both"></div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                    <div class="row">
+                                      <div class="col-lg-6"></div>
+                                      <div class="col-lg-6">
+                                          <div class="prof-interact-icons pull-right" style="color: #1c9aea"><i class="icon-share3 prof-icon-mid-size"></i> SHARE</div>
+                                      </div>
+                                  </div>
+                                    <hr class="prop-column-heading-ul col-lg-11" style="margin-left: 35px; margin-top: 25px">
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- =======right section =========-->
+                          <div class="col-lg-3" >
+                              <div class="prof-right-column">
+                                  <div class="prof-column-heading">
+                                      More Business Info
+                                  </div>
+                                  <hr class="prop-column-heading-ul col-lg-10">
+                                  <div class="prof-right-column-content">
+                                      <div class="prof-about-content">
+                                          <div class="com-biz-info">
+                                              <div class="row com-biz-time">
+                                                  <span class="col-lg-3 day">Mon</span>
+                                                  <span class="col-lg-9 time">{{comp.bizinfo.mon}}</span>
+                                              </div>
+                                              <div class="row com-biz-time">
+                                                  <span class="col-lg-3 day">Tue</span>
+                                                  <span class="col-lg-9 time">{{comp.bizinfo.tue}}</span>
+                                              </div>
+                                              <div class="row com-biz-time">
+                                                  <span class="col-lg-3 day">Wed</span>
+                                                  <span class="col-lg-9 time">{{comp.bizinfo.wed}}</span>
+                                              </div>
+                                              <div class="row com-biz-time">
+                                                  <span class="col-lg-3 day">Thur</span>
+                                                  <span class="col-lg-9 time">{{comp.bizinfo.thur}}</span>
+                                              </div>
+                                              <div class="row com-biz-time">
+                                                  <span class="col-lg-3 day">Fri</span>
+                                                  <span class="col-lg-9 time">{{comp.bizinfo.fri}}</span>
+                                              </div>
+                                              <div class="row com-biz-time">
+                                                  <span class="col-lg-3 day">Sat</span>
+                                                  <span class="col-lg-9 time">{{comp.bizinfo.sat}}</span>
+                                              </div>
+                                              <div class="row com-biz-time">
+                                                  <span class="col-lg-3 day">Sun</span>
+                                                  <span class="col-lg-9 time">{{comp.bizinfo.sun}}</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <hr class="prop-column-heading-ul col-lg-10" style="margin-top: 30px">
+                                      <div class="pro-about-info">
+                                          <div class="heading">Location</div>
+                                          <div>{{comp.location}}</div>
 
-                                        <div class="heading">Member Since</div>
-                                        <div>{{comp.joined}}</div>
+                                          <div class="heading">Member Since</div>
+                                          <div>{{comp.joined}}</div>
 
-                                        <div *ngIf="comp.website.length>0" >
-                                          <div class="heading">Website</div>
-                                          <div>{{comp.website}}</div>
-                                        </div>
+                                          <div *ngIf="comp.website.length>0" >
+                                            <div class="heading">Website</div>
+                                            <div>{{comp.website}}</div>
+                                          </div>
 
-                                        <div class="ad-titles">You might consider...</div>
-                                        <app-lowerright-sidebar-ads></app-lowerright-sidebar-ads>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                          <div class="ad-titles">You might consider...</div>
+                                          <app-lowerright-sidebar-ads></app-lowerright-sidebar-ads>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+              </div>
+              <!-- =======Lower section end =========-->
+              cccc
+              <!-- =======Footer copyrights information start =========-->
+              <app-footer></app-footer>
+              <!-- =======Footer copyrights information end =========-->
             </div>
-            <!-- =======Lower section end =========-->
-            <!-- =======Main page content all sections (upper & lower section) start =========-->
+            <!-- =======Main page content all sections (upper & lower section) end =========-->
 
-            <!-- =======Footer copyrights information start =========-->
-           <app-footer></app-footer>
-            <!-- =======Footer copyrights information end =========-->
+
+
         </div>
+
     </section>
 
  </div>
