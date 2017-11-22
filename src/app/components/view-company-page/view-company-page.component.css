@@ -1,7 +1,7 @@
 
 .upper-info {
     width: 100%;
-    position: absolute;
+    position: relative;
     top: 87px;
     height: 322px;
     padding-top: 3px;
@@ -11,14 +11,14 @@
 }
 
 .lower-info {
-    position: absolute;
+    position: relative;
     width: 100%;
     background-color: #fff;
-    top: 350px;
+    top: 90px;
     height: auto;
     padding-left: 60px;
     padding-right: 10px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
 .map-box {
@@ -186,7 +186,7 @@
 }
 
 .com-lower-sec {
-    top: 410px;
+    /*top: 10px;*/
 }
 
 .com-pic1 img{

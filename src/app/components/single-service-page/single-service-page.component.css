@@ -113,3 +113,7 @@ img.img-circle {
   color: #319dea;
   border-bottom: solid 1px #319dea;
 }
+
+.ad-aside-bar {
+    top: 0px !important;
+}
