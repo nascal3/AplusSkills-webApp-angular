@@ -36,7 +36,7 @@
                 <span class="rating smaller1">
                   <app-rating-stars-icons [service]=info></app-rating-stars-icons>
                 </span>
-              <span class="smaller1">( of {{(info.review_num > 1) ? (info.review_num) + ' People' : (info.review_num) + ' Person'}} )</span>
+              <span class="smaller1">( of {{(info.reviews.length > 1) ? (info.reviews.length) + ' People' : (info.reviews.length) + ' Person'}} )</span>
             </div>
           </div>
         </div>
