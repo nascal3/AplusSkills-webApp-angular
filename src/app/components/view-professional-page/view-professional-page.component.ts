@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfessionalServiceService } from '../../services/professional.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import { Observable } from 'rxjs/Observable';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-view-professional-page',
@@ -12,20 +13,22 @@ export class ViewProfessionalPageComponent implements OnInit {
 
   sliceAboutWords = 268;
   sliceBioWords = 92;
+  id: string;
   records;
   constructor(
-    public prof: ProfessionalServiceService
-  ) {
+    public prof: ProfessionalServiceService,
+    public route: ActivatedRoute
+  ) {  }
+
+  ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
     this.getInfo();
   }
 
-  ngOnInit() {
-  }
-
   getInfo() {
-    this.prof.getPro().subscribe(rec => {
+    this.prof.getPro(this.id).subscribe(rec => {
       this.records = rec;
-      console.log(rec);
+      // console.log(rec);
     });
   }
 

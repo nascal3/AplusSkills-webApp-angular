@@ -13,8 +13,8 @@ export class ProfessionalServiceService {
     this.apiURL = this.constURL.URL;
   }
 
-  getPro() {
-    return this.http.get(this.apiURL + 'professionalpage.json');
+  getPro(id) {
+    return this.http.post(this.apiURL + 'professionalpage.json', {id});
   }
 
 }

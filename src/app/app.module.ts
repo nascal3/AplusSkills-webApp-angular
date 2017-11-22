@@ -65,14 +65,12 @@ import { SingleServicePageComponent } from './components/single-service-page/sin
 import { NavbarNoBgFixedComponent } from './components/navbar-no-bg-fixed/navbar-no-bg-fixed.component';
 import { FooterSecondComponent } from './components/footer-second/footer-second.component';
 
-
-
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
   {path: 'search', component: SearchPageComponent},
   {path: 'service/:id', component: SingleServicePageComponent},
   {path: 'createservice', component: CreateServicePageComponent, canActivate: [AuthGuardService]},
-  {path: 'professional', component: ViewProfessionalPageComponent, canActivate: [AuthGuardService]},
+  {path: 'professional/:id', component: ViewProfessionalPageComponent, canActivate: [AuthGuardService]},
   {path: 'company/:id', component: ViewCompanyPageComponent, canActivate: [AuthGuardService]},
   {path: '**', component: PageNotFoundComponent}
 ];
