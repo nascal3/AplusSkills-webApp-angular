@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <div class="user-dashboard">
+    <div class="row">
+            <!-- =======Left sticky sidebar start =========-->
+            <div class="left-sticky">
+                <header class="navbar-placed-top">
+                    <nav class="navbar">
+                        <div class="container-fluid">
+
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <!-- =======Logo Aplus start =========-->
+                            <div class="navbar-header">
+                                  <a href="/" class="navbar-brand" title="A+ Skill">
+                                      <app-navbar-logo></app-navbar-logo>
+                                  </a>
+                            </div>
+                            <!-- =======Logo Aplus end =========-->
+
+                            <!-- =======Left sidebar menu start =========-->
+                            <app-no-bg-menu-leftsidebar></app-no-bg-menu-leftsidebar>
+                            <!-- =======Left sidebar menu end =========-->
+
+
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </header>
+            </div>
+            <!-- =======Left sticky sidebar end =========-->
+
+            <div class="dash-content">
+                <!-- =======Top fixed nav bar start =========-->
+                <app-navbar-no-bg></app-navbar-no-bg>
+                <!-- =======Top fixed nav bar end =========-->
+
+                <!-- =======Main page content all sections (middle & right sidebar) start =========-->
+                <div class="dash-widgets">
+                    <div class="row">
+                        <!-- =======Main page content middle section start =========-->
+                         <app-view-dashboard-content></app-view-dashboard-content>
+                        <!-- =======Main page content middle section end =========-->
+
+                        <!-- =======Advertisment right side bar start =========-->
+                         <app-ads-right-sidebar></app-ads-right-sidebar>
+                        <!-- =======Advertisment right side bar end =========-->
+                    </div>
+                </div>
+                <!-- =======Main page content all sections (middle & right sidebar) end =========-->
+            </div>
+
+            <!-- =======Footer copyrights information start =========-->
+            <app-footer></app-footer>
+            <!-- =======Footer copyrights information end =========-->
+        </div>
+  </div>
+</div>
