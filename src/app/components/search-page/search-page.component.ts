@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { SearchServiceService } from "../../services/search.service";
+import { SearchServiceService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search-page',
@@ -14,7 +14,7 @@ export class SearchPageComponent implements OnInit {
   constructor(
     private searchSrv: SearchServiceService
   ) {
-    this.getSearchTerm();
+    this.getSearchTerm(this.searchTerm);
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class SearchPageComponent implements OnInit {
       this.filterResults = event;
   }
 
-  getSearchTerm() {
+  getSearchTerm(term) {
       this.searchTerm = this.searchSrv.searchPhrase;
   }
 
