@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { Router } from "@angular/router";
-import { SearchServiceService } from "../../services/search.service";
+import { Router } from '@angular/router';
+import { SearchServiceService } from '../../services/search.service';
 
 @Component({
   selector: 'app-navbar-no-bg',

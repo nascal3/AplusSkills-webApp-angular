@@ -32,12 +32,11 @@ export class ViewCompanyPageComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
     this.getCompany();
   }
 
   getCompany() {
-    this.comServe.getValues().subscribe(values => {
+    this.comServe.getValues(this.id).subscribe(values => {
       this.values = values;
       this.getMapMarker();
       // console.log(this.values[1]);

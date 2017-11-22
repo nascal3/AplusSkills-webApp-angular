@@ -15,7 +15,7 @@
   <!--=======Search results start=======-->
   <div class="row search-results">
     <div class="col-lg-12 results-area" *ngIf="numOfServices > 1; else noResults">
-      <div class="com-prod-box col-lg-4" *ngFor="let prod of services | paginate: { id: 'results_id', itemsPerPage: itemsOnPage, currentPage: pageNum} ">
+      <div class="com-prod-box col-lg-4" *ngFor="let prod of services | paginate: { id: 'results_id', itemsPerPage: itemsOnPage, currentPage: pageNum}" [routerLink]="['/service/'+prod.sid]">
         <img src="{{prod.backgroundpic}}"/>
         <div class="com-prod-info">
             <div class="com-prod-header">{{prod.name}}</div>
@@ -37,6 +37,7 @@
         </div>
       </div>
     </div>
+
     <ng-template #noResults>
       <div align="center">
         <h2>Oops! No results found.</h2>

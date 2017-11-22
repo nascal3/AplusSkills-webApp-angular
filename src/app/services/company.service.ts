@@ -14,8 +14,8 @@ export class CompanyServiceService {
     this.apiURL = conService.URL;
   }
 
-  getValues() {
-    return this.http.get(this.apiURL + 'companypage.json');
+  getValues(id) {
+    return this.http.post(this.apiURL + 'companypage.json', {id});
   }
 
 }

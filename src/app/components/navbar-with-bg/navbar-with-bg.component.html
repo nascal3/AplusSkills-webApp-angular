@@ -10,7 +10,7 @@
                     <!-- =======Logo Aplus end =========-->
                     <!-- =======Search input nav bar start =========-->
                     <div class="col-lg-6">
-                        <app-navbar-search></app-navbar-search>
+                        <app-navbar-search (searchPhrase)="searchPhrase($event)"></app-navbar-search>
                     </div>
                     <!-- =======Search input nav bar end =========-->
                     <!-- =======Profile nav bar start =========-->

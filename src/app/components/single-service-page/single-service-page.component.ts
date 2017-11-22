@@ -11,6 +11,7 @@ export class SingleServicePageComponent implements OnInit {
 
   pageNum = 1;
   itemsOnPage = 1;
+  textTrim = 300;
   offer = false;
   review = true;
   id: string;
