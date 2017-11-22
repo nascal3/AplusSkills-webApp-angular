@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfessionalServiceService } from '../../services/professional-service.service';
+import { ProfessionalServiceService } from '../../services/professional.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import { Observable } from 'rxjs/Observable';
 

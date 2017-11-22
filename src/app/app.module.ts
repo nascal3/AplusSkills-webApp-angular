@@ -22,16 +22,17 @@ import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 // Services
 import { ConstantsService } from './services/constants.service';
-import { AddNewServiceService } from './services/add-new-service.service';
-import { ViewJobsserviceService } from './services/view-jobsservice.service';
-import { AdsServiceService } from './services/ads-service.service';
-import { CompanyServiceService } from './services/company-service.service';
-import { ProfessionalServiceService } from './services/professional-service.service';
-import { ModalServiceService } from './services/modal-service.service';
-import { SearchServiceService } from './services/search-service.service';
-import {InterceptorServiceService} from './services/interceptor-service.service';
+import { AddNewServiceService } from './services/add-new.service';
+import { ViewJobsserviceService } from './services/view-jobs.service';
+import { AdsServiceService } from './services/ads.service';
+import { CompanyServiceService } from './services/company.service';
+import { ProfessionalServiceService } from './services/professional.service';
+import { ModalServiceService } from './services/modal.service';
+import { SearchServiceService } from './services/search.service';
+import {InterceptorServiceService} from './services/interceptor.service';
 import { AuthGuardService } from './guards/auth.guard';
 import { GetTokenService } from './services/get-token.service';
+import { SearchResultService } from './services/search-result.service';
 
 // Page components
 import { AppComponent } from './app.component';
@@ -140,6 +141,7 @@ const appRoutes: Routes = [
     AuthGuardService,
     GetTokenService,
     SearchServiceService,
+    SearchResultService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorServiceService, multi: true }
   ],
   bootstrap: [AppComponent]

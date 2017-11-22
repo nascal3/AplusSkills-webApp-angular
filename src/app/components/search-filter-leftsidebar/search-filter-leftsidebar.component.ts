@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { SearchServiceService } from '../../services/search-service.service';
+import { SearchServiceService } from '../../services/search.service';
 import { FilterInterface } from '../../model/Filter.interface';
 
 @Component({

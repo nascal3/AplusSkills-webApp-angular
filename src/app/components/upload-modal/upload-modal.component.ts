@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ConstantsService } from '../../services/constants.service';
-import { ModalServiceService } from '../../services/modal-service.service';
+import { ModalServiceService } from '../../services/modal.service';
 import {FileHolder} from 'angular2-image-upload/lib/image-upload/image-upload.component';
-import { AddNewServiceService } from '../../services/add-new-service.service';
+import { AddNewServiceService } from '../../services/add-new.service';
 
 @Component({
   selector: 'app-upload-modal',

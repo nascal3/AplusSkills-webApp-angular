@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Params, Route, ActivatedRoute } from '@angular/router';
-import { CompanyServiceService } from '../../services/company-service.service';
+import { CompanyServiceService } from '../../services/company.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import { Observable } from 'rxjs/Observable';
 import {Image, ImageModalEvent} from 'angular-modal-gallery/dist';
@@ -49,11 +49,11 @@ export class ViewCompanyPageComponent implements OnInit {
       this.lat = parseFloat(v.geo.lat);
       this.lng = parseFloat(v.geo.lng);
 
-      let arra = [];
-      let imagex = {};
-      let key = ['img'];
-      let i=0;v
-      for (i; i<v.compics.length; i++) {
+      const arra = [];
+      const imagex = {};
+      const key = ['img'];
+      let i = 0;
+      for (i; i < v.compics.length; i++) {
        imagex['img'] = v.compics[i];
        arra.push(imagex);
       }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdsServiceService } from '../../services/ads-service.service';
+import { AdsServiceService } from '../../services/ads.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

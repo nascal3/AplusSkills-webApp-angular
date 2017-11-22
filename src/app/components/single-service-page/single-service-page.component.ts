@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResultService } from '../../services/search-result.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-service-page',
@@ -9,10 +11,17 @@ export class SingleServicePageComponent implements OnInit {
 
   offer = false;
   review = true;
+  id: string;
+  service: any;
 
-  constructor() { }
+  constructor(
+    public searchRes: SearchResultService,
+    public route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+    this.getResSrv();
   }
 
   showOffer() {
@@ -24,4 +33,12 @@ export class SingleServicePageComponent implements OnInit {
       this.review = false;
       this.offer === false ? this.offer = true : this.review = false;
   }
+
+  getResSrv() {
+    this.searchRes.getService(this.id).subscribe( res => {
+      this.service = res;
+      console.log(res);
+    });
+  }
+
 }

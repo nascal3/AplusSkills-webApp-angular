@@ -2,38 +2,41 @@
 
 <div class="container">
    <!-- =======Main content information start =========-->
-  <div class="row">
+  <div class="row" *ngFor="let info of service">
     <!-- =======Left content section start =========-->
     <div class="col-lg-9">
       <!-- =======Service info box section start =========-->
       <div class="service-box">
         <div class="service-image">
-          <img src="assets/img/img1.jpg"/>
+          <img src="{{info.servicepic}}"/>
         </div>
 
         <div class="service-info">
           <div class="row bottom-border">
             <div class="col-lg-6 service-heading align-left">
-              Full house Cabinet Build.
+             {{info.title}}
             </div>
             <div class="col-lg-6 service-heading align-right no-right-padding">
-              <div>Total Coast - <span style="color: #ffa800">Ksh 5,000.00</span></div>
-              <div class="views-count">3720 Views</div>
+              <div>Total Coast - <span style="color: #ffa800">{{info.cost | currency:'Ksh'}}</span></div>
+              <div class="views-count">{{(info.review_num > 1) ? (info.review_num) + ' Views' : (info.review_num) + ' View'}}</div>
             </div>
           </div>
           <div class="row" style="margin-top: 20px">
             <div class="col-lg-6 service-heading align-left right-border no-left-padding" >
               <div class="col-lg-6 no-left-padding">
-                <img class="img-circle" src="assets/img/avatar-1.jpg"/>
+                <img class="img-circle" src="{{info.thumbnailUrl}}"/>
               </div>
               <div class="col-lg-6 name-loc">
-                <div class="smaller1">Bernard Kairu</div>
-                <div class="smaller2">Kisumu, Kenya</div>
+                <div class="smaller1">{{info.name}}</div>
+                <div class="smaller2">{{info.location}}</div>
               </div>
             </div>
             <div class="col-lg-6 service-heading align-right no-right-padding">
               <div class="smaller3">Overall Rating</div>
-              <div class="smaller1">( of 320 People )</div>
+                <span class="rating smaller1">
+                  <app-rating-stars-icons [service]=info></app-rating-stars-icons>
+                </span>
+              <span class="smaller1">( of {{(info.review_num > 1) ? (info.review_num) + ' People' : (info.review_num) + ' Person'}} )</span>
             </div>
           </div>
         </div>
@@ -43,15 +46,12 @@
       <!-- =======Details info box section start =========-->
       <div class="service-box">
         <div class="row bottom-border">
-          <div class="col-lg-6 tab right-border"  (click)="showOffer()" [class.activeTab]="offer === false" >OFFER DETAILS</div>
+          <div class="col-lg-6 tab right-border"  (click)="showOffer()" [class.activeTab]="offer === false">SERVICE DETAILS</div>
           <div class="col-lg-6 tab" (click)="showReviews()" [class.activeTab]="review === false">REVIEWS</div>
         </div>
         <div class="row">
           <div class="col-lg-12 offer-details tab-content"  [hidden]="offer">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Fusce pulvinar massa efficitur, elementum lectus sed, luctus turpis.
-            Vivamus sit amet euismod ipsum, vitae cursus odio. Nullam convallis mollis risus,
-            vitae cursus nisl volutpat quis...
+            {{ (info.desc.length > 365) ? (info.desc | slice:0:365) + '...' : (info.desc) }}
           </div>
           <div class="col-lg-12 reviews-details tab-content" [hidden]="review">
             review

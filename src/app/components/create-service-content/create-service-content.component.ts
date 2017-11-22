@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AddNewServiceService } from '../../services/add-new-service.service';
-import { ModalServiceService } from '../../services/modal-service.service';
+import { AddNewServiceService } from '../../services/add-new.service';
+import { ModalServiceService } from '../../services/modal.service';
 import { ConstantsService } from '../../services/constants.service';
 import { NewService } from '../../model/NewService';
 import { FlashMessagesService } from 'ngx-flash-messages';

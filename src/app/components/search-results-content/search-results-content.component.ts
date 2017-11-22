@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import { SearchServiceService } from '../../services/search-service.service';
+import { SearchServiceService } from '../../services/search.service';
 import { Router} from "@angular/router";
 
 @Component({
