@@ -50,11 +50,42 @@
           <div class="col-lg-6 tab" (click)="showReviews()" [class.activeTab]="review === false">REVIEWS</div>
         </div>
         <div class="row">
-          <div class="col-lg-12 offer-details tab-content"  [hidden]="offer">
+          <div class="col-lg-12 offer-details tab-content large-padding" [hidden]="offer">
             {{ (info.desc.length > 365) ? (info.desc | slice:0:365) + '...' : (info.desc) }}
           </div>
-          <div class="col-lg-12 reviews-details tab-content" [hidden]="review">
-            review
+          <div class="col-lg-12 reviews-details tab-content small-padding" [hidden]="review" *ngFor="let rev of info.reviews | paginate: { id: 'Rev_id', itemsPerPage: itemsOnPage, currentPage: pageNum }">
+            <div class="row">
+              <div class="col-lg-2 no-right-padding reviewthumb ">
+                <img class="img-circle" src="{{rev.thumbnailUrl}}">
+              </div>
+              <div class="col-lg-10 no-left-padding">
+                <div class="smaller1 blue">{{rev.title}}</div>
+                <div class="smaller2 blue">{{rev.name}}</div>
+                <span class="smaller2 dark-grey">{{rev.location}}, {{rev.date}}</span>
+                <div class="rating smaller1">
+                  <app-rating-stars-icons [service]=rev></app-rating-stars-icons>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="smaller2 dark-grey">
+                {{ (rev.body.length > 365) ? (rev.body | slice:0:365) + '...' : (rev.body) }}
+              </div>
+            </div>
+            <div align="center" class="small-padding smaller2">
+              <pagination-controls
+                  id="Rev_id"
+                  (pageChange)="pageChanged($event)"
+                  maxSize="9"
+                  directionLinks="false"
+                  autoHide="true"
+                  previousLabel=""
+                  nextLabel=""
+                  screenReaderPaginationLabel="Pagination"
+                  screenReaderPageLabel="page"
+                  screenReaderCurrentLabel="You're on page">
+              </pagination-controls>
+             </div>
           </div>
         </div>
 

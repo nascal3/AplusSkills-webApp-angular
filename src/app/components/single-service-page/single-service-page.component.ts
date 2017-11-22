@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SingleServicePageComponent implements OnInit {
 
+  pageNum = 1;
+  itemsOnPage = 1;
   offer = false;
   review = true;
   id: string;
@@ -39,6 +41,10 @@ export class SingleServicePageComponent implements OnInit {
       this.service = res;
       console.log(res);
     });
+  }
+
+   pageChanged(event) {
+    this.pageNum = event;
   }
 
 }

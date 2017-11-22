@@ -104,9 +104,16 @@ img.img-circle {
   color: #bfb7b1;
   font-size: 19px;
   font-weight: 600;
-  padding: 60px;
   height: 227px;
   overflow: hidden;
+}
+
+.large-padding {
+  padding: 60px;
+}
+
+.small-padding {
+  padding: 15px;
 }
 
 .activeTab {
@@ -120,4 +127,16 @@ img.img-circle {
 
 .rating {
   color: #ffa800;
+}
+
+.blue {
+  color: #319dea;
+}
+
+.dark-grey {
+  color: #898989;
+}
+
+.reviewthumb img {
+  width: 80px;
 }
