@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewJobsserviceService } from '../../services/view-jobs.service';
+import {Router } from "@angular/router";
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -16,7 +17,8 @@ export class ViewJobsContentComponent implements OnInit {
   jobReqs;
 
   constructor(
-    public viewJobsReq: ViewJobsserviceService
+    public viewJobsReq: ViewJobsserviceService,
+    public router: Router
   ) {
     this.getjobs();
   }
@@ -34,6 +36,12 @@ export class ViewJobsContentComponent implements OnInit {
   showMore() {
     this.readMore = ! this.readMore;
     this.readMore ? this.viewMoreTxt = 'View More' :  this.viewMoreTxt = 'View Less';
+  }
+
+  goToPage(role , id: string) {
+    //got To Company or professional page depending on what value "role" has
+    role === 30 ? this.router.navigate(['company/'+id]) : this.router.navigate(['professional/'+id]);
+    // alert(role +' '+ id);
   }
 
   pageChanged(event) {

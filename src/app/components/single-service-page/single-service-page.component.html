@@ -23,10 +23,10 @@
           </div>
           <div class="row" style="margin-top: 20px">
             <div class="col-lg-6 service-heading align-left right-border no-left-padding">
-              <div class="col-lg-6 no-left-padding" [routerLink]="['/company/'+ info.cid]">
+              <div class="col-lg-6 no-left-padding" (click)="goToPage()">
                 <img class="img-circle" src="{{info.thumbnailUrl}}"/>
               </div>
-              <div class="col-lg-6 name-loc" [routerLink]="['/company/'+ info.cid]">
+              <div class="col-lg-6 name-loc" (click)="goToPage()">
                 <div class="smaller1 blue pointer">{{info.name}}</div>
                 <div class="smaller2">{{info.location}}</div>
               </div>

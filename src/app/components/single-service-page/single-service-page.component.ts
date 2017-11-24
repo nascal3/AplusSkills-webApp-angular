@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchResultService } from '../../services/search-result.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-single-service-page',
@@ -19,7 +19,8 @@ export class SingleServicePageComponent implements OnInit {
 
   constructor(
     public searchRes: SearchResultService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -42,6 +43,11 @@ export class SingleServicePageComponent implements OnInit {
       this.service = res;
       console.log(res);
     });
+  }
+
+  goToPage() {
+    //got To Company or professional page depending on what value "role" has
+    alert('put a role from json to help me know where to go');
   }
 
    pageChanged(event) {

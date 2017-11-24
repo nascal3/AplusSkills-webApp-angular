@@ -5,6 +5,7 @@ import { ConstantsService } from './constants.service';
 @Injectable()
 export class ViewJobsserviceService {
   apiURL: string;
+  url: string;
 
   constructor(
     public http: HttpClient,
@@ -15,7 +16,9 @@ export class ViewJobsserviceService {
   }
 
   getJobRequests() {
-    return  this.http.get(this.apiURL + 'servicesofferd.json');
+    this.url = 'job-requests?expand=reviews';
+    // this.url = 'servicesofferd.json';
+    return  this.http.get(this.apiURL + this.url);
   }
 
 }
