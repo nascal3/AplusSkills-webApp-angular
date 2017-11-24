@@ -18,7 +18,8 @@ export class CompanyServiceService {
 
 
   getValues(id) {
-    this.url = 'users?id=17b5b119-5e94-49f1-b6fe-9e56b8f3b3d2&expand=services'
+    // this.url = 'users?id=17b5b119-5e94-49f1-b6fe-9e56b8f3b3d2&expand=services'
+    this.url = 'companypage.json'
     return this.http.get(this.apiURL + this.url);
   }
 

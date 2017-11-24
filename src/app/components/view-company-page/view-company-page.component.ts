@@ -13,6 +13,7 @@ export class ViewCompanyPageComponent implements OnInit {
   @ViewChild('owlElement') owlElement: OwlCarousel;
 
   openModalWindow = false;
+  sliceAboutWords = 268;
   imagePointer = 0;
   id: number;
   lat: number;

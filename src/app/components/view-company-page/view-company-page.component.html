@@ -189,6 +189,15 @@
                           <div class="col-lg-3" >
                               <div class="prof-right-column">
                                   <div class="prof-column-heading">
+                                      About
+                                  </div>
+                                  <hr class="prop-column-heading-ul col-lg-10">
+                                    <div class="prof-right-column-content">
+                                      <div class="prof-about-content">
+                                          {{(comp.about.length>sliceAboutWords) ? (comp.about | slice:0:sliceAboutWords)+'...' : (comp.about)}}
+                                      </div>
+                                    </div>
+                                  <div class="prof-column-heading">
                                       More Business Info
                                   </div>
                                   <hr class="prop-column-heading-ul col-lg-10">
