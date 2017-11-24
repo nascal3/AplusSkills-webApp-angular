@@ -66,11 +66,13 @@ import { NavbarNoBgFixedComponent } from './components/navbar-no-bg-fixed/navbar
 import { FooterSecondComponent } from './components/footer-second/footer-second.component';
 import { ViewDashboardComponent } from './components/view-dashboard/view-dashboard.component';
 import { ViewDashboardContentComponent } from './components/view-dashboard-content/view-dashboard-content.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 const appRoutes: Routes = [
   {path: '', component: ViewJobsPageComponent },
   {path: 'search', component: SearchPageComponent},
   {path: 'service/:id', component: SingleServicePageComponent},
+  {path: 'error', component: ErrorPageComponent},
   {path: 'dashboard', component: ViewDashboardComponent, canActivate: [AuthGuardService]},
   {path: 'createservice', component: CreateServicePageComponent, canActivate: [AuthGuardService]},
   {path: 'professional/:id', component: ViewProfessionalPageComponent, canActivate: [AuthGuardService]},
@@ -111,7 +113,8 @@ const appRoutes: Routes = [
     NavbarNoBgFixedComponent,
     FooterSecondComponent,
     ViewDashboardComponent,
-    ViewDashboardContentComponent
+    ViewDashboardContentComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

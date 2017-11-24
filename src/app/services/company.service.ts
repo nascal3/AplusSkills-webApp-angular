@@ -6,6 +6,7 @@ import { ConstantsService } from './constants.service';
 export class CompanyServiceService {
 
   apiURL: string;
+  url: string;
 
   constructor(
     public http: HttpClient,
@@ -14,8 +15,11 @@ export class CompanyServiceService {
     this.apiURL = conService.URL;
   }
 
+
+
   getValues(id) {
-    return this.http.post(this.apiURL + 'companypage.json', {id});
+    this.url = 'users?id=17b5b119-5e94-49f1-b6fe-9e56b8f3b3d2&expand=services'
+    return this.http.get(this.apiURL + this.url);
   }
 
 }

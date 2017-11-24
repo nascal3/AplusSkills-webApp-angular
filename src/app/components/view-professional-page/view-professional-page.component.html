@@ -19,7 +19,7 @@
                         <div class="prof-location">{{com.location}}</div>
                         <div class="prof-stats">{{com.friends}} - Friends, {{com.reviews.length}} - Reviews</div>
                         <div class="prof-bio">
-                            {{ (com.bio.length>sliceBioWords) ? (com.bio | slice:0:sliceBioWords)+'...' : (com.bio) }}
+                            {{ (com.about.length>sliceBioWords) ? (com.about | slice:0:sliceBioWords)+'...' : (com.about) }}
                         </div>
                     </div>
                     <!-- =======right section =========-->

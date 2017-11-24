@@ -140,3 +140,7 @@ img.img-circle {
 .reviewthumb img {
   width: 80px;
 }
+
+.pointer {
+  cursor: pointer;
+}

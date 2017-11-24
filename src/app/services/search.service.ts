@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConstantsService  } from './constants.service';
-import { Router } from "@angular/router";
 
 @Injectable()
 export class SearchServiceService {
@@ -11,8 +10,7 @@ export class SearchServiceService {
 
   constructor(
     public http: HttpClient,
-    public constURL: ConstantsService,
-    public router: Router
+    public constURL: ConstantsService
   ) {
     this.apiURL = this.constURL.URL;
   }

@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { Params, Route, ActivatedRoute } from '@angular/router';
+import { Params, Router, ActivatedRoute } from '@angular/router';
 import { CompanyServiceService } from '../../services/company.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
-import { Observable } from 'rxjs/Observable';
 import {Image, ImageModalEvent} from 'angular-modal-gallery/dist';
 
 @Component({
@@ -25,7 +24,8 @@ export class ViewCompanyPageComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    public comServe: CompanyServiceService
+    public comServe: CompanyServiceService,
+    public router: Router
   ) {
 
   }
@@ -40,6 +40,9 @@ export class ViewCompanyPageComponent implements OnInit {
       this.values = values;
       this.getMapMarker();
       // console.log(this.values[1]);
+    }, err =>{
+      this.router.navigate(['error']);
+      console.error(err);
     });
   }
 
