@@ -16,6 +16,7 @@ export class SingleServicePageComponent implements OnInit {
   review = true;
   id: string;
   service: any;
+  message: string;
 
   constructor(
     public searchRes: SearchResultService,

@@ -4,7 +4,7 @@
    <!-- =======Main content information start =========-->
   <div class="row" *ngFor="let info of service">
     <!-- =======Left content section start =========-->
-    <div class="col-lg-9">
+    <div class="col-lg-8">
       <!-- =======Service info box section start =========-->
       <div class="service-box">
         <div class="service-image">
@@ -95,7 +95,65 @@
     <!-- =======Left content section end =========-->
 
     <!-- =======Right content section start =========-->
-    <div class="col-lg-3">
+    <div class="col-lg-4">
+      <!-- =======Live feed/ messages right side bar start =========-->
+        <div class="service-box">
+          <div class="row bottom-border">
+            <div class="align-left tab blue ">LIVE FEED</div>
+          </div>
+          <div class="row">
+            <div class="row reviews-details small-padding">
+              <!--***messages***-->
+              <div class="row bottom-border sm-padding-bottom">
+                <div class="col-lg-2 no-right-padding">
+                  <img class="live-chat-img img-circle" src="assets/img/avatar-7.jpg">
+                </div>
+                <div class="col-lg-10 no-right-padding">
+                  <div class="blue">Pesrons Name</div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                </div>
+              </div>
+
+              <div class="row bottom-border sm-padding-bottom">
+                <div class="col-lg-2 no-right-padding">
+                  <img class="live-chat-img img-circle" src="assets/img/avatar-7.jpg">
+                </div>
+                <div class="col-lg-10 no-right-padding">
+                  <div class="blue">Pesrons Name</div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                </div>
+              </div>
+
+              <div class="row bottom-border sm-padding-bottom">
+                <div class="col-lg-2 no-right-padding">
+                  <img class="live-chat-img img-circle" src="assets/img/avatar-7.jpg">
+                </div>
+                <div class="col-lg-10 no-right-padding">
+                  <div class="blue">Pesrons Name</div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                </div>
+              </div>
+              <!--***messages***-->
+            </div>
+          </div>
+          <div class="message-input no-left-padding">
+            <div class="row">
+              <form>
+                <div class="col-lg-2 no-right-padding no-left-padding">
+                  <img class="live-chat-img img-circle" src="assets/img/avatar-7.jpg">
+                </div>
+                <div class="col-lg-8 no-right-padding">
+                  <div class="blue">Pesrons Name</div>
+                  <input class="smaller1" type="text" name="message" [(ngModel)]="message" placeholder="Message...">
+                </div>
+                <div class="col-lg-2 no-right-padding pointer">
+                  <img class="live-chat-img img-circle" src="assets/img/send-icon.png">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      <!-- =======Live feed/ messages right side bar end =========-->
       <!-- =======Advertisment right side bar start =========-->
           <div class="ad-aside-bar">
               <span class="btn-filled col-lg-12" style="margin-bottom: 20px;" >Advertise Here</span>
