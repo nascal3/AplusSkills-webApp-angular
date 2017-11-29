@@ -8,7 +8,7 @@
       <!-- =======Service info box section start =========-->
       <div class="service-box">
         <div class="service-image">
-          <img src="{{info.servicepic}}"/>
+          <img src="{{info.backgroundpic}}"/>
         </div>
 
         <div class="service-info">
@@ -21,14 +21,17 @@
               <div class="views-count">{{(info.review_num > 1) ? (info.review_num) + ' Views' : (info.review_num) + ' View'}}</div>
             </div>
           </div>
+
           <div class="row" style="margin-top: 20px">
             <div class="col-lg-6 service-heading align-left right-border no-left-padding">
-              <div class="col-lg-6 no-left-padding" (click)="goToPage()">
-                <img class="img-circle" src="{{info.thumbnailUrl}}"/>
-              </div>
-              <div class="col-lg-6 name-loc" (click)="goToPage()">
-                <div class="smaller1 blue pointer">{{info.name}}</div>
-                <div class="smaller2">{{info.location}}</div>
+              <div class="row">
+                <div class="col-lg-3 no-left-padding no-right-padding" (click)="goToPage()">
+                  <img class="info-avatar img-circle" src="{{info.thumbnailUrl}}"/>
+                </div>
+                <div class="col-lg-9 name-loc no-right-padding no-left-padding" (click)="goToPage()">
+                  <div class="smaller1 blue pointer">{{info.name}}</div>
+                  <div class="smaller2">{{info.location}}</div>
+                </div>
               </div>
             </div>
             <div class="col-lg-6 service-heading align-right no-right-padding">
@@ -47,14 +50,17 @@
       <div class="service-box">
         <div class="row bottom-border">
           <div class="col-lg-6 tab right-border"  (click)="showOffer()" [class.activeTab]="offer === false">SERVICE DETAILS</div>
-          <div class="col-lg-6 tab" (click)="showReviews()" [class.activeTab]="review === false">REVIEWS</div>
+          <div class="col-lg-6 tab" (click)="showReviews()" [class.activeTab]="review === false" [class.disabledTab]="info.reviews.length === 0">
+            {{ (info.reviews.length === 0) ? 'NO REVIEWS' : 'REVIEWS'}}
+          </div>
         </div>
         <div class="row">
           <div class="col-lg-12 offer-details tab-content large-padding" [hidden]="offer">
             {{ (info.desc.length > textTrim) ? (info.desc | slice:0:textTrim) + '...' : (info.desc) }}
           </div>
           <div class="col-lg-12 reviews-details tab-content small-padding" [hidden]="review" *ngFor="let rev of info.reviews | paginate: { id: 'Rev_id', itemsPerPage: itemsOnPage, currentPage: pageNum }">
-            <div class="row">
+            <div *ngIf="info.reviews.length !== 0; else noReview">
+              <div class="row">
               <div class="col-lg-2 no-right-padding reviewthumb ">
                 <img class="img-circle" src="{{rev.thumbnailUrl}}">
               </div>
@@ -67,25 +73,29 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="smaller2 dark-grey">
-                {{ (rev.body.length > textTrim) ? (rev.body | slice:0:textTrim) + '...' : (rev.body) }}
+              <div class="row">
+                <div class="smaller2 dark-grey">
+                  {{ (rev.body.length > textTrim) ? (rev.body | slice:0:textTrim) + '...' : (rev.body) }}
+                </div>
               </div>
+              <div align="center" class="small-padding smaller2">
+                <pagination-controls
+                    id="Rev_id"
+                    (pageChange)="pageChanged($event)"
+                    maxSize="9"
+                    directionLinks="false"
+                    autoHide="true"
+                    previousLabel=""
+                    nextLabel=""
+                    screenReaderPaginationLabel="Pagination"
+                    screenReaderPageLabel="page"
+                    screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+               </div>
             </div>
-            <div align="center" class="small-padding smaller2">
-              <pagination-controls
-                  id="Rev_id"
-                  (pageChange)="pageChanged($event)"
-                  maxSize="9"
-                  directionLinks="false"
-                  autoHide="true"
-                  previousLabel=""
-                  nextLabel=""
-                  screenReaderPaginationLabel="Pagination"
-                  screenReaderPageLabel="page"
-                  screenReaderCurrentLabel="You're on page">
-              </pagination-controls>
-             </div>
+            <ng-template #noReview>
+              <h3 align="center">Sorry no reviews yet!</h3>
+            </ng-template>
           </div>
         </div>
 
