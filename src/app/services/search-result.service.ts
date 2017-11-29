@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class SearchResultService {
 
   apiUrl: string;
+  url: string;
 
   constructor(
     public cons: ConstantsService,
@@ -15,7 +16,9 @@ export class SearchResultService {
   }
 
   getService(id) {
-    return this.http.post(this.apiUrl + 'serviceFromSearchResult.json', {id});
+    this.url = 'services/19387848?expand=reviews';
+    // this.url = 'serviceFromSearchResult.json';
+    return this.http.get(this.apiUrl + this.url);
   }
 
 }

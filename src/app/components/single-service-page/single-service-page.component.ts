@@ -15,8 +15,9 @@ export class SingleServicePageComponent implements OnInit {
   offer = false;
   review = true;
   id: string;
-  service: any;
+  service = [];
   message: string;
+  stuff: any;
 
   constructor(
     public searchRes: SearchResultService,
@@ -41,8 +42,10 @@ export class SingleServicePageComponent implements OnInit {
 
   getResSrv() {
     this.searchRes.getService(this.id).subscribe( res => {
-      this.service = res;
-      console.log(res);
+      this.stuff = res;
+
+      this.service = [this.stuff];
+      console.log(this.service);
     });
   }
 
