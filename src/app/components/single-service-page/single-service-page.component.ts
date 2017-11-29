@@ -24,6 +24,7 @@ export class SingleServicePageComponent implements OnInit {
   constructor(
     public searchRes: SearchResultService,
     public route: ActivatedRoute,
+    public router: Router,
     public cons: ConstantsService
   ) {
     this.apiUrl = this.cons.URL;
@@ -47,9 +48,10 @@ export class SingleServicePageComponent implements OnInit {
   getResSrv() {
     this.searchRes.getService(this.id).subscribe( res => {
       this.stuff = res;
-
       this.service = [this.stuff];
       console.log(this.service);
+    }, err => {
+        this.router.navigate(['error']);
     });
   }
 
