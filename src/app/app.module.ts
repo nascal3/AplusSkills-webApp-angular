@@ -19,6 +19,8 @@ import { FlashMessagesModule } from 'ngx-flash-messages';
 import { NouisliderModule } from 'ng2-nouislider/src/nouislider';
 import {RatingModule} from 'ngx-rating';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
+import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
+
 
 // Services
 import { ConstantsService } from './services/constants.service';
@@ -134,6 +136,7 @@ const appRoutes: Routes = [
     FlashMessagesModule,
     NouisliderModule,
     RatingModule,
+    SlideMenuModule,
     MalihuScrollbarModule.forRoot()
   ],
   providers: [

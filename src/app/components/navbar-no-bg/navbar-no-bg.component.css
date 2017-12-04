@@ -2,25 +2,47 @@
   padding-left: 0;
 }
 
-.no-left-padding {
+.no-right-padding {
   padding-right: 0;
 }
 
+
+
 /*----laptop/desktop mid screens----*/
 @media only screen and (max-width: 1800px) {
-
+    .hambuger {
+      display: none;
+    }
+    .profileNav {
+      display: block;
+    }
 }
 
 /*-----tablet landscape screens----*/
 @media only screen and (max-width: 1200px) {
-
+    .hambuger {
+      display: none;
+    }
+    .profileNav {
+      display: block;
+    }
 }
 
 /*-----tablet portrait screens----*/
 @media only screen and (max-width: 900px) {
-  .no-left-padding {
-    padding-right: 25px;
+   ul.nav-user {
+    width: 100% !important;
+    left: 0% !important;
+    padding: 3px 45px 16px 5px;
+    height: 55px;
   }
+  .hambuger {
+    display: block;
+  }
+  .profileNav {
+      display: block;
+  }
+
 }
 
 /*----phone screens----*/
@@ -28,14 +50,25 @@
   .no-left-padding {
     padding-right: 25px;
   }
+  .hambuger {
+    display: block;
+    width: 20%;
+    float: left;
+  }
+  .searchInput {
+    width: 80%;
+    float: right;
+  }
+  .profileNav {
+    display: none;
+  }
 }
 
 /*-----mobile small screens----*/
 @media only screen and (max-width: 599px) {
   ul.nav-user.navbar-right {
-   padding: 10px 2px;
+   padding: 3px 2px;
   }
-
   .no-left-padding {
     padding-right: 25px;
   }

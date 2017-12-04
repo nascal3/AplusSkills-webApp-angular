@@ -43,7 +43,6 @@ footer hr {
    .footer-logo img {
      width: 20% !important;
    }
-
    footer hr {
     width: 80% !important;
     left: 30px !important;
@@ -51,8 +50,6 @@ footer hr {
   footer .credits [class*="col-"]:last-child, footer .footer-info [class*="col-"]:last-child {
     text-align: left !important;
   }
-
-
 }
 
 /*----phone screens----*/

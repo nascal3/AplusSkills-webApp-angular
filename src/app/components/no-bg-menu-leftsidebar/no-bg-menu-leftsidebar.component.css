@@ -1,0 +1,25 @@
+
+/*----laptop/desktop mid screens----*/
+@media only screen and (max-width: 1800px) {
+
+}
+
+/*-----tablet landscape screens----*/
+@media only screen and (max-width: 1200px) {
+
+}
+
+/*-----tablet portrait screens----*/
+@media only screen and (max-width: 900px) {
+
+}
+
+/*----phone screens----*/
+@media only screen and (max-width: 600px) {
+
+}
+
+/*-----mobile small screens----*/
+@media only screen and (max-width: 599px) {
+
+}

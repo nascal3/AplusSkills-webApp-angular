@@ -17,6 +17,13 @@
   .user-dashboard > .row > div.dash-content {
     padding-bottom: 0 !important;
   }
+  .user-dashboard > .row > div.left-sticky {
+    display: none !important;
+  }
+  .dash-content {
+    margin-left: 0 !important;
+    padding-top: 30px !important;
+  }
 }
 
 /*----phone screens----*/

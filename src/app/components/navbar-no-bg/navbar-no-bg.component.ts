@@ -10,13 +10,33 @@ import { SearchServiceService } from '../../services/search.service';
 export class NavbarNoBgComponent implements OnInit {
   @Output() searchText = new EventEmitter<string>();
 
+  options = {
+    closeOnCLick: true,
+    animation: 'arrowalt'
+  }
+
   constructor(
     public searchSrv: SearchServiceService,
     public router: Router
-  ) {
-  }
+  ) {  }
 
   ngOnInit() {
+  }
+
+  private menuItemsArray: any[] = [
+       {"title":"Dashboard","link":"dashboard"},
+       {"title":"Mobile Bill","link":"#"},
+ ];
+
+  public onMenuClose(){
+    console.log("menu closed");
+  }
+  public onMenuOpen(){
+    console.log("menu Opened");
+  }
+  private onItemSelect(item:any){
+    this.router.navigate([item.link]);
+    console.log(item);
   }
 
   // Get phrase from search input field

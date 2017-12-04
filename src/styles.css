@@ -1233,10 +1233,14 @@ footer .credits a:first-child{
 
 /**
 +++++++++++++++++++++++++++++++++++++++++++
-CSS ELEMENTS
+ HAMBURGER MENU
 +++++++++++++++++++++++++++++++++++++++++++
 **/
-
+.cuppa-menu ul>li {
+    cursor: pointer;
+    width: 100% !important;
+    text-align: left !important;
+}
 /**
 -------------------------------------------
 THE BOX

@@ -1,13 +1,18 @@
 <ul class="nav-user navbar-right" style="z-index: 2">
+  <!-- =======Humbuger menu nav bar start =========-->
+  <div class="hambuger col-lg-0 col-md-0 col-sm-2">
+    <cuppa-slidemenu [config]="options" [menulist]="menuItemsArray" (open)="onMenuOpen()" (close)="onMenuClose()" (onItemSelect)="onItemSelect($event)"></cuppa-slidemenu>
+  </div>
+  <!-- =======Humbuger menu nav bar end =========-->
   <!-- =======Search input nav bar start =========-->
-  <div class="col-lg-8 col-md-8 col-sm-12">
+  <div class="searchInput col-lg-8 col-md-8 col-sm-6">
      <div class="col-lg-12">
       <app-navbar-search (searchPhrase)="searchPhrase($event)"></app-navbar-search>
      </div>
   </div>
   <!-- =======Search input nav bar end =========-->
   <!-- =======Profile nav bar start =========-->
-  <div class="col-lg-4 col-md-4 col-sm-12 no-left-padding">
+  <div class="profileNav col-lg-4 col-md-4 col-sm-4  no-right-padding no-left-padding">
     <app-navbar-profile></app-navbar-profile>
   </div>
   <!-- =======Profile nav bar bar end =========-->
