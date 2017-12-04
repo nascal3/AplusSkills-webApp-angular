@@ -1,0 +1,44 @@
+.small-bottom-margin {
+  margin-bottom: 10px;
+}
+
+/*----laptop/desktop mid screens----*/
+@media only screen and (max-width: 1800px) {
+
+}
+
+/*-----tablet landscape screens----*/
+@media only screen and (max-width: 1200px) {
+ .job-desc {
+   margin-left: 0;
+ }
+ .revThumbs {
+   padding-left: 0;
+   padding-right: 0;
+   padding-bottom: 8px;
+   margin-right: 1px;
+ }
+}
+
+/*-----tablet portrait screens----*/
+@media only screen and (max-width: 900px) {
+
+}
+
+/*----phone screens----*/
+@media only screen and (max-width: 600px) {
+ .acptRjct {
+   padding-left: 0;
+   position: relative;
+   left: -5px;
+ }
+
+}
+
+/*-----mobile small screens----*/
+@media only screen and (max-width: 599px) {
+  .job-heading {
+    margin-left: 40px;
+  }
+}
+

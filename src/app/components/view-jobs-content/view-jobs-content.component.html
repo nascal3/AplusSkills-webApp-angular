@@ -1,11 +1,11 @@
 <!-- =======Main page content middle section start =========-->
 <div class="col-md-8 ">
-    <div class="row" style="position: relative;bottom: 25px;">
-        <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <span class="dash-widgets-heading">Job Requests</span>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-            <span class="btn-outline pull-right" >Filter By <i class="icon-chevron-down" style="font-size: 17px"></i> </span>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <span class="btn-outline pull-right small-bottom-margin" >Filter By <i class="icon-chevron-down" style="font-size: 17px"></i> </span>
         </div>
     </div>
 
@@ -26,22 +26,22 @@
               <span class="read-more" *ngIf="job.reqst.length >sliceCharacters" (click)="showMore()"> [{{viewMoreTxt}}]</span>
             </div><hr>
             <div class="job-request-footer">
-                <div class="col-lg-7">
-                    <div class="col-lg-3">
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                    <div class="col-lg-3 col-md-3 col-sm-12 revThumbs">
                         <span *ngFor="let review of job.reviews">
                           <div class="profile small-profile">
                             <img class="img-circle" src="{{review.thumbnailUrl}}">
                           </div>
                         </span>
                     </div>
-                    <div class="col-lg-9 job-request-comments">
+                    <div class="col-lg-9 col-md-9 col-sm-12 job-request-comments">
                         <span style="font-weight: 500;font-size: 12px;">
                         Worked with (<strong>{{job.review_num}}</strong>) other <span>{{(job.review_num<2) ? ' person.' : ' people.'}}</span><br>
                         <span class="read-more" (click)="goToPage(job.role, job.pro_id)">See reviews</span>
                     </span>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 acptRjct">
                     <div class="col-lg-6 btn btn-default btn-sm btn-mod normal-border-radius">Accept</div>
                     <div class="col-lg-6 btn btn-default btn-sm btn-mod normal-border-radius">Decline</div>
                 </div>

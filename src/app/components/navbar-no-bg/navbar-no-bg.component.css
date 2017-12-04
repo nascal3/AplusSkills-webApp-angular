@@ -33,7 +33,7 @@
 /*-----mobile small screens----*/
 @media only screen and (max-width: 599px) {
   ul.nav-user.navbar-right {
-   padding: 5px 2px;
+   padding: 10px 2px;
   }
 
   .no-left-padding {

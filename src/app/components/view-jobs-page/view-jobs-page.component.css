@@ -1,29 +1,30 @@
-.dash-content {
-  margin-bottom: 150px;
-}
 
-
-/*----laptop mid screens----*/
-@media only screen and (min-width: 1800px) {
+/*----laptop/desktop mid screens----*/
+@media only screen and (max-width: 1800px) {
 
 }
 
-/*-----tablet screens----*/
-@media only screen and (min-width: 1200px) {
+/*-----tablet landscape screens----*/
+@media only screen and (max-width: 1200px) {
 
 }
 
-/*-----mobile large screens----*/
-@media only screen and (min-width: 900px) {
-
+/*-----tablet portrait screens----*/
+@media only screen and (max-width: 900px) {
+   .dash-widgets {
+    padding: 50px 30px !important;
+  }
 }
 
-/*-----mobile mid screens----*/
-@media only screen and (min-width: 600px) {
-
+/*----phone screens----*/
+@media only screen and (max-width: 600px) {
+  .dash-widgets {
+    padding: 50px 0px !important;
+  }
 }
 
 /*-----mobile small screens----*/
 @media only screen and (max-width: 599px) {
 
 }
+
