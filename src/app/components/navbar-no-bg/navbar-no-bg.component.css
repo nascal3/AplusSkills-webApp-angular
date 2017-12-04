@@ -1,0 +1,42 @@
+.no-left-padding {
+  padding-left: 0;
+}
+
+.no-left-padding {
+  padding-right: 0;
+}
+
+/*----laptop/desktop mid screens----*/
+@media only screen and (max-width: 1800px) {
+
+}
+
+/*-----tablet landscape screens----*/
+@media only screen and (max-width: 1200px) {
+
+}
+
+/*-----tablet portrait screens----*/
+@media only screen and (max-width: 900px) {
+  .no-left-padding {
+    padding-right: 25px;
+  }
+}
+
+/*----phone screens----*/
+@media only screen and (max-width: 600px) {
+  .no-left-padding {
+    padding-right: 25px;
+  }
+}
+
+/*-----mobile small screens----*/
+@media only screen and (max-width: 599px) {
+  ul.nav-user.navbar-right {
+   padding: 5px 2px;
+  }
+
+  .no-left-padding {
+    padding-right: 25px;
+  }
+}
