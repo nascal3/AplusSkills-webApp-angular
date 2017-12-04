@@ -16,8 +16,8 @@ export class ViewJobsserviceService {
   }
 
   getJobRequests() {
-    this.url = 'job-requests?expand=reviews';
-    // this.url = 'servicesofferd.json';
+    //this.url = 'job-requests?expand=reviews';
+    this.url = 'servicesofferd.json';
     return  this.http.get(this.apiURL + this.url);
   }
 

@@ -1218,13 +1218,6 @@ footer .menu {
   line-height: 2;
 }
 
-footer hr {
-  border-top: 1px solid #319dea;
-  width: 90%;
-  left: 45px;
-  position: relative;
-}
-
 footer .credits [class*="col-"]:last-child,
 footer .footer-info [class*="col-"]:last-child{ text-align:right; }
 footer .credits a{

@@ -14,5 +14,10 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
-
+footer hr {
+  border-top: 1px solid #319dea;
+  width: 90%;
+  left: 45px;
+  position: relative;
+}
 

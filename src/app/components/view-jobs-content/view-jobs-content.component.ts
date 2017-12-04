@@ -41,7 +41,7 @@ export class ViewJobsContentComponent implements OnInit {
   goToPage(role , id: string) {
     //got To Company or professional page depending on what value "role" has
     role === 30 ? this.router.navigate(['company/'+id]) : this.router.navigate(['professional/'+id]);
-    // alert(role +' '+ id);
+
   }
 
   pageChanged(event) {
