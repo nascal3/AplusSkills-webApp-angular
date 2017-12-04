@@ -25,10 +25,10 @@
           <div class="row" style="margin-top: 20px">
             <div class="col-lg-6 service-heading align-left right-border no-left-padding">
               <div class="row">
-                <div class="col-lg-3 no-left-padding no-right-padding" (click)="goToPage()">
+                <div class="col-lg-3 no-left-padding no-right-padding" (click)="goToPage(info.role, info.sid)">
                   <img class="info-avatar img-circle" src="{{info.thumbnailUrl}}"/>
                 </div>
-                <div class="col-lg-9 name-loc no-right-padding no-left-padding" (click)="goToPage()">
+                <div class="col-lg-9 name-loc no-right-padding no-left-padding" (click)="goToPage(info.role, info.sid)">
                   <div class="smaller1 blue pointer">{{info.name}}</div>
                   <div class="smaller2">{{info.location}}</div>
                 </div>

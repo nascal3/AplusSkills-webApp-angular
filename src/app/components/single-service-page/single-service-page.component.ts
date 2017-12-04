@@ -55,9 +55,9 @@ export class SingleServicePageComponent implements OnInit {
     });
   }
 
-  goToPage() {
-    // got To Company or professional page depending on what value "role" has
-    alert('put a role from json to help me know where to go');
+  goToPage( roleID, serviceID ) {
+     //got To Company or professional page depending on what value "role" has
+    roleID === 30 ? this.router.navigate(['company/'+serviceID]) : this.router.navigate(['professional/'+serviceID]);
   }
 
    pageChanged(event) {
