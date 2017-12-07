@@ -7,6 +7,15 @@
 }
 
 
+/*----laptop/desktop 4k screens----*/
+@media only screen and (max-width: 2560px) {
+    .hambuger {
+      display: none;
+    }
+    .profileNav {
+      display: block;
+    }
+}
 
 /*----laptop/desktop mid screens----*/
 @media only screen and (max-width: 1800px) {

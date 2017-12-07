@@ -11,7 +11,7 @@
               <div class="row ">
                   <div class="upper-info">
                       <!-- =======left section =========-->
-                      <div class="prof-profile-pic col-lg-4">
+                      <div class="prof-profile-pic col-lg-4 col-md-4 col-sm-6 col-xs-12">
                           <div class="prof-name com-heading">{{comp.name}}</div>
                           <div class="prof-stats com-subheading">{{comp.friends}} - Friends, {{comp.reviews.length}} - Reviews</div>
                           <span class="rating">
@@ -24,19 +24,19 @@
                           </div>
                       </div>
                       <!-- =======right section =========-->
-                      <div class="col-lg-8 prof-personal-info">
+                      <div class="prof-personal-info col-lg-8 col-md-8 col-sm-6 col-xs-12">
                           <div class="row">
-                              <div class="prof-location com-subheading pull-right">Nairobi, Kenya</div>
+                              <div class="prof-location com-subheading float-right">Nairobi, Kenya</div>
                           </div>
                           <div class="row" style="margin-bottom: 56px;">
-                              <div class="btn-round-white pull-right no-background com-top-share-btn" ><i class="icon-share3 prof-icon-mid-size "></i>Share</div>
-                              <div class="btn-filled-white pull-right" >Write a review</div>
+                              <div class="btn-round-white float-right no-background com-top-share-btn" ><i class="icon-share3 prof-icon-mid-size "></i>Share</div>
+                              <div class="btn-filled-white float-right" >Write a review</div>
                           </div>
                           <div class="row">
                               <div class="com-pics">
                                   <div class="com-pic1" *ngFor="let profpic of comp.compics; let i = index" >
                                     <span *ngIf="comp.compics.length>0">
-                                       <img *ngIf="i == 1" src="{{profpic.img}}" />
+                                       <img class="img-responsive" *ngIf="i == 1" src="{{profpic.img}}" />
                                        <div class="com-num-pics" (click)="openImageModal(profpic)">
                                          <section *ngIf="comp.compics.length>3">
                                             <span>+{{comp.compics.length - 3}}</span><br>Photos
@@ -46,12 +46,12 @@
                                   </div>
                                   <div class="com-pic2" *ngFor="let profpic of comp.compics; let i = index">
                                     <span *ngIf="comp.compics.length>0">
-                                      <img *ngIf="i == 0" src="{{profpic.img}}" />
+                                      <img class="img-responsive" *ngIf="i == 0" src="{{profpic.img}}" />
                                     </span>
                                   </div>
                                   <div class="com-pic3" *ngFor="let profpic of comp.compics; let i = index">
                                     <span *ngIf="comp.compics.length>0">
-                                      <img *ngIf="i == 2" src="{{profpic.img}}" />
+                                      <img class="img-responsive" *ngIf="i == 2" src="{{profpic.img}}" />
                                     </span>
                                   </div>
                                    <br style="clear: left;" />
