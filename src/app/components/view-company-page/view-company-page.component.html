@@ -56,11 +56,11 @@
                                   </div>
                                    <br style="clear: left;" />
                                   <div *ngIf="openModalWindow">
-                                    <modal-gallery [modalImages]="images"
-                                                   [imagePointer]="imagePointer"
+                                    <ks-modal-gallery [id]="0"
+                                                    [modalImages]="images"
                                                    (close)="onCloseImageModal($event)"
                                                    [enableCloseOutside]="true">
-                                    </modal-gallery>
+                                    </ks-modal-gallery>
                                   </div>
                               </div>
                           </div>
@@ -194,7 +194,7 @@
                                   <hr class="prop-column-heading-ul col-lg-9 col-lg-offset-1">
                                     <div class="prof-right-column-content">
                                       <div class="prof-about-content">
-                                          {{(comp.about.length>sliceAboutWords) ? (comp.about | slice:0:sliceAboutWords)+'...' : (comp.about)}}
+                                          {{(comp.about?.length>sliceAboutWords) ? (comp.about | slice:0:sliceAboutWords)+'...' : (comp.about)}}
                                       </div>
                                     </div>
                                   <div class="prof-column-heading">

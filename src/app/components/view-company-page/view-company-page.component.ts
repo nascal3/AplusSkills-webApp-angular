@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Params, Router, ActivatedRoute } from '@angular/router';
 import { CompanyServiceService } from '../../services/company.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
-import {Image, ImageModalEvent} from 'angular-modal-gallery/dist';
+import {Image, ImageModalEvent} from '@ks89/angular-modal-gallery';
 
 @Component({
   selector: 'app-view-company-page',
@@ -20,8 +20,6 @@ export class ViewCompanyPageComponent implements OnInit {
   lng: number;
   values;
   images: Array<Image>;
-
-
 
   constructor(
     public route: ActivatedRoute,
@@ -41,7 +39,7 @@ export class ViewCompanyPageComponent implements OnInit {
       this.values = values;
       this.getMapMarker();
       // console.log(this.values[1]);
-    }, err =>{
+    }, err => {
       this.router.navigate(['error']);
       console.error(err);
     });
